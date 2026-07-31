@@ -8,6 +8,7 @@
     <style>
         :root {
             --bg: #0f172a;
+            --bg-light: #1e293b;
             --card: #1e293b;
             --border: rgba(148,163,184,0.25);
             --accent: #10b981;
@@ -16,8 +17,8 @@
             --text-main: #e5e7eb;
             --text-soft: #9ca3af;
             --text-muted: #64748b;
-            --table-header: #020617;
-            --table-row-alt: #0b1220;
+            --table-header: #0f172a;
+            --table-row-alt: #1a2535;
         }
 
         * {
@@ -28,7 +29,7 @@
         }
 
         body {
-            background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
+            background: radial-gradient(circle at top, #1e293b 0, #0f172a 55%);
             color: var(--text-main);
             padding-bottom: 60px;
         }
@@ -103,15 +104,17 @@
         }
 
         .badge {
-            background: var(--danger);
-            padding: 6px 16px;
-            font-size: .8rem;
+            background: #ef4444;
+            padding: 8px 20px;
+            font-size: .85rem;
             font-weight: 700;
             border-radius: 999px;
             display: inline-block;
-            margin-bottom: 16px;
+            margin-bottom: 18px;
             text-transform: uppercase;
             letter-spacing: 0.08em;
+            color: #fff;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
         }
 
         h1 {
@@ -353,9 +356,6 @@
                         </tbody>
                     </table>
                 </div>
-                <p style="font-style: italic; font-size: 0.9rem; color: var(--text-soft);">
-                    Cette répartition permet de visualiser la structure réelle du projet et la concentration des investissements sur le cœur sportif.
-                </p>
             </div>
 
             <div class="en">
@@ -373,9 +373,6 @@
                         </tbody>
                     </table>
                 </div>
-                <p style="font-style: italic; font-size: 0.9rem; color: var(--text-soft);">
-                    This breakdown highlights the real structure of the project and the concentration of investment on the core sports asset.
-                </p>
             </div>
         </section>
 
@@ -396,9 +393,6 @@
                         </tbody>
                     </table>
                 </div>
-                <p style="font-weight: 500; color: var(--text-main);">
-                    Montage sécurisé reposant principalement sur des apports directs et un endettement limité.
-                </p>
             </div>
 
             <div class="en">
@@ -416,9 +410,6 @@
                         </tbody>
                     </table>
                 </div>
-                <p style="font-weight: 500; color: var(--text-main);">
-                    A secured structure relying mainly on direct contributions and limited debt.
-                </p>
             </div>
         </section>
 
@@ -447,10 +438,6 @@
                         </tbody>
                     </table>
                 </div>
-                <h3>Résultat net prévisionnel :</h3>
-                <p>Une progression continue du résultat net, portée par la montée en puissance des activités.</p>
-                <h3>Résultat d’exploitation (EBITDA) :</h3>
-                <p>L’EBITDA confirme la solidité opérationnelle du modèle ComPacte, avec une marge d’exploitation croissante sur les 5 premières années.</p>
             </div>
 
             <div class="en">
@@ -895,3 +882,4 @@
 
 </body>
 </html>
+```
