@@ -36,23 +36,33 @@
       background-color: #333;
       color: white;
     }
+
+    .wrap {
+      width: 90%;
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
   </style>
 </head>
 
 <body>
+
+<!-- BANNIÈRES -->
 <div class="banner fr" style="background-image:url('https://i.imgur.com/8mQkQyM.jpeg');"></div>
 <div class="banner en" style="background-image:url('https://i.imgur.com/8mQkQyM.jpeg');"></div>
 
+<!-- BOUTONS LANGUE -->
 <div class="lang-switch">
   <button id="btn-fr" class="active">FR</button>
   <button id="btn-en">EN</button>
 </div>
 
 <div class="wrap">
-<!-- ========================= -->
-<!-- SECTION FRANÇAISE (FR) -->
-<!-- ========================= -->
 
+<!-- SECTION FR -->
 <div class="content fr">
 
   <h2>Compacte Ancely — Synthèse du projet</h2>
@@ -93,10 +103,8 @@
   </p>
 
 </div>
-<!-- ========================= -->
-<!-- ENGLISH SECTION (EN) -->
-<!-- ========================= -->
 
+<!-- SECTION EN -->
 <div class="content en">
 
   <h2>Compacte Ancely — Project Summary</h2>
@@ -137,6 +145,10 @@
   </p>
 
 </div>
+
+</div>
+
+<!-- SCRIPT LANGUE -->
 <script>
   const btnFr = document.getElementById("btn-fr");
   const btnEn = document.getElementById("btn-en");
@@ -172,8 +184,8 @@
   btnFr.addEventListener("click", showFR);
   btnEn.addEventListener("click", showEN);
 
-  // Langue par défaut
   showFR();
 </script>
+
 </body>
 </html>
