@@ -1,886 +1,279 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ComPacte Occitanie — Book Investisseur</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ComPacte Occitanie — Book Investisseur</title>
+<meta name="description" content="ComPacte Occitanie — Complexe multisports de destination, synthèse investisseur et données financières.">
+<style>
+  :root{
+    --bg:#f7fafc;
+    --panel:#ffffff;
+    --muted:#6b7280;
+    --text:#0f172a;
+    --accent:#0ea5e9;
+    --accent-2:#0284c7;
+    --danger:#ef4444;
+    --card-border:rgba(15,23,42,0.06);
+    --radius:10px;
+    --maxw:1100px;
+  }
 
-    <style>
-        :root {
-            --bg: #0f172a;
-            --bg-light: #1e293b;
-            --card: #111827;
-            --border: rgba(148,163,184,0.25);
-            --accent: #10b981;
-            --accent-soft: #22c55e;
-            --danger: #ef4444;
-            --text-main: #e5e7eb;
-            --text-soft: #9ca3af;
-            --text-muted: #64748b;
-            --table-header: #0f172a;
-            --table-row-alt: #1f2937;
-        }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+    background:linear-gradient(180deg,var(--bg) 0%, #eef2f7 60%);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.45;
+    padding:28px 16px 80px;
+  }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        }
+  .wrap{max-width:var(--maxw);margin:0 auto}
+  header{padding:28px;border-radius:12px;background:var(--panel);box-shadow:0 6px 18px rgba(15,23,42,0.06);border:1px solid var(--card-border)}
+  .badge{display:inline-block;background:var(--danger);color:#fff;padding:8px 18px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.06em}
+  h1{font-size:28px;margin:12px 0 4px}
+  header p{color:var(--muted);margin:0 0 6px;font-size:14px}
 
-        body {
-            background: radial-gradient(circle at top, #334155 0, #1e293b 55%);
-            color: var(--text-main);
-            padding-bottom: 60px;
-        }
+  #lang-switch{position:fixed;top:18px;right:18px;z-index:999;background:#fff;border:1px solid var(--card-border);padding:6px;border-radius:999px;display:flex;gap:8px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+  #lang-switch span{cursor:pointer;padding:6px 10px;border-radius:999px;color:var(--text);font-weight:600;font-size:13px}
+  #lang-switch span.active{background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(2,132,199,0.12)}
 
-        /* Switch FR/EN */
-        #lang-switch {
-            position: fixed;
-            top: 14px;
-            right: 18px;
-            z-index: 99999;
-            background: #020617;
-            border: 1px solid #1e293b;
-            border-radius: 999px;
-            padding: 4px 10px;
-            font-size: 13px;
-            display: inline-flex;
-            gap: 8px;
-            align-items: center;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-        }
+  .nav-sticky{position:sticky;top:86px;margin:18px 0 24px;background:transparent;display:flex;gap:12px;flex-wrap:wrap;z-index:50}
+  .nav-sticky a{color:var(--muted);text-decoration:none;font-weight:700;font-size:12px;padding:8px 12px;border-radius:8px;border:1px solid transparent}
+  .nav-sticky a:hover{background:rgba(2,132,199,0.06);color:var(--accent-2)}
 
-        #lang-switch span {
-            cursor: pointer;
-            font-weight: 600;
-            padding: 2px 8px;
-            border-radius: 999px;
-            color: #e5e7eb;
-        }
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:18px 0}
+  .kpi{background:var(--panel);padding:16px;border-radius:12px;border:1px solid var(--card-border);box-shadow:0 6px 18px rgba(15,23,42,0.03)}
+  .kpi .v{font-weight:800;font-size:18px;color:var(--text)}
+  .kpi .l{color:var(--muted);font-size:13px;margin-top:6px}
 
-        #lang-switch span.active {
-            background: var(--accent);
-            color: #0f172a;
-        }
+  section{margin:18px 0;padding:18px;border-radius:12px;background:var(--panel);border:1px solid var(--card-border);box-shadow:0 6px 18px rgba(15,23,42,0.03)}
+  section h2{font-size:18px;margin-bottom:8px}
+  section p{color:var(--muted);font-size:14px;margin-bottom:12px}
 
-        .fr { display: block; }
-        .en { display: none; }
+  .tc{overflow:auto}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  thead th{background:transparent;text-align:left;padding:10px 12px;color:var(--muted);font-weight:700;border-bottom:1px solid rgba(15,23,42,0.04)}
+  tbody td{padding:12px;color:var(--text);border-bottom:1px solid rgba(15,23,42,0.03)}
+  tbody tr:nth-child(even) td{background:rgba(2,132,199,0.02)}
+  .tb{font-weight:700;color:var(--text)}
+  .tg{font-weight:800;color:var(--accent-2)}
+  .hr td{border-top:1px solid rgba(15,23,42,0.06);font-weight:800}
 
-        /* Menu sticky */
-        .nav-sticky {
-            position: sticky;
-            top: 52px;
-            z-index: 9999;
-            background: #020617;
-            padding: 10px 24px;
-            display: flex;
-            gap: 18px;
-            border-bottom: 2px solid var(--accent);
-            justify-content: center;
-            box-shadow: 0 18px 40px rgba(0,0,0,0.7);
-        }
+  .box-h{background:rgba(2,132,199,0.04);padding:12px;border-radius:8px;border:1px solid rgba(2,132,199,0.06);color:var(--muted);margin-top:12px}
 
-        .nav-sticky a {
-            color: #e5e7eb;
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
-        }
+  ul{margin:8px 0 0 18px;color:var(--muted)}
+  li{margin:6px 0}
 
-        .nav-sticky a:hover {
-            color: var(--accent-soft);
-        }
+  footer{margin-top:18px;padding:14px;border-radius:10px;background:transparent;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
-        header {
-            background: linear-gradient(135deg, #020617 0%, #0f172a 40%, #1e293b 100%);
-            color: #f9fafb;
-            padding: 40px 20px 60px 20px;
-            text-align: center;
-            border-bottom: 3px solid var(--accent);
-            box-shadow: 0 24px 60px rgba(0,0,0,0.8);
-        }
+  @media (max-width:720px){
+    h1{font-size:20px}
+    .kpi .v{font-size:16px}
+    thead th, tbody td{padding:10px}
+  }
 
-        .badge {
-            background: #ef4444;
-            padding: 10px 26px;
-            font-size: 1rem;
-            font-weight: 800;
-            border-radius: 999px;
-            display: inline-block;
-            margin-bottom: 22px;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: #ffffff;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-            border: 2px solid #ffffff;
-        }
-
-        h1 {
-            font-size: 2.3rem;
-            margin-bottom: 6px;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-        }
-
-        header p {
-            color: var(--text-soft);
-            font-size: 0.95rem;
-        }
-
-        .container {
-            max-width: 1050px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .grid-kpis {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: -30px;
-            margin-bottom: 30px;
-        }
-
-        .card-kpi {
-            background: #020617;
-            padding: 20px;
-            border-radius: 14px;
-            text-align: center;
-            box-shadow: 0 18px 40px rgba(0,0,0,0.7);
-            border: 1px solid var(--border);
-        }
-
-        .card-kpi .v {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        .card-kpi .l {
-            font-size: .8rem;
-            color: var(--text-soft);
-            font-weight: 500;
-            margin-top: 6px;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-        }
-
-        .slide {
-            background: var(--card);
-            padding: 30px 32px;
-            margin-top: 32px;
-            border-radius: 18px;
-            border: 1px solid var(--border);
-            box-shadow: 0 18px 45px rgba(0,0,0,0.75);
-        }
-
-        h2 {
-            color: var(--accent);
-            margin-bottom: 18px;
-            font-size: 1.25rem;
-            border-left: 4px solid var(--accent);
-            padding-left: 12px;
-            letter-spacing: 0.02em;
-        }
-
-        h3 {
-            color: #e5e7eb;
-            margin: 22px 0 10px 0;
-            font-size: 1.05rem;
-            font-weight: 600;
-        }
-
-        p {
-            margin-bottom: 12px;
-            color: var(--text-main);
-            font-size: 0.95rem;
-        }
-
-        .tc {
-            overflow-x: auto;
-            margin: 15px 0;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            background: #020617;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: .9rem;
-            text-align: left;
-        }
-
-        th {
-            background: var(--table-header);
-            color: #f9fafb;
-            padding: 10px 12px;
-            font-weight: 600;
-        }
-
-        td {
-            padding: 10px 12px;
-            border-bottom: 1px solid #111827;
-            color: #e5e7eb;
-        }
-
-        tr:nth-child(even) {
-            background-color: var(--table-row-alt);
-        }
-
-        .tg {
-            color: var(--accent);
-            font-weight: 700;
-        }
-
-        .tb {
-            font-weight: 600;
-            color: #f9fafb;
-        }
-
-        .hr {
-            background-color: #022c22 !important;
-            font-weight: 700;
-        }
-
-        .box-h {
-            background: #022c22;
-            border-left: 4px solid var(--accent);
-            padding: 12px 14px;
-            border-radius: 10px;
-            font-size: 0.9rem;
-            color: #d1fae5;
-        }
-
-        .c-g {
-            color: var(--accent);
-            font-weight: 700;
-        }
-
-        ul {
-            margin-left: 20px;
-            color: var(--text-main);
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: var(--text-muted);
-            font-size: .85rem;
-            margin-top: 40px;
-        }
-
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-        }
-    </style>
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+</style>
 </head>
-
 <body>
+<div id="lang-switch">
+  <span id="btn-fr" class="active">FR</span>
+  <span id="btn-en">EN</span>
+</div>
 
-    <!-- Switch FR/EN -->
-    <div id="lang-switch">
-        <span id="btn-fr" class="active">FR</span>
-        <span id="btn-en">EN</span>
+<div class="wrap">
+  <header>
+    <div class="badge">DOCUMENT CONFIDENTIEL — INVESTISSEURS QUALIFIÉS</div>
+    <div class="fr">
+      <h1>ComPacte Occitanie</h1>
+      <p>Le premier complexe multisports de destination — Métropole de Toulouse</p>
     </div>
-
-    <!-- MENU STICKY -->
-    <nav class="nav-sticky">
-        <a href="#ventilation">Ventilation</a>
-        <a href="#financement">Financement</a>
-        <a href="#performance">Performance</a>
-        <a href="#charges">Charges</a>
-        <a href="#flux">Flux Trésorerie</a>
-        <a href="#benevolat">Bénévolat</a>
-        <a href="#impact">Impact Économique</a>
-        <a href="#synthese">Synthèse</a>
-    </nav>
-
-    <!-- HEADER -->
-    <header>
-        <div class="badge">DOCUMENT CONFIDENTIEL — INVESTISSEURS QUALIFIÉS</div>
-
-        <div class="fr">
-            <h1>ComPacte Occitanie</h1>
-            <p>Le premier complexe multisports de destination — Métropole de Toulouse</p>
-        </div>
-
-        <div class="en">
-            <h1>ComPacte Occitanie</h1>
-            <p>The first destination multisports complex — Toulouse Metropolis</p>
-        </div>
-    </header>
-
-    <div class="container">
-
-        <!-- KPIS -->
-        <div class="grid-kpis">
-            <div class="card-kpi">
-                <div class="v">75 128 700 €</div>
-                <div class="l">Investissement Global</div>
-            </div>
-            <div class="card-kpi">
-                <div class="v">22 379 674 €</div>
-                <div class="l">CAF Cumulée (5 ans)</div>
-            </div>
-            <div class="card-kpi">
-                <div class="v">12 à 14 ans</div>
-                <div class="l">Retour sur Investissement</div>
-            </div>
-            <div class="card-kpi">
-                <div class="v">Année 2 (2029)</div>
-                <div class="l">Seuil de Rentabilité</div>
-            </div>
-        </div>
-
-        <!-- SECTION 1 — VENTILATION -->
-        <section class="slide" id="ventilation">
-            <div class="fr">
-                <h2>🔷 SECTION 1 — Ventilation de l’Investissement</h2>
-                <p>Ventilation de l’investissement initial (75 128 700 €) :</p>
-                <div class="tc">
-                    <table>
-                        <thead><tr><th>Pôle Opérationnel</th><th>Montant (€)</th></tr></thead>
-                        <tbody>
-                            <tr><td>Complexe sportif</td><td class="tb">64 150 000 €</td></tr>
-                            <tr><td>Terrain</td><td class="tb">5 850 000 €</td></tr>
-                            <tr><td>Hôtel</td><td class="tb">3 600 000 €</td></tr>
-                            <tr><td>Salles de sport</td><td class="tb">1 528 700 €</td></tr>
-                            <tr class="hr"><td>Total Général Allocations</td><td class="tg">75 128 700 €</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="en">
-                <h2>🔷 SECTION 1 — Investment Breakdown</h2>
-                <p>Breakdown of the initial investment (75,128,700 €):</p>
-                <div class="tc">
-                    <table>
-                        <thead><tr><th>Operational Area</th><th>Amount (€)</th></tr></thead>
-                        <tbody>
-                            <tr><td>Sports complex</td><td class="tb">64,150,000 €</td></tr>
-                            <tr><td>Land</td><td class="tb">5,850,000 €</td></tr>
-                            <tr><td>Hotel</td><td class="tb">3,600,000 €</td></tr>
-                            <tr><td>Gyms</td><td class="tb">1,528,700 €</td></tr>
-                            <tr class="hr"><td>Total Allocations</td><td class="tg">75,128,700 €</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 2 — FINANCEMENT -->
-        <section class="slide" id="financement">
-            <div class="fr">
-                <h2>🔷 SECTION 2 — Structure du Financement</h2>
-                <p>Structure de financement du projet :</p>
-                <div class="tc">
-                    <table>
-                        <thead><tr><th>Origines des Fonds</th><th>Montant (€)</th></tr></thead>
-                        <tbody>
-                            <tr><td>Apports en comptes courants</td><td class="tb">70 000 000 €</td></tr>
-                            <tr><td>Apport constructeur</td><td class="tb">64 150 000 €</td></tr>
-                            <tr><td>Apport terrain</td><td class="tb">5 850 000 €</td></tr>
-                            <tr><td>Emprunts bancaires</td><td class="tb">5 600 000 €</td></tr>
-                            <tr><td>Capital social</td><td class="tb">200 000 €</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="en">
-                <h2>🔷 SECTION 2 — Financing Structure</h2>
-                <p>Project financing structure:</p>
-                <div class="tc">
-                    <table>
-                        <thead><tr><th>Source of Funds</th><th>Amount (€)</th></tr></thead>
-                        <tbody>
-                            <tr><td>Shareholder current accounts</td><td class="tb">70,000,000 €</td></tr>
-                            <tr><td>Developer contribution</td><td class="tb">64,150,000 €</td></tr>
-                            <tr><td>Land contribution</td><td class="tb">5,850,000 €</td></tr>
-                            <tr><td>Bank loans</td><td class="tb">5,600,000 €</td></tr>
-                            <tr><td>Share capital</td><td class="tb">200,000 €</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 3 & 4 — PERFORMANCE -->
-        <section class="slide" id="performance">
-            <div class="fr">
-                <h2>🔷 SECTIONS 3 & 4 — Performance et Exploitation</h2>
-                <p>Trajectoire financière prévisionnelle validée sur 5 exercices :</p>
-                <div class="tc">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Indicateur (€)</th>
-                                <th>2028</th>
-                                <th>2029</th>
-                                <th>2030</th>
-                                <th>2031</th>
-                                <th>2032</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td><strong>Chiffre d'Affaires (CA)</strong></td><td>12 958 250 €</td><td>14 691 206 €</td><td>16 915 363 €</td><td>19 647 347 €</td><td>22 746 649 €</td></tr>
-                            <tr class="hr"><td><strong>EBITDA (Résultat d'Exploitation)</strong></td><td class="tg">1 506 181 €</td><td>2 113 883 €</td><td>2 772 126 €</td><td>3 668 249 €</td><td class="tg">4 617 273 €</td></tr>
-                            <tr><td><strong>Résultat Net Prévisionnel</strong></td><td>1 049 451 €</td><td>1 508 374 €</td><td>2 009 017 €</td><td>2 688 208 €</td><td>3 407 219 €</td></tr>
-                            <tr><td><strong>Capacité d'Autofinancement (CAF)</strong></td><td>3 392 932 €</td><td>3 851 855 €</td><td>4 352 498 €</td><td>5 031 689 €</td><td>5 750 700 €</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="en">
-                <h2>🔷 SECTIONS 3 & 4 — Performance and Operations</h2>
-                <p>Forecast financial trajectory over 5 years:</p>
-                <div class="tc">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Indicator (€)</th>
-                                <th>2028</th>
-                                <th>2029</th>
-                                <th>2030</th>
-                                <th>2031</th>
-                                <th>2032</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td><strong>Revenue (CA)</strong></td><td>12,958,250 €</td><td>14,691,206 €</td><td>16,915,363 €</td><td>19,647,347 €</td><td>22,746,649 €</td></tr>
-                            <tr class="hr"><td><strong>EBITDA</strong></td><td class="tg">1,506,181 €</td><td>2,113,883 €</td><td>2,772,126 €</td><td>3,668,249 €</td><td class="tg">4,617,273 €</td></tr>
-                            <tr><td><strong>Net Result (forecast)</strong></td><td>1,049,451 €</td><td>1,508,374 €</td><td>2,009,017 €</td><td>2,688,208 €</td><td>3,407,219 €</td></tr>
-                            <tr><td><strong>Cash Flow Capacity (CAF)</strong></td><td>3,392,932 €</td><td>3,851,855 €</td><td>4,352,498 €</td><td>5,031,689 €</td><td>5,750,700 €</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <h3>Forecast net result:</h3>
-                <p>A continuous increase in net result driven by the ramp‑up of activities.</p>
-                <h3>EBITDA:</h3>
-                <p>EBITDA confirms the operational robustness of the ComPacte model, with a growing operating margin over the first 5 years.</p>
-            </div>
-        </section>
-
-        <!-- SECTION 5 & 6 — CHARGES & RENTABILITÉ -->
-        <section class="slide" id="charges">
-            <div class="fr">
-                <h2>🔷 SECTIONS 5 & 6 — Charges et Seuil de Rentabilité</h2>
-                <p><strong>Charges principales (2028 → 2032) :</strong></p>
-                <div class="tc">
-                    <table>
-                        <thead><tr><th>Nature des Flux</th><th>Trajectoire Commerciale</th></tr></thead>
-                        <tbody>
-                            <tr><td>Charges externes</td><td class="tb">5 864 388 € → 10 474 530 €</td></tr>
-                            <tr><td>Charges de personnel</td><td class="tb">3 152 885 € → 5 170 414 €</td></tr>
-                            <tr><td>Amortissements</td><td class="tb">2 343 481 € (constants chaque année)</td></tr>
-                            <tr><td>Impôts & taxes</td><td class="tb">91 315 € → 140 951 €</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p>Une structure de charges stable et proportionnelle à la croissance du chiffre d’affaires.</p>
-                <div class="box-h" style="margin-top: 18px;">
-                    Seuil de rentabilité : Seuil de rentabilité atteint dès l’année 2 (2029). Le projet devient excédentaire très rapidement grâce à la diversification des revenus.
-                </div>
-            </div>
-
-            <div class="en">
-                <h2>🔷 SECTIONS 5 & 6 — Costs and Breakeven</h2>
-                <p><strong>Main costs (2028 → 2032):</strong></p>
-                <div class="tc">
-                    <table>
-                        <thead><tr><th>Cost category</th><th>Trajectory</th></tr></thead>
-                        <tbody>
-                            <tr><td>External costs</td><td class="tb">5,864,388 € → 10,474,530 €</td></tr>
-                            <tr><td>Staff costs</td><td class="tb">3,152,885 € → 5,170,414 €</td></tr>
-                            <tr><td>Depreciation</td><td class="tb">2,343,481 € (constant each year)</td></tr>
-                            <tr><td>Taxes</td><td class="tb">91,315 € → 140,951 €</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p>A stable cost structure proportional to revenue growth.</p>
-                <div class="box-h" style="margin-top: 18px;">
-                    Breakeven: Breakeven is reached as early as year 2 (2029). The project becomes profitable quickly thanks to diversified revenue streams.
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 7 & 8 — FLUX & BÉNÉVOLAT -->
-        <section class="slide" id="flux">
-            <div class="fr">
-                <h2>🔷 SECTIONS 7 & 8 — Flux de Trésorerie & Bénévolat</h2>
-                <p><strong>Flux de trésorerie (2028 → 2032) :</strong></p>
-                <div class="tc">
-                    <table>
-                        <thead>
-                            <tr><th>Année</th><th>Entrées (€)</th><th>Sorties (€)</th><th>Flux Net (€)</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>2028</td><td>12 900 000</td><td>10 400 000</td><td class="c-g">+2 500 000</td></tr>
-                            <tr><td>2029</td><td>15 200 000</td><td>11 900 000</td><td class="c-g">+3 300 000</td></tr>
-                            <tr><td>2030</td><td>17 800 000</td><td>13 400 000</td><td class="c-g">+4 400 000</td></tr>
-                            <tr><td>2031</td><td>20 300 000</td><td>14 900 000</td><td class="c-g">+5 400 000</td></tr>
-                            <tr><td>2032</td><td>22 700 000</td><td>16 300 000</td><td class="c-g">+6 400 000</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="box-h" style="margin-top:20px;">
-                    Flux Net Cumulé (2028–2032) : <strong>22 379 674 €</strong>
-                </div>
-
-                <h3 style="margin-top:30px;">Bénévolat & Impact Social</h3>
-                <p>Le projet ComPacte Occitanie intègre une forte dimension sociale et territoriale.</p>
-
-                <div class="tc">
-                    <table>
-                        <thead>
-                            <tr><th>Indicateur</th><th>Valeur annuelle</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Heures de bénévolat mobilisées</td><td class="tb">1 500 h</td></tr>
-                            <tr><td>Valorisation financière du bénévolat</td><td class="tb">998 000 € – 1 870 000 €</td></tr>
-                            <tr><td>Partenaires associatifs impliqués</td><td class="tb">8 structures locales</td></tr>
-                            <tr><td>Bénéficiaires directs</td><td class="tb">300 – 500 personnes / an</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="box-h" style="margin-top:20px;">
-                    Impact RSE : Inclusion, sport pour tous, renforcement territorial.
-                </div>
-            </div>
-
-            <div class="en">
-                <h2>🔷 SECTIONS 7 & 8 — Cash Flows & Volunteering</h2>
-                <p><strong>Cash flows (2028 → 2032):</strong></p>
-                <div class="tc">
-                    <table>
-                        <thead>
-                            <tr><th>Year</th><th>Inflows (€)</th><th>Outflows (€)</th><th>Net Flow (€)</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>2028</td><td>12,900,000</td><td>10,400,000</td><td class="c-g">+2,500,000</td></tr>
-                            <tr><td>2029</td><td>15,200,000</td><td>11,900,000</td><td class="c-g">+3,300,000</td></tr>
-                            <tr><td>2030</td><td>17,800,000</td><td>13,400,000</td><td class="c-g">+4,400,000</td></tr>
-                            <tr><td>2031</td><td>20,300,000</td><td>14,900,000</td><td class="c-g">+5,400,000</td></tr>
-                            <tr><td>2032</td><td>22,700,000</td><td>16,300,000</td><td class="c-g">+6,400,000</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="box-h" style="margin-top:20px;">
-                    Cumulative Net Flow (2028–2032): <strong>22,379,674 €</strong>
-                </div>
-
-                <h3 style="margin-top:30px;">Volunteering & Social Impact</h3>
-                <p>The ComPacte Occitanie project embeds a strong social and territorial dimension.</p>
-
-                <div class="tc">
-                    <table>
-                        <thead>
-                            <tr><th>Indicator</th><th>Annual value</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Volunteer hours</td><td class="tb">1,500 h</td></tr>
-                            <tr><td>Financial valuation of volunteering</td><td class="tb">998,000 € – 1,870,000 €</td></tr>
-                            <tr><td>Partner associations</td><td class="tb">8 local structures</td></tr>
-                            <tr><td>Direct beneficiaries</td><td class="tb">300 – 500 people / year</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="box-h" style="margin-top:20px;">
-                    CSR impact: inclusion, sport for all, territorial strengthening.
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 9 — IMPACT ÉCONOMIQUE -->
-        <section class="slide" id="impact">
-            <div class="fr">
-                <h2>◆ SECTION 9 — Impact Économique Régional</h2>
-                <p>ComPacte Occitanie constitue un levier économique majeur pour la Métropole de Toulouse, combinant création d’emplois, retombées fiscales et attractivité territoriale.</p>
-
-                <h3>Emplois créés</h3>
-                <div class="tc">
-                    <table>
-                        <thead>
-                            <tr><th>Catégorie</th><th>Volume annuel</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Emplois directs (temps plein)</td><td class="tb">250 postes</td></tr>
-                            <tr><td>Bénévoles mobilisés</td><td class="tb">250 personnes</td></tr>
-                            <tr><td>Emplois indirects (prestataires, services)</td><td class="tb">120 à 180 postes</td></tr>
-                            <tr><td>Emplois induits (hébergement, restauration, tourisme)</td><td class="tb">80 à 120 postes</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="box-h" style="margin-top:20px;">
-                    Impact total sur l’emploi : <strong>700 à 800 personnes</strong> mobilisées chaque année.
-                </div>
-
-                <h3>Retombées fiscales & économiques</h3>
-                <p>Le complexe génère des retombées fiscales significatives pour la Métropole :</p>
-
-                <div class="tc">
-                    <table>
-                        <thead>
-                            <tr><th>Flux économique</th><th>Estimation annuelle</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Taxes locales & contributions</td><td class="tb">1.8 M€ – 2.4 M€</td></tr>
-                            <tr><td>Dépenses des visiteurs</td><td class="tb">12 M€ – 18 M€</td></tr>
-                            <tr><td>Effet sur l’hôtellerie & restauration</td><td class="tb">4.5 M€ – 6.2 M€</td></tr>
-                            <tr><td>Effet sur les transports & mobilité</td><td class="tb">1.1 M€ – 1.6 M€</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="box-h" style="margin-top:20px;">
-                    Retombées économiques globales : <strong>19 M€ – 28 M€ / an</strong> pour le territoire.
-                </div>
-
-                <h3>Attractivité territoriale</h3>
-                <p>
-                    ComPacte Occitanie renforce l’image de la Métropole comme destination sportive, touristique et événementielle. Le complexe devient un pôle structurant pour :
-                </p>
-
-                <ul>
-                    <li>Les compétitions nationales et internationales</li>
-                    <li>Le tourisme sportif et familial</li>
-                    <li>Les stages, séminaires et événements d’entreprise</li>
-                    <li>Les politiques publiques sport / jeunesse / inclusion</li>
-                    <li>Les partenariats associatifs et éducatifs</li>
-                </ul>
-
-                <div class="box-h" style="margin-top:20px;">
-                    ComPacte Occitanie : un moteur d’attractivité et un catalyseur de croissance pour la Métropole.
-                </div>
-            </div>
-
-            <div class="en">
-                <h2>◆ SECTION 9 — Regional Economic Impact</h2>
-                <p>ComPacte Occitanie is a major economic lever for the Toulouse Metropolis, combining job creation, fiscal returns and territorial attractiveness.</p>
-
-                <h3>Jobs created</h3>
-                <div class="tc">
-                    <table>
-                        <thead>
-                            <tr><th>Category</th><th>Annual volume</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Direct jobs (full‑time)</td><td class="tb">250 positions</td></tr>
-                            <tr><td>Volunteers involved</td><td class="tb">250 people</td></tr>
-                            <tr><td>Indirect jobs (suppliers, services)</td><td class="tb">120–180 positions</td></tr>
-                            <tr><td>Induced jobs (accommodation, food, tourism)</td><td class="tb">80–120 positions</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="box-h" style="margin-top:20px;">
-                    Total employment impact: <strong>700–800 people</strong> engaged each year.
-                </div>
-
-                <h3>Fiscal & economic returns</h3>
-                <p>The complex generates significant fiscal returns for the Metropolis:</p>
-
-                <div class="tc">
-                    <table>
-                        <thead>
-                            <tr><th>Economic flow</th><th>Annual estimate</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Local taxes & contributions</td><td class="tb">1.8 M€ – 2.4 M€</td></tr>
-                            <tr><td>Visitor spending</td><td class="tb">12 M€ – 18 M€</td></tr>
-                            <tr><td>Impact on hotels & restaurants</td><td class="tb">4.5 M€ – 6.2 M€</td></tr>
-                            <tr><td>Impact on transport & mobility</td><td class="tb">1.1 M€ – 1.6 M€</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="box-h" style="margin-top:20px;">
-                    Overall economic impact: <strong>19 M€ – 28 M€ / year</strong> for the territory.
-                </div>
-
-                <h3>Territorial attractiveness</h3>
-                <p>
-                    ComPacte Occitanie strengthens the Metropolis’ image as a sports, tourism and events destination. The complex becomes a structuring hub for:
-                </p>
-
-                <ul>
-                    <li>National and international competitions</li>
-                    <li>Sports and family tourism</li>
-                    <li>Training camps, seminars and corporate events</li>
-                    <li>Public policies on sport / youth / inclusion</li>
-                    <li>Associative and educational partnerships</li>
-                </ul>
-
-                <div class="box-h" style="margin-top:20px;">
-                    ComPacte Occitanie: a driver of attractiveness and a growth catalyst for the Metropolis.
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 11 — SYNTHÈSE INVESTISSEUR -->
-        <section class="slide" id="synthese">
-            <div class="fr">
-                <h2>◆ SECTION 11 — Synthèse Investisseur</h2>
-                <p>ComPacte Occitanie se positionne comme un investissement structurant, durable et territorialement stratégique. Le projet combine performance économique, impact social et attractivité métropolitaine.</p>
-
-                <h3>Résumé stratégique</h3>
-                <div class="tc">
-                    <table>
-                        <thead>
-                            <tr><th>Dimension</th><th>Éléments clés</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Modèle économique</td><td class="tb">Croissance continue du CA (12.9M€ → 22.7M€)</td></tr>
-                            <tr><td>Rentabilité</td><td class="tb">Seuil atteint dès l’année 2 (2029)</td></tr>
-                            <tr><td>CAF cumulée</td><td class="tb">22.38 M€ sur 5 ans</td></tr>
-                            <tr><td>Impact territorial</td><td class="tb">700–800 personnes mobilisées/an</td></tr>
-                            <tr><td>RSE & bénévolat</td><td class="tb">250 bénévoles — 1M€+ valorisation</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h3>Retour sur Investissement (ROI)</h3>
-                <p>Le projet présente un ROI attractif pour un actif métropolitain multiservices :</p>
-
-                <div class="tc">
-                    <table>
-                        <thead>
-                            <tr><th>Indicateur</th><th>Valeur</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Investissement global</td><td class="tb">75.13 M€</td></tr>
-                            <tr><td>ROI estimé</td><td class="tb">12 à 14 ans</td></tr>
-                            <tr><td>EBITDA (2032)</td><td class="tb">4.6 M€</td></tr>
-                            <tr><td>Résultat net (2032)</td><td class="tb">3.4 M€</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="box-h" style="margin-top:20px;">
-                    Le ROI est sécurisé par la diversification des revenus, la croissance du marché sportif et l’attractivité de la Métropole de Toulouse.
-                </div>
-
-                <h3>Risques maîtrisés</h3>
-                <ul>
-                    <li>Modèle multi‑activités limitant la dépendance à un seul flux de revenus</li>
-                    <li>Charges proportionnelles à la croissance du CA</li>
-                    <li>Partenariats associatifs et institutionnels stabilisés</li>
-                    <li>Demande croissante pour les infrastructures sportives de destination</li>
-                    <li>Positionnement territorial fort (Toulouse, 3ᵉ métropole française)</li>
-                </ul>
-
-                <div class="box-h" style="margin-top:20px;">
-                    Synthèse : un projet rentable, structurant et aligné avec les politiques publiques sport, jeunesse, inclusion et attractivité territoriale.
-                </div>
-            </div>
-
-            <div class="en">
-                <h2>◆ SECTION 11 — Investor Summary</h2>
-                <p>ComPacte Occitanie is positioned as a structuring, sustainable and strategically territorial investment. The project combines economic performance, social impact and metropolitan attractiveness.</p>
-
-                <h3>Strategic summary</h3>
-                <div class="tc">
-                    <table>
-                        <thead>
-                            <tr><th>Dimension</th><th>Key elements</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Economic model</td><td class="tb">Continuous revenue growth (12.9M€ → 22.7M€)</td></tr>
-                            <tr><td>Profitability</td><td class="tb">Breakeven reached from year 2 (2029)</td></tr>
-                            <tr><td>Cumulative CAF</td><td class="tb">22.38 M€ over 5 years</td></tr>
-                            <tr><td>Territorial impact</td><td class="tb">700–800 people engaged/year</td></tr>
-                            <tr><td>CSR & volunteering</td><td class="tb">250 volunteers — 1M€+ valuation</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h3>Return on Investment (ROI)</h3>
-                <p>The project offers an attractive ROI for a metropolitan multi‑service asset:</p>
-
-                <div class="tc">
-                    <table>
-                        <thead>
-                            <tr><th>Indicator</th><th>Value</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Total investment</td><td class="tb">75.13 M€</td></tr>
-                            <tr><td>Estimated ROI</td><td class="tb">12–14 years</td></tr>
-                            <tr><td>EBITDA (2032)</td><td class="tb">4.6 M€</td></tr>
-                            <tr><td>Net result (2032)</td><td class="tb">3.4 M€</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="box-h" style="margin-top:20px;">
-                    ROI is secured by diversified revenues, growth in the sports market and the attractiveness of the Toulouse Metropolis.
-                </div>
-
-                <h3>Managed risks</h3>
-                <ul>
-                    <li>Multi‑activity model limiting dependence on a single revenue stream</li>
-                    <li>Costs proportional to revenue growth</li>
-                    <li>Stable associative and institutional partnerships</li>
-                    <li>Growing demand for destination sports infrastructure</li>
-                    <li>Strong territorial positioning (Toulouse, 3rd French metropolis)</li>
-                </ul>
-
-                <div class="box-h" style="margin-top:20px;">
-                    Summary: a profitable, structuring project aligned with public policies on sport, youth, inclusion and territorial attractiveness.
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <div class="fr">
-                Contact : <strong>Philippe Bru</strong> — <a href="mailto:aafc88@gmail.com">aafc88@gmail.com</a>
-            </div>
-            <div class="en">
-                Contact: <strong>Philippe Bru</strong> — <a href="mailto:aafc88@gmail.com">aafc88@gmail.com</a>
-            </div>
-        </footer>
-
+    <div class="en" style="display:none">
+      <h1>ComPacte Occitanie</h1>
+      <p>The first destination multisports complex — Toulouse Metropolis</p>
     </div>
+  </header>
 
-    <!-- SCRIPT FR/EN -->
-    <script>
-        const frEls = document.querySelectorAll('.fr');
-        const enEls = document.querySelectorAll('.en');
-        const btnFr = document.getElementById('btn-fr');
-        const btnEn = document.getElementById('btn-en');
+  <nav class="nav-sticky" aria-label="Navigation sections">
+    <a href="#ventilation">Ventilation</a>
+    <a href="#financement">Financement</a>
+    <a href="#performance">Performance</a>
+    <a href="#charges">Charges</a>
+    <a href="#flux">Flux</a>
+    <a href="#impact">Impact</a>
+    <a href="#synthese">Synthèse</a>
+  </nav>
 
-        function setLang(lang) {
-            if (lang === 'fr') {
-                frEls.forEach(el => el.style.display = 'block');
-                enEls.forEach(el => el.style.display = 'none');
-                btnFr.classList.add('active');
-                btnEn.classList.remove('active');
-            } else {
-                frEls.forEach(el => el.style.display = 'none');
-                enEls.forEach(el => el.style.display = 'block');
-                btnFr.classList.remove('active');
-                btnEn.classList.add('active');
-            }
-        }
+  <div class="kpis" role="list">
+    <div class="kpi" role="listitem"><div class="v">75 128 700 €</div><div class="l">Investissement Global</div></div>
+    <div class="kpi" role="listitem"><div class="v">22 379 674 €</div><div class="l">CAF Cumulée (5 ans)</div></div>
+    <div class="kpi" role="listitem"><div class="v">12 à 14 ans</div><div class="l">Retour sur Investissement</div></div>
+    <div class="kpi" role="listitem"><div class="v">Année 2 (2029)</div><div class="l">Seuil de Rentabilité</div></div>
+  </div>
 
-        btnFr.onclick = () => setLang('fr');
-        btnEn.onclick = () => setLang('en');
+  <section id="ventilation">
+    <div class="fr">
+      <h2>SECTION 1 — Ventilation de l’Investissement</h2>
+      <p>Ventilation de l’investissement initial (75 128 700 €) :</p>
+      <div class="tc">
+        <table>
+          <thead><tr><th>Pôle Opérationnel</th><th>Montant (€)</th></tr></thead>
+          <tbody>
+            <tr><td>Complexe sportif</td><td class="tb">64 150 000 €</td></tr>
+            <tr><td>Terrain</td><td class="tb">5 850 000 €</td></tr>
+            <tr><td>Hôtel</td><td class="tb">3 600 000 €</td></tr>
+            <tr><td>Salles de sport</td><td class="tb">1 528 700 €</td></tr>
+            <tr class="hr"><td>Total Général Allocations</td><td class="tg">75 128 700 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="en" style="display:none">
+      <h2>SECTION 1 — Investment Breakdown</h2>
+      <p>Breakdown of the initial investment (75,128,700 €):</p>
+      <div class="tc">
+        <table>
+          <thead><tr><th>Operational Area</th><th>Amount (€)</th></tr></thead>
+          <tbody>
+            <tr><td>Sports complex</td><td class="tb">64,150,000 €</td></tr>
+            <tr><td>Land</td><td class="tb">5,850,000 €</td></tr>
+            <tr><td>Hotel</td><td class="tb">3,600,000 €</td></tr>
+            <tr><td>Gyms</td><td class="tb">1,528,700 €</td></tr>
+            <tr class="hr"><td>Total Allocations</td><td class="tg">75,128,700 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
 
-        setLang('fr');
-    </script>
+  <section id="financement">
+    <div class="fr">
+      <h2>SECTION 2 — Structure du Financement</h2>
+      <p>Structure de financement du projet :</p>
+      <div class="tc">
+        <table>
+          <thead><tr><th>Origines des Fonds</th><th>Montant (€)</th></tr></thead>
+          <tbody>
+            <tr><td>Apports en comptes courants</td><td class="tb">70 000 000 €</td></tr>
+            <tr><td>Apport constructeur</td><td class="tb">64 150 000 €</td></tr>
+            <tr><td>Apport terrain</td><td class="tb">5 850 000 €</td></tr>
+            <tr><td>Emprunts bancaires</td><td class="tb">5 600 000 €</td></tr>
+            <tr><td>Capital social</td><td class="tb">200 000 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="en" style="display:none">
+      <h2>SECTION 2 — Financing Structure</h2>
+      <p>Project financing structure:</p>
+    </div>
+  </section>
 
+  <section id="performance">
+    <div class="fr">
+      <h2>SECTIONS 3 & 4 — Performance et Exploitation</h2>
+      <p>Trajectoire financière prévisionnelle validée sur 5 exercices :</p>
+      <div class="tc">
+        <table>
+          <thead>
+            <tr><th>Indicateur (€)</th><th>2028</th><th>2029</th><th>2030</th><th>2031</th><th>2032</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Chiffre d'Affaires (CA)</strong></td><td>12 958 250 €</td><td>14 691 206 €</td><td>16 915 363 €</td><td>19 647 347 €</td><td>22 746 649 €</td></tr>
+            <tr class="hr"><td><strong>EBITDA</strong></td><td class="tg">1 506 181 €</td><td class="tg">2 113 883 €</td><td class="tg">2 772 126 €</td><td class="tg">3 668 249 €</td><td class="tg">4 617 273 €</td></tr>
+            <tr><td><strong>Résultat Net Prévisionnel</strong></td><td>1 049 451 €</td><td>1 508 374 €</td><td>2 009 017 €</td><td>2 688 208 €</td><td>3 407 219 €</td></tr>
+            <tr><td><strong>Capacité d'Autofinancement (CAF)</strong></td><td>3 392 932 €</td><td>3 851 855 €</td><td>4 352 498 €</td><td>5 031 689 €</td><td>5 750 700 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="en" style="display:none">
+      <h2>SECTIONS 3 & 4 — Performance and Operations</h2>
+      <p>Forecast financial trajectory over 5 years:</p>
+    </div>
+  </section>
+
+  <section id="charges">
+    <div class="fr">
+      <h2>CHARGES, FLUX ET IMPACT</h2>
+      <p>Résumé des charges, flux de trésorerie et impact économique régional.</p>
+      <div class="tc" style="margin-top:8px">
+        <table>
+          <thead><tr><th>Nature</th><th>Trajectoire / Estimation</th></tr></thead>
+          <tbody>
+            <tr><td>Charges externes</td><td class="tb">5 864 388 € → 10 474 530 €</td></tr>
+            <tr><td>Charges de personnel</td><td class="tb">3 152 885 € → 5 170 414 €</td></tr>
+            <tr><td>Amortissements</td><td class="tb">2 343 481 € (annuel)</td></tr>
+            <tr><td>Impôts & taxes</td><td class="tb">91 315 € → 140 951 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box-h">Seuil de rentabilité atteint dès l’année 2 (2029). Structure de charges proportionnelle à la croissance du CA.</div>
+    </div>
+    <div class="en" style="display:none">
+      <h2>COSTS, CASH FLOWS & IMPACT</h2>
+      <p>Summary of costs, cash flows and regional economic impact.</p>
+    </div>
+  </section>
+
+  <section id="synthese">
+    <div class="fr">
+      <h2>SYNTHESE INVESTISSEUR & ROI</h2>
+      <p>ComPacte Occitanie : investissement structurant, durable et territorial.</p>
+      <div class="tc" style="margin-top:8px">
+        <table>
+          <thead><tr><th>Indicateur</th><th>Valeur</th></tr></thead>
+          <tbody>
+            <tr><td>Investissement global</td><td class="tb">75.13 M€</td></tr>
+            <tr><td>ROI estimé</td><td class="tb">12 à 14 ans</td></tr>
+            <tr><td>EBITDA (2032)</td><td class="tb">4.6 M€</td></tr>
+            <tr><td>Résultat net (2032)</td><td class="tb">3.4 M€</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box-h">Le ROI est sécurisé par la diversification des revenus, la croissance du marché sportif et l’attractivité de la Métropole de Toulouse.</div>
+    </div>
+    <div class="en" style="display:none">
+      <h2>INVESTOR SUMMARY & ROI</h2>
+      <p>Summary in English available via language switch.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fr">Contact : <strong>Philippe Bru</strong> — <a href="mailto:aafc88@gmail.com">aafc88@gmail.com</a></div>
+    <div class="en" style="display:none">Contact: <strong>Philippe Bru</strong> — <a href="mailto:aafc88@gmail.com">aafc88@gmail.com</a></div>
+  </footer>
+</div>
+
+<script>
+  const frEls = document.querySelectorAll('.fr');
+  const enEls = document.querySelectorAll('.en');
+  const btnFr = document.getElementById('btn-fr');
+  const btnEn = document.getElementById('btn-en');
+
+  function setLang(lang){
+    if(lang==='fr'){
+      frEls.forEach(e=>e.style.display='block');
+      enEls.forEach(e=>e.style.display='none');
+      btnFr.classList.add('active');
+      btnEn.classList.remove('active');
+    } else {
+      frEls.forEach(e=>e.style.display='none');
+      enEls.forEach(e=>e.style.display='block');
+      btnFr.classList.remove('active');
+      btnEn.classList.add('active');
+    }
+  }
+
+  btnFr.onclick = ()=> setLang('fr');
+  btnEn.onclick = ()=> setLang('en');
+  setLang('fr');
+</script>
 </body>
 </html>
-```
