@@ -37,7 +37,33 @@
         .bl.gl li { border-left-color: var(--s); }
         footer { text-align: center; padding: 40px; color: #64748b; font-size: .9rem; border-top: 1px solid var(--b); margin-top: 50px; }
         footer a { color: var(--s); text-decoration: none; font-weight: 600; }
-    </style>
+        footer a { color: var(--s); text-decoration: none; font-weight: 600; }
+
+/* AJOUTE ICI LE CSS DU MENU */
+.nav-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: #0f172a;
+    padding: 12px 20px;
+    display: flex;
+    gap: 20px;
+    border-bottom: 3px solid #10b981;
+}
+
+.nav-sticky a {
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.nav-sticky a:hover {
+    color: #10b981;
+}
+
+</style>
+
 </head>
 <body>
 <nav class="nav-sticky">
