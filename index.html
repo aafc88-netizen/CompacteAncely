@@ -3,70 +3,184 @@ html<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ComPacte Occitanie — Book Investisseur</title>
+    <title>ComPacte Occitanie — Book Investisseur Officiel</title>
     <style>
-        :root { --primary: #0f172a; --secondary: #10b981; --accent: #ef4444; --bg: #f8fafc; --text: #334155; }
-        body { font-family: sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
-        .container { max-width: 1000px; margin: auto; padding: 20px; }
-        header { text-align: center; padding: 40px 0; }
-        .badge { background: var(--accent); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; }
-        h1 { color: var(--primary); margin: 10px 0; }
-        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0; }
-        .kpi-card { background: white; padding: 20px; border-radius: 8px; text-align: center; border-bottom: 4px solid var(--secondary); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .kpi-val { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
-        section { background: white; padding: 25px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        h2 { color: var(--primary); border-left: 4px solid var(--secondary); padding-left: 10px; margin-bottom: 15px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #e2e8f0; }
-        th { background: #f1f5f9; }
-        .highlight { font-weight: bold; color: var(--secondary); }
-        .list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; }
+        :root {
+            --primary: #0f172a;
+            --secondary: #10b981;
+            --accent: #ef4444;
+            --background: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #334155;
+            --border: #e2e8f0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background-color: var(--background); color: var(--text); line-height: 1.6; }
+        
+        header { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 60px 20px; text-align: center; border-bottom: 4px solid var(--secondary); }
+        .badge { background-color: var(--accent); color: white; padding: 6px 16px; font-weight: bold; text-transform: uppercase; font-size: 0.85rem; border-radius: 50px; display: inline-block; margin-bottom: 15px; letter-spacing: 1px; }
+        header h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 800; }
+        header p { font-size: 1.2rem; color: #94a3b8; }
+
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        
+        .grid-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .card-kpi { background: var(--card-bg); padding: 25px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border-top: 4px solid var(--primary); }
+        .card-kpi.highlight { border-top-color: var(--secondary); }
+        .card-kpi .value { font-size: 1.8rem; font-weight: 800; color: var(--primary); display: block; margin-bottom: 5px; }
+        .card-kpi.highlight .value { color: var(--secondary); }
+        .card-kpi .label { font-size: 0.9rem; color: #64748b; font-weight: 500; }
+
+        .split-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 30px; margin-bottom: 30px; }
+        @media (max-width: 600px) { .split-grid { grid-template-columns: 1fr; } }
+
+        section { background: var(--card-bg); padding: 35px; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        h2 { color: var(--primary); margin-bottom: 20px; font-size: 1.5rem; border-left: 4px solid var(--secondary); padding-left: 12px; }
+        p { margin-bottom: 15px; color: #475569; }
+        
+        .table-container { overflow-x: auto; margin-top: 15px; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 15px; }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; }
+        th { background-color: #1e293b; color: white; padding: 14px 16px; font-weight: 600; }
+        td { padding: 14px 16px; border-bottom: 1px solid var(--border); }
+        tr:last-child td { border-bottom: none; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+        
+        .txt-green { color: var(--secondary); font-weight: bold; }
+        .txt-bold { font-weight: bold; }
+        .highlight-row { background-color: #f0fdf4 !important; font-weight: bold; }
+
+        .note-text { font-style: italic; color: #64748b; font-size: 0.9rem; margin-top: 10px; display: block; }
+
+        footer { text-align: center; padding: 40px 20px; color: #64748b; font-size: 0.9rem; margin-top: 60px; border-top: 1px solid var(--border); }
+        footer a { color: var(--secondary); text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
-<div class="container">
+
     <header>
-        <span class="badge">Document Confidentiel</span>
+        <div class="badge">Document Confidentiel — Investisseurs Qualifiés</div>
         <h1>ComPacte Occitanie</h1>
-        <p>Book Investisseur — Toulouse</p>
+        <p>Le premier complexe multisports de destination — Métropole de Toulouse</p>
     </header>
 
-    <div class="kpi-grid">
-        <div class="kpi-card"><div class="kpi-val">75 128 700 €</div><div>Investissement</div></div>
-        <div class="kpi-card"><div class="kpi-val">22 379 674 €</div><div>CAF 5 ans</div></div>
-        <div class="kpi-card"><div class="kpi-val">12-14 ans</div><div>Payback</div></div>
-        <div class="kpi-card"><div class="kpi-val">Année 2</div><div>Seuil rentabilité</div></div>
-    </div>
-
-    <section>
-        <h2>Ventilation Investissement</h2>
-        <table>
-            <tr><td>Complexe</td><td class="highlight">64.15 M€</td></tr>
-            <tr><td>Terrain</td><td class="highlight">5.85 M€</td></tr>
-            <tr><td>Hôtel/Sport</td><td class="highlight">5.13 M€</td></tr>
-            <tr><strong>Total</strong></td><td class="highlight"><strong>75.13 M€</strong></td></tr>
-        </table>
-    </section>
-
-    <section>
-        <h2>Performance 2028-2032</h2>
-        <div style="overflow-x:auto;">
-            <table>
-                <tr><th>Indicateur</th><th>2028 (Y1)</th><th>2032 (Y5)</th></tr>
-                <tr><td>CA</td><td>12.96 M€</td><td>22.75 M€</td></tr>
-                <tr><td>EBITDA</td><td>1.51 M€</td><td>4.62 M€</td></tr>
-                <tr><td>Résultat Net</td><td>1.05 M€</td><td>3.41 M€</td></tr>
-            </table>
+    <div class="container">
+        
+        <!-- PRINCIPAUX INDICATEURS DE HAUT DE PAGE -->
+        <div class="grid-kpis">
+            <div class="card-kpi">
+                <span class="value">75 128 700 €</span>
+                <span class="label">Investissement Global</span>
+            </div>
+            <div class="card-kpi highlight">
+                <span class="value">22 379 674 €</span>
+                <span class="label">CAF Cumulée (5 ans)</span>
+            </div>
+            <div class="card-kpi">
+                <span class="value">12 à 14 ans</span>
+                <span class="label">Retour sur Investissement (Payback)</span>
+            </div>
+            <div class="card-kpi highlight">
+                <span class="value">Année 2 (2029)</span>
+                <span class="label">Seuil de Rentabilité Atteint</span>
+            </div>
         </div>
-    </section>
 
-    <section>
-        <h2>Modèle Opérationnel</h2>
-        <div class="list">
-            <p>✓ 7 centres de profit</p>
-            <p>✓ Valorisation bénévolat (>1M€/an)</p>
+        <div class="split-grid">
+            <!-- SECTION 1 : VENTILATION DE L'INVESTISSEMENT -->
+            <section>
+                <h2>Ventilation de l’Investissement (75 128 700 €)</h2>
+                <p><strong>Ventilation de l’investissement initial :</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Pôle opérationnel</th>
+                                <th>Montant (€)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Complexe sportif</td><td class="txt-bold">64 150 000 €</td></tr>
+                            <tr><td>Terrain</td><td class="txt-bold">5 850 000 €</td></tr>
+                            <tr><td>Hôtel</td><td class="txt-bold">3 600 000 €</td></tr>
+                            <tr><td>Salles de sport</td><td class="txt-bold">1 528 700 €</td></tr>
+                            <tr class="highlight-row">
+                                <td>Total des Allocations</td>
+                                <td class="txt-green">75 128 700 €</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <span class="note-text">Cette répartition permet de visualiser la structure réelle du projet et la concentration des investissements sur le cœur sportif.</span>
+            </section>
+
+            <!-- SECTION 2 : STRUCTURE DU FINANCEMENT -->
+            <section>
+                <h2>Structure du Financement</h2>
+                <p><strong>Montage financier du projet :</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Origine des Ressources</th>
+                                <th>Montant (€)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Apports en comptes courants</td><td class="txt-bold">70 000 000 €</td></tr>
+                            <tr><td>Apport constructeur</td><td class="txt-bold">64 150 000 €</td></tr>
+                            <tr><td>Apport terrain</td><td class="txt-bold">5 850 000 €</td></tr>
+                            <tr><td>Emprunts bancaires</td><td class="txt-bold">5 600 000 €</td></tr>
+                            <tr><td>Capital social</td><td class="txt-bold">200 000 €</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <span class="note-text">Montage sécurisé reposant principalement sur des apports directs et un endettement limité.</span>
+            </section>
         </div>
-    </section>
-</div>
-</body>
-</html>
+
+        <!-- SECTION 3 & 4 : TABLEAU DE PERFORMANCE REPRENANT LE RÉSULTAT NET ET L'EBITDA -->
+        <section>
+            <h2>Trajectoire Opérationnelle Synthétique (2028–2032)</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Indicateur Prévisionnel</th>
+                            <th>2028</th>
+                            <th>2029</th>
+                            <th>2030</th>
+                            <th>2031</th>
+                            <th>2032</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Chiffre d'Affaires (CA)</strong></td>
+                            <td>12 958 250 €</td>
+                            <td>14 691 206 €</td>
+                            <td>16 915 363 €</td>
+                            <td>19 647 347 €</td>
+                            <td>22 746 649 €</td>
+                        </tr>
+                        <tr style="background-color: #f8fafc;">
+                            <td><strong>Résultat d’exploitation (EBITDA)</strong></td>
+                            <td class="txt-bold">1 506 181 €</td>
+                            <td class="txt-bold">2 113 883 €</td>
+                            <td class="txt-bold">2 772 126 €</td>
+                            <td class="txt-bold">3 668 249 €</td>
+                            <td class="txt-bold">4 617 273 €</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>Résultat Net Prévisionnel</strong></td>
+                            <td class="txt-green">1 049 451 €</td>
+                            <td class="txt-green">1 508 374 €</td>
+                            <td class="txt-green">2 009 017 €</td>
+                            <td class="txt-green">2 688 208 €</td>
+                            <td class="txt-green">3 407 219 €</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Capacité d'Autofinancement (CAF)</strong></td>
+                            <td>3 392 932 €</td>
+                            <td>3 851 855 €</td>
+                            <td>4 352 498 €</td>
+                            <td>5 031 689 €</td>
