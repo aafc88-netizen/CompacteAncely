@@ -1,25 +1,155 @@
-<section class="finance-block">
-  <h2>Investissement & Financement</h2>
-  <div class="grid-two">
-    <div>
-      <h3>Investissement global</h3>
-      <ul>
-        <li>Complexe sportif : <strong>64 150 000 €</strong></li>
-        <li>Hôtel : <strong>3 600 000 €</strong></li>
-        <li>Salles de sport : <strong>1 528 700 €</strong></li>
-        <li>Terrain : <strong>5 850 000 €</strong></li>
-      </ul>
+html<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComPacte Occitanie — Book Investisseur Officiel</title>
+    <style>
+        :root {
+            --primary: #1e293b;
+            --secondary: #10b981;
+            --accent: #ef4444;
+            --background: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #334155;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background-color: var(--background); color: var(--text); line-height: 1.6; }
+        
+        header { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 60px 20px; text-align: center; border-bottom: 4px solid var(--secondary); }
+        .badge { background-color: var(--accent); color: white; padding: 6px 16px; font-weight: bold; text-transform: uppercase; font-size: 0.85rem; border-radius: 50px; display: inline-block; margin-bottom: 15px; letter-spacing: 1px; }
+        header h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 800; }
+        header p { font-size: 1.2rem; color: #94a3b8; }
+
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        
+        .grid-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .card-kpi { background: var(--card-bg); padding: 25px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03); border-top: 4px solid var(--primary); transition: transform 0.2s; }
+        .card-kpi:hover { transform: translateY(-5px); }
+        .card-kpi.highlight { border-top-color: var(--secondary); }
+        .card-kpi .value { font-size: 2rem; font-weight: 800; color: var(--primary); display: block; margin-bottom: 5px; }
+        .card-kpi.highlight .value { color: var(--secondary); }
+        .card-kpi .label { font-size: 0.9rem; color: #64748b; font-weight: 500; }
+
+        section { background: var(--card-bg); padding: 35px; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        h2 { color: var(--primary); margin-bottom: 20px; font-size: 1.6rem; border-left: 4px solid var(--secondary); padding-left: 12px; }
+        
+        .table-container { overflow-x: auto; margin-top: 20px; border-radius: 8px; border: 1px solid #e2e8f0; }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; }
+        th { background-color: #1e293b; color: white; padding: 14px 16px; font-weight: 600; }
+        td { padding: 14px 16px; border-bottom: 1px solid #e2e8f0; }
+        tr:last-child td { border-bottom: none; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+        .txt-green { color: var(--secondary); font-weight: bold; }
+
+        ul { list-style-type: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 15px; }
+        ul li { background: #f1f5f9; padding: 12px 18px; border-radius: 8px; font-weight: 500; display: flex; align-items: center; }
+        ul li::before { content: "✓"; color: var(--secondary); font-weight: bold; margin-right: 10px; font-size: 1.1rem; }
+
+        footer { text-align: center; padding: 40px 20px; color: #64748b; font-size: 0.9rem; margin-top: 60px; border-top: 1px solid #e2e8f0; }
+        footer a { color: var(--secondary); text-decoration: none; font-weight: bold; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="badge">Document Confidentiel — Investisseurs Qualifiés</div>
+        <h1>ComPacte Occitanie</h1>
+        <p>Le premier complexe multisports de destination — Métropole de Toulouse</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- SECTION CHIFRES CLES -->
+        <div class="grid-kpis">
+            <div class="card-kpi">
+                <span class="value">75,12 M€</span>
+                <span class="label">Investissement Total</span>
+            </div>
+            <div class="card-kpi">
+                <span class="value">14 ha</span>
+                <span class="label">Foncier Identifié</span>
+            </div>
+            <div class="card-kpi highlight">
+                <span class="value">12 à 14 ans</span>
+                <span class="label">Retour sur Investissement (Payback)</span>
+            </div>
+            <div class="card-kpi">
+                <span class="value">25</span>
+                <span class="label">Disciplines Sportives</span>
+            </div>
+        </div>
+
+        <!-- SECTION FINANCES -->
+        <section>
+            <h2>Trajectoire Financière Prévisionnelle</h2>
+            <p style="margin-bottom: 15px; color: #64748b;">Flux financiers extraits du Dossier Prévisionnel officiel établi sur 5 exercices (2028 à 2032) par l'Expert-Comptable.</p>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Indicateur Financier</th>
+                            <th>2028 (Y1)</th>
+                            <th>2029 (Y2)</th>
+                            <th>2030 (Y3)</th>
+                            <th>2031 (Y4)</th>
+                            <th>2032 (Y5)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Chiffre d'Affaires attendu</strong></td>
+                            <td>12 958 250 €</td>
+                            <td>14 691 206 €</td>
+                            <td>16 915 363 €</td>
+                            <td>19 647 347 €</td>
+                            <td>22 746 649 €</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Capacité d'Autofinancement (CAF)</strong></td>
+                            <td class="txt-green">3 392 932 €</td>
+                            <td class="txt-green">3 851 855 €</td>
+                            <td class="txt-green">4 352 498 €</td>
+                            <td class="txt-green">5 031 689 €</td>
+                            <td class="txt-green">5 750 700 €</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="margin-top: 15px; font-size: 0.85rem; color: #94a3b8; font-style: italic;">* Note : Le cumul de la CAF sur les 5 premiers exercices atteint 22 379 674 €, validant une assise financière solide et pérenne pour le remboursement des capitaux.</p>
+        </section>
+
+        <!-- SECTION CENTRES DE PROFIT -->
+        <section>
+            <h2>Modèle Économique : Les 7 Centres de Profit</h2>
+            <p style="color: #64748b; margin-bottom: 10px;">Une diversification des revenus conçue pour maximiser l'occupation du site 7j/7 et 24h/24 :</p>
+            <ul>
+                <li>Hôtel & Espace Bien-être haut de gamme</li>
+                <li>Restauration éco-responsable (circuits courts)</li>
+                <li>Abonnements Salles de Sport & Entrées</li>
+                <li>Esplanade Événementielle & programmation culturelle</li>
+                <li>Pôle Entreprises (Séminaires, Team Building, Coworking)</li>
+                <li>Zone de Loisirs (Bowling, Cinéma premium)</li>
+                <li>Ferme Pédagogique & Espace d'Impact RSE</li>
+            </ul>
+        </section>
+
+        <!-- SECTION IMPACT -->
+        <section>
+            <h2>Impact Social & RSE Valorisé</h2>
+            <p style="color: #334155; margin-bottom: 10px;">Au-delà de la rentabilité financière, ComPacte s'inscrit comme un projet à fort impact territorial :</p>
+            <p>• <strong>Emploi :</strong> Création de près de 500 emplois directs et indirects à terme sur le bassin toulousain.</p>
+            <p style="margin-top: 8px;">• <strong>Capital Humain :</strong> Valorisation structurelle du tissu associatif avec l'intégration et la gestion de 200 à 250 bénévoles.</p>
+            <p style="margin-top: 8px;">• <strong>Infrastructures :</strong> Construction aux normes bas-carbone les plus strictes et autonomie énergétique partielle via panneaux photovoltaïques.</p>
+        </section>
+
     </div>
-    <div>
-      <h3>Financement</h3>
-      <ul>
-        <li>Apports en comptes courants : <strong>70 000 000 €</strong></li>
-        <li>Apport constructeur : <strong>64 150 000 €</strong></li>
-        <li>Apport terrain : <strong>5 850 000 €</strong></li>
-        <li>Emprunts : <strong>5 600 000 €</strong></li>
-        <li>Capital social : <strong>200 000 €</strong></li>
-      </ul>
-    </div>
-  </div>
-  <p class="highlight">Financement sécurisé — faible endettement — forte implication des partenaires.</p>
-</section>
+
+    <footer>
+        <p><strong>Contact Direction du Projet :</strong> Philippe Bru — <a href="mailto:aafc88@gmail.com">aafc88@gmail.com</a></p>
+        <p style="margin-top: 10px; font-size: 0.8rem; color: #94a3b8;">© 2026 ComPacte Occitanie. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
