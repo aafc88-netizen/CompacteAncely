@@ -4,97 +4,62 @@ html<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ComPacte Occitanie — Book Investisseur</title>
+    <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        :root { --primary: #0f172a; --secondary: #10b981; --background: #f8fafc; }
-        body { font-family: sans-serif; background-color: var(--background); padding: 20px; }
-        .slide { background: white; padding: 30px; margin-bottom: 30px; border-radius: 8px; border: 1px solid #e2e8f0; }
-        h2 { color: var(--primary); border-left: 4px solid var(--secondary); padding-left: 10px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #e2e8f0; }
-        .txt-green { color: var(--secondary); font-weight: bold; }
+        :root { --primary: #0f172a; --secondary: #10b981; --accent: #ef4444; --bg: #f8fafc; --card: #ffffff; --text: #334155; --border: #e2e8f0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg); color: var(--text); padding-bottom: 60px; }
+        header { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 50px 20px; text-align: center; border-bottom: 4px solid var(--secondary); }
+        .badge { background-color: var(--accent); color: white; padding: 6px 16px; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; border-radius: 50px; display: inline-block; margin-bottom: 15px; }
+        header h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 8px; }
+        header p { color: #94a3b8; font-weight: 500; }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .grid-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .card-kpi { background: var(--card); padding: 25px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border-top: 4px solid var(--primary); }
+        .card-kpi.highlight { border-top-color: var(--secondary); }
+        .card-kpi .value { font-size: 1.7rem; font-weight: 700; color: var(--primary); display: block; }
+        .card-kpi.highlight .value { color: var(--secondary); }
+        .card-kpi .label { font-size: 0.85rem; color: #64748b; font-weight: 600; }
+        .slide { background: var(--card); padding: 40px; margin-top: 40px; border-radius: 16px; border: 1px solid var(--border); }
+        h2 { color: var(--primary); margin-bottom: 25px; font-size: 1.4rem; border-left: 5px solid var(--secondary); padding-left: 15px; }
+        .table-container { overflow-x: auto; margin: 20px 0; border: 1px solid var(--border); border-radius: 8px; }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th { background-color: #1e293b; color: white; padding: 14px; }
+        td { padding: 14px; border-bottom: 1px solid var(--border); }
+        .txt-green { color: var(--secondary); font-weight: 700; }
+        .txt-bold { font-weight: 600; }
+        .highlight-row { background-color: #f0fdf4; font-weight: 700; }
+        .note-text { font-style: italic; color: #64748b; font-size: 0.85rem; }
+        footer { text-align: center; padding: 40px; color: #64748b; margin-top: 50px; border-top: 1px solid var(--border); }
     </style>
 </head>
 <body>
-    <div class="slide">
-        <h2>Ventilation de l’Investissement (75,1 M€)</h2>
-        <table>
-            <tr><th>Poste</th><th>Montant (€)</th></tr>
-            <tr><td>Complexe, Hôtel, Terrain</td><td class="txt-green">75 128 700 €</td></tr>
-        </table>
+    <header>
+        <div class="badge">Document Confidentiel — Investisseurs Qualifiés</div>
+        <h1>ComPacte Occitanie</h1>
+        <p>Le premier complexe multisports de destination — Métropole de Toulouse</p>
+    </header>
+    <div class="container">
+        <div class="grid-kpis">
+            <div class="card-kpi"><span class="value">75M€</span><span class="label">Inv. Global</span></div>
+            <div class="card-kpi highlight"><span class="value">22.3M€</span><span class="label">CAF Cumulée (5 ans)</span></div>
+        </div>
+        <div class="slide">
+            <h2>Trajectoire Opérationnelle (2028–2032)</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Indicateur</th><th>2028 (Y1)</th><th>2032 (Y5)</th></tr></thead>
+                    <tbody>
+                        <tr><td>CA</td><td>~13M €</td><td>~27.5M €</td></tr>
+                        <tr class="highlight-row"><td>EBITDA</td><td class="txt-green">~1.5M €</td><td class="txt-green">~4.6M €</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="note-text">Seuil de rentabilité atteint dès l'année 2 (2029).</p>
+        </div>
     </div>
-    <div class="slide">
-        <h2>Structure du Financement</h2>
-        <table>
-            <tr><th>Source</th><th>Montant (€)</th></tr>
-            <tr><td>Apports/Constructeur/Terrain</td><td>70 000 000 €</td></tr>
-            <tr><td>Emprunts/Capital</td><td>5 800 000 €</td></tr>
-        </table>
-    </div>
-    <div class="slide">
-        <h2>Trajectoire (2028–2032)</h2>
-        <table>
-            <tr><th>Année</th><th>CA Prévisionnel</th><th>CAF</th></tr>
-            <tr><td>2028</td><td>12,9 M€</td><td>3,3 M€</td></tr>
-            <tr><td>2032</td><td>22,7 M€</td><td>5,7 M€</td></tr>
-        </table>
-    </div>
-    html    <div class="slide">
-        <h2>Résultat Net Prévisionnel (2028–2032)</h2>
-        <p><strong>Résultat net prévisionnel :</strong></p>
-        <table>
-            <tr><th>Année</th><th>Montant (€)</th></tr>
-            <tr><td>2028</td><td class="txt-green">1 049 451 €</td></tr>
-            <tr><td>2029</td><td class="txt-green">1 508 374 €</td></tr>
-            <tr><td>2030</td><td class="txt-green">2 009 017 €</td></tr>
-            <tr><td>2031</td><td class="txt-green">2 688 208 €</td></tr>
-            <tr><td>2032</td><td class="txt-green">3 407 219 €</td></tr>
-        </table>
-        <p>Une progression continue du résultat net, portée par la montée en puissance des activités.</p>
-    </div>
-
-    <div class="slide">
-        <h2>EBITDA / Résultat d’Exploitation</h2>
-        <p><strong>Résultat d’exploitation (EBITDA) :</strong></p>
-        <table>
-            <tr><th>Année</th><th>Montant (€)</th></tr>
-            <tr><td>2028</td><td>1 506 181 €</td></tr>
-            <tr><td>2029</td><td>2 113 883 €</td></tr>
-            <tr><td>2030</td><td>2 772 126 €</td></tr>
-            <tr><td>2031</td><td>3 668 249 €</td></tr>
-            <tr><td>2032</td><td>4 617 273 €</td></tr>
-        </table>
-        <p>L’EBITDA confirme la solidité opérationnelle du modèle ComPacte.</p>
-    </div>
-
-    <div class="slide">
-        <h2>Synthèse des Charges Principales</h2>
-        <p><strong>Charges principales (2028 → 2032) :</strong></p>
-        <table>
-            <tr><th>Nature de la charge</th><th>Évolution (2028 → 2032)</th></tr>
-            <tr><td>Charges externes</td><td>5 864 388 € → 10 474 530 €</td></tr>
-            <tr><td>Charges de personnel</td><td>3 152 885 € → 5 170 414 €</td></tr>
-            <tr><td>Amortissements</td><td>2 343 481 € (constants chaque année)</td></tr>
-            <tr><td>Impôts & taxes</td><td>91 315 € → 140 951 €</td></tr>
-        </table>
-        <p>Une structure de charges stable et proportionnelle à la croissance du chiffre d’affaires.</p>
-    </div>
-
-    <div class="slide">
-        <h2>Seuil de Rentabilité & CAF Cumulée</h2>
-        <p><strong>Seuil de rentabilité :</strong> Seuil de rentabilité atteint dès l’année 2 (2029). Le projet devient excédentaire très rapidement grâce à la diversification des revenus.</p>
-        <p style="margin-top: 15px; font-weight: bold;">CAF cumulée sur 5 ans : <span class="txt-green">22 379 674 €</span></p>
-        <p style="font-style: italic; font-size: 0.9rem;">Une capacité d’autofinancement élevée, garantissant la pérennité du projet et la capacité à rembourser les capitaux engagés.</p>
-    </div>
-
-    <div class="slide">
-        <h2>Valorisation Économique du Bénévolat</h2>
-        <p><strong>Impact économique du bénévolat :</strong></p>
-        <ul>
-            <li>Effectif : 200 à 250 bénévoles</li>
-            <li>Volume horaire : 83 200 à 156 000 heures/an</li>
-            <li><strong>Valeur estimée : 998 400 € à 1 872 000 € / an</strong></li>
-        </ul>
-        <p>Une contribution économique indirecte financièrement significative, intégrée dans le modèle global.</p>
-    </div>
+    <footer>
+        <p>© 2026 ComPacte Occitanie. Document confidentiel.</p>
+    </footer>
 </body>
 </html>
