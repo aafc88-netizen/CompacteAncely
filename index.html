@@ -26,8 +26,6 @@
     font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
     background:linear-gradient(180deg,var(--bg) 0%, #eef2f7 60%);
     color:var(--text);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
     line-height:1.45;
     padding:28px 16px 80px;
   }
@@ -38,47 +36,60 @@
   h1{font-size:28px;margin:12px 0 4px}
   header p{color:var(--muted);margin:0 0 6px;font-size:14px}
 
+  .banner-compacte{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    padding:20px 24px;
+    background:#ffffff;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(15,23,42,0.08);
+    border:1px solid rgba(148,163,184,0.4);
+    margin:28px 0;
+  }
+  .banner-left{flex:1 1 auto}
+  .banner-right{flex:0 0 auto}
+  .banner-label{
+    display:inline-block;
+    padding:4px 10px;
+    border-radius:999px;
+    background:#ef4444;
+    color:#ffffff;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .banner-title{
+    font-size:26px;
+    font-weight:700;
+    color:#0f172a;
+    margin-bottom:4px;
+  }
+  .banner-subtitle{
+    font-size:14px;
+    color:#6b7280;
+  }
+  .banner-image-frame{
+    padding:10px;
+    background:#ffffff;
+    border-radius:12px;
+    border:2px solid #0ea5e9;
+    box-shadow:0 8px 20px rgba(15,23,42,0.08);
+    max-width:260px;
+  }
+  .banner-image-frame img{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:8px;
+  }
+
   #lang-switch{position:fixed;top:18px;right:18px;z-index:999;background:#fff;border:1px solid var(--card-border);padding:6px;border-radius:999px;display:flex;gap:8px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
   #lang-switch span{cursor:pointer;padding:6px 10px;border-radius:999px;color:var(--text);font-weight:600;font-size:13px}
   #lang-switch span.active{background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(2,132,199,0.12)}
-
-  .nav-sticky{position:sticky;top:86px;margin:18px 0 24px;background:transparent;display:flex;gap:12px;flex-wrap:wrap;z-index:50}
-  .nav-sticky a{color:var(--muted);text-decoration:none;font-weight:700;font-size:12px;padding:8px 12px;border-radius:8px;border:1px solid transparent}
-  .nav-sticky a:hover{background:rgba(2,132,199,0.06);color:var(--accent-2)}
-
-  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:18px 0}
-  .kpi{background:var(--panel);padding:16px;border-radius:12px;border:1px solid var(--card-border);box-shadow:0 6px 18px rgba(15,23,42,0.03)}
-  .kpi .v{font-weight:800;font-size:18px;color:var(--text)}
-  .kpi .l{color:var(--muted);font-size:13px;margin-top:6px}
-
-  section{margin:18px 0;padding:18px;border-radius:12px;background:var(--panel);border:1px solid var(--card-border);box-shadow:0 6px 18px rgba(15,23,42,0.03)}
-  section h2{font-size:18px;margin-bottom:8px}
-  section p{color:var(--muted);font-size:14px;margin-bottom:12px}
-
-  .tc{overflow:auto}
-  table{width:100%;border-collapse:collapse;font-size:14px}
-  thead th{background:transparent;text-align:left;padding:10px 12px;color:var(--muted);font-weight:700;border-bottom:1px solid rgba(15,23,42,0.04)}
-  tbody td{padding:12px;color:var(--text);border-bottom:1px solid rgba(15,23,42,0.03)}
-  tbody tr:nth-child(even) td{background:rgba(2,132,199,0.02)}
-  .tb{font-weight:700;color:var(--text)}
-  .tg{font-weight:800;color:var(--accent-2)}
-  .hr td{border-top:1px solid rgba(15,23,42,0.06);font-weight:800}
-
-  .box-h{background:rgba(2,132,199,0.04);padding:12px;border-radius:8px;border:1px solid rgba(2,132,199,0.06);color:var(--muted);margin-top:12px}
-
-  ul{margin:8px 0 0 18px;color:var(--muted)}
-  li{margin:6px 0}
-
-  footer{margin-top:18px;padding:14px;border-radius:10px;background:transparent;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-
-  @media (max-width:720px){
-    h1{font-size:20px}
-    .kpi .v{font-size:16px}
-    thead th, tbody td{padding:10px}
-  }
-
-  a{color:var(--accent-2);text-decoration:none}
-  a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
@@ -100,6 +111,31 @@
     </div>
   </header>
 
+  <div class="banner-compacte fr">
+    <div class="banner-left">
+      <div class="banner-label">DOCUMENT CONFIDENTIEL — INVESTISSEURS QUALIFIÉS</div>
+      <div class="banner-title">ComPacte Occitanie</div>
+      <div class="banner-subtitle">Le premier complexe multisports de destination — Métropole de Toulouse</div>
+    </div>
+    <div class="banner-right">
+      <div class="banner-image-frame">
+        <img src="complexe.jpg" alt="ComPacte Occitanie - complexe multisports">
+      </div>
+    </div>
+  </div>
+
+  <div class="banner-compacte en" style="display:none">
+    <div class="banner-left">
+      <div class="banner-label">CONFIDENTIAL DOCUMENT — QUALIFIED INVESTORS</div>
+      <div class="banner-title">ComPacte Occitanie</div>
+      <div class="banner-subtitle">The first destination multisports complex — Toulouse Metropolis</div>
+    </div>
+    <div class="banner-right">
+      <div class="banner-image-frame">
+        <img src="complexe.jpg" alt="ComPacte Occitanie - multisports complex">
+      </div>
+    </div>
+  </div>
   <nav class="nav-sticky" aria-label="Navigation sections">
     <a href="#ventilation">Ventilation</a>
     <a href="#financement">Financement</a>
@@ -134,6 +170,7 @@
         </table>
       </div>
     </div>
+
     <div class="en" style="display:none">
       <h2>SECTION 1 — Investment Breakdown</h2>
       <p>Breakdown of the initial investment (75,128,700 €):</p>
@@ -169,12 +206,12 @@
         </table>
       </div>
     </div>
+
     <div class="en" style="display:none">
       <h2>SECTION 2 — Financing Structure</h2>
       <p>Project financing structure:</p>
     </div>
   </section>
-
   <section id="performance">
     <div class="fr">
       <h2>SECTIONS 3 & 4 — Performance et Exploitation</h2>
@@ -193,6 +230,7 @@
         </table>
       </div>
     </div>
+
     <div class="en" style="display:none">
       <h2>SECTIONS 3 & 4 — Performance and Operations</h2>
       <p>Forecast financial trajectory over 5 years:</p>
@@ -216,6 +254,7 @@
       </div>
       <div class="box-h">Seuil de rentabilité atteint dès l’année 2 (2029). Structure de charges proportionnelle à la croissance du CA.</div>
     </div>
+
     <div class="en" style="display:none">
       <h2>COSTS, CASH FLOWS & IMPACT</h2>
       <p>Summary of costs, cash flows and regional economic impact.</p>
@@ -239,12 +278,12 @@
       </div>
       <div class="box-h">Le ROI est sécurisé par la diversification des revenus, la croissance du marché sportif et l’attractivité de la Métropole de Toulouse.</div>
     </div>
+
     <div class="en" style="display:none">
       <h2>INVESTOR SUMMARY & ROI</h2>
       <p>Summary in English available via language switch.</p>
     </div>
   </section>
-
   <footer>
     <div class="fr">Contact : <strong>Philippe Bru</strong> — <a href="mailto:aafc88@gmail.com">aafc88@gmail.com</a></div>
     <div class="en" style="display:none">Contact: <strong>Philippe Bru</strong> — <a href="mailto:aafc88@gmail.com">aafc88@gmail.com</a></div>
@@ -275,5 +314,6 @@
   btnEn.onclick = ()=> setLang('en');
   setLang('fr');
 </script>
+
 </body>
 </html>
