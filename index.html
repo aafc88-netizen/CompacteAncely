@@ -1,65 +1,60 @@
 html<!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ComPacte Occitanie — Book Investisseur</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        :root { --primary: #0f172a; --secondary: #10b981; --accent: #ef4444; --bg: #f8fafc; --card: #ffffff; --text: #334155; --border: #e2e8f0; }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--bg); color: var(--text); padding-bottom: 60px; }
-        header { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 50px 20px; text-align: center; border-bottom: 4px solid var(--secondary); }
-        .badge { background-color: var(--accent); color: white; padding: 6px 16px; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; border-radius: 50px; display: inline-block; margin-bottom: 15px; }
-        header h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 8px; }
-        header p { color: #94a3b8; font-weight: 500; }
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-        .grid-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .card-kpi { background: var(--card); padding: 25px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border-top: 4px solid var(--primary); }
-        .card-kpi.highlight { border-top-color: var(--secondary); }
-        .card-kpi .value { font-size: 1.7rem; font-weight: 700; color: var(--primary); display: block; }
-        .card-kpi.highlight .value { color: var(--secondary); }
-        .card-kpi .label { font-size: 0.85rem; color: #64748b; font-weight: 600; }
-        .slide { background: var(--card); padding: 40px; margin-top: 40px; border-radius: 16px; border: 1px solid var(--border); }
-        h2 { color: var(--primary); margin-bottom: 25px; font-size: 1.4rem; border-left: 5px solid var(--secondary); padding-left: 15px; }
-        .table-container { overflow-x: auto; margin: 20px 0; border: 1px solid var(--border); border-radius: 8px; }
-        table { width: 100%; border-collapse: collapse; text-align: left; }
-        th { background-color: #1e293b; color: white; padding: 14px; }
-        td { padding: 14px; border-bottom: 1px solid var(--border); }
-        .txt-green { color: var(--secondary); font-weight: 700; }
-        .txt-bold { font-weight: 600; }
-        .highlight-row { background-color: #f0fdf4; font-weight: 700; }
-        .note-text { font-style: italic; color: #64748b; font-size: 0.85rem; }
-        footer { text-align: center; padding: 40px; color: #64748b; margin-top: 50px; border-top: 1px solid var(--border); }
+        :root{--p:#0f172a;--s:#10b981;--a:#ef4444;--bg:#f8fafc;--c:#fff;--t:#334155;--b:#e2e8f0}
+        *{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',sans-serif}
+        body{background-color:var(--bg);color:var(--t);padding-bottom:40px}
+        header{background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);color:#fff;padding:40px 20px;text-align:center;border-bottom:4px solid var(--s)}
+        .badge{background:var(--a);padding:5px 12px;font-size:.75rem;border-radius:20px;display:inline-block;margin-bottom:10px}
+        h1{font-size:2rem;margin-bottom:5px}
+        .container{max-width:900px;margin:0 auto;padding:0 15px}
+        .grid-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-top:-20px;margin-bottom:20px}
+        .card-kpi{background:var(--c);padding:15px;border-radius:10px;text-align:center;box-shadow:0 4px 6px rgba(0,0,0,0.05);border-top:3px solid var(--p)}
+        .card-kpi.h{border-top-color:var(--s)}.card-kpi .v{font-size:1.25rem;font-weight:700;color:var(--p)}
+        .card-kpi.h .v{color:var(--s)}.card-kpi .l{font-size:.75rem;color:#64748b}
+        .slide{background:var(--c);padding:25px;margin-top:25px;border-radius:12px;border:1px solid var(--b)}
+        h2{color:var(--p);margin-bottom:15px;font-size:1.2rem;border-left:4px solid var(--s);padding-left:10px}
+        .tc{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:.9rem}
+        th{background:#1e293b;color:#fff;text-align:left;padding:10px}
+        td{padding:10px;border-bottom:1px solid var(--b)}
+        .tg{color:var(--s);font-weight:700}.tb{font-weight:600}
+        .hr{background-color:#f0fdf4}.nt{font-style:italic;color:#64748b;font-size:.85rem;margin-top:8px}
+        .bl{list-style:none;margin:10px 0}.bl li{background:#f8fafc;padding:10px;border-left:3px solid #475569;margin-bottom:5px;border-radius:0 4px 4px 0}
+        .bl.gl li{border-left-color:var(--s)}
+        footer{text-align:center;padding:30px;color:#64748b;font-size:.85rem;border-top:1px solid var(--b);margin-top:30px}
     </style>
 </head>
 <body>
-    <header>
-        <div class="badge">Document Confidentiel — Investisseurs Qualifiés</div>
-        <h1>ComPacte Occitanie</h1>
-        <p>Le premier complexe multisports de destination — Métropole de Toulouse</p>
-    </header>
+    <header><div class="badge">Confidentiel — Investisseurs</div><h1>ComPacte Occitanie</h1><p>Complexe Multisports — Toulouse</p></header>
     <div class="container">
         <div class="grid-kpis">
-            <div class="card-kpi"><span class="value">75M€</span><span class="label">Inv. Global</span></div>
-            <div class="card-kpi highlight"><span class="value">22.3M€</span><span class="label">CAF Cumulée (5 ans)</span></div>
+            <div class="card-kpi"><div class="v">75.1 M€</div><div class="l">Inv. Global</div></div>
+            <div class="card-kpi h"><div class="v">22.4 M€</div><div class="l">CAF (5 ans)</div></div>
+            <div class="card-kpi"><div class="v">12-14 ans</div><div class="l">ROI</div></div>
+            <div class="card-kpi h"><div class="v">2029</div><div class="l">Rentabilité</div></div>
         </div>
         <div class="slide">
-            <h2>Trajectoire Opérationnelle (2028–2032)</h2>
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Indicateur</th><th>2028 (Y1)</th><th>2032 (Y5)</th></tr></thead>
-                    <tbody>
-                        <tr><td>CA</td><td>~13M €</td><td>~27.5M €</td></tr>
-                        <tr class="highlight-row"><td>EBITDA</td><td class="txt-green">~1.5M €</td><td class="txt-green">~4.6M €</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="note-text">Seuil de rentabilité atteint dès l'année 2 (2029).</p>
+            <h2>1. Investissement (75.1 M€)</h2>
+            <div class="tc"><table><tr><th>Pôle</th><th>Montant</th></tr><tr><td>Complexe</td><td class="tb">64.15 M€</td></tr><tr><td>Hôtel/Sport</td><td class="tb">5.1 M€</td></tr><tr><td>Terrain</td><td class="tb">5.85 M€</td></tr><tr class="hr"><td>Total</td><td class="tg">75.1 M€</td></tr></table></div>
+        </div>
+        <div class="slide">
+            <h2>2. Financement</h2>
+            <div class="tc"><table><tr><th>Source</th><th>Montant</th></tr><tr><td>Fonds Prop/Apports</td><td class="tb">70 M€</td></tr><tr><td>Emprunts</td><td class="tb">5.6 M€</td></tr><tr><td>Capital</td><td class="tb">0.2 M€</td></tr></table></div>
+        </div>
+        <div class="slide">
+            <h2>3. Prévisions (2028-2032)</h2>
+            <div class="tc"><table><tr><th>Indicateur</th><th>2028</th><th>2032</th></tr><tr><td>CA</td><td class="tb">13 M€</td><td class="tb">22.7 M€</td></tr><tr class="hr"><td>CAF</td><td class="tg">3.4 M€</td><td class="tg">5.7 M€</td></tr></table></div>
+            <p class="nt">EBITDA 2032 : 4.6 M€</p>
+        </div>
+        <div class="slide">
+            <h2>4. RSE & Bénévolat</h2>
+            <ul class="bl gl"><li>Seuil de rentabilité : Année 2 (2029)</li><li>Valorisation Bénévolat : ~1.5 M€/an</li></ul>
         </div>
     </div>
-    <footer>
-        <p>© 2026 ComPacte Occitanie. Document confidentiel.</p>
-    </footer>
+    <footer>Contact : Philippe Bru — aafc88@gmail.com</footer>
 </body>
 </html>
