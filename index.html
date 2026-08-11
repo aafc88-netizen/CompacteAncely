@@ -42,60 +42,40 @@
         .box-h { background-color: #eff6ff; border-left: 4px solid #3b82f6; padding: 15px; border-radius: 4px; font-weight: 600; color: #1e40af; }
         .note-w { background-color: #fffbeb; border-left: 4px solid #f59e0b; padding: 12px 15px; border-radius: 4px; font-size: .85rem; color: #92400e; margin-top: 10px; }
 
-.nav-sticky {
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-    background: #0f172a;
-    padding: 12px 20px;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    border-bottom: 3px solid #10b981;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-html {
-  scroll-behavior: smooth;
-}
-
-.slide {
-  scroll-margin-top: 120px;
-}
-
-.nav-sticky a {
-    color: #ffffff;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 0.95rem;
-}
-
-.nav-sticky a:hover {
-    color: #10b981;
-}
-
-#lang-toggle {
-    background: transparent;
-    border: 1.5px solid #10b981;
-    color: #10b981;
-    font-weight: 700;
-    font-size: 0.82rem;
-    padding: 5px 12px;
-    border-radius: 20px;
-    cursor: pointer;
-    letter-spacing: .03em;
-    margin-left: 6px;
-}
-#lang-toggle:hover {
-    background: #10b981;
-    color: #0f172a;
-}
-.panel-view { display: none; }
-.panel-view.active { display: block; }
-.nav-sticky a.active { color: #10b981; }
-
-</style>
-
+        .nav-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            background: #0f172a;
+            padding: 12px 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            border-bottom: 3px solid #10b981;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        html { scroll-behavior: smooth; }
+        .slide { scroll-margin-top: 120px; }
+        .nav-sticky a { color: #ffffff; font-weight: 600; text-decoration: none; font-size: 0.95rem; }
+        .nav-sticky a:hover { color: #10b981; }
+        #lang-toggle {
+            background: transparent;
+            border: 1.5px solid #10b981;
+            color: #10b981;
+            font-weight: 700;
+            font-size: 0.82rem;
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            letter-spacing: .03em;
+            margin-left: 6px;
+        }
+        #lang-toggle:hover { background: #10b981; color: #0f172a; }
+        .panel-view { display: none; }
+        .panel-view.active { display: block; }
+        .nav-sticky a.active { color: #10b981; }
+    </style>
 </head>
 <body>
 <nav class="nav-sticky">
@@ -170,8 +150,8 @@ html {
             <p style="font-weight: 500; color: #1e293b;" data-i18n="t-s2-foot">Montage reposant principalement sur des apports directs en compte courant et un endettement bancaire limité (5,6 M€).</p>
         </div>
 
-        <!-- SLIDE 3 : PERFORMANCES COMPLÈTES (RN / EBE / EBITDA / CA / CAF) -->
-        <div class="slide">
+        <!-- SLIDE 3 : PERFORMANCES COMPLÈTES -->
+        <div class="slide" id="performance">
             <h2 data-i18n="t-s3-h2">🔷 SECTIONS 3 & 4 — Performance et Exploitation</h2>
             <p data-i18n="t-s3-p">Trajectoire financière prévisionnelle validée sur 5 exercices :</p>
             <div class="tc">
@@ -179,11 +159,7 @@ html {
                     <thead>
                         <tr>
                             <th data-i18n="t-s3-th1">Indicateur (€)</th>
-                            <th>2028</th>
-                            <th>2029</th>
-                            <th>2030</th>
-                            <th>2031</th>
-                            <th>2032</th>
+                            <th>2028</th><th>2029</th><th>2030</th><th>2031</th><th>2032</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -202,7 +178,7 @@ html {
         </div>
 
         <!-- SLIDE 4 : CHARGES & RENTABILITÉ -->
-        <div class="slide" id="caf">
+        <div class="slide" id="charges">
             <h2 data-i18n="t-s4-h2">🔷 SECTIONS 5 & 6 — Charges et Seuil de Rentabilité</h2>
             <p><strong data-i18n="t-s4-p">Charges principales (2028 → 2032) :</strong></p>
             <div class="tc">
@@ -223,187 +199,189 @@ html {
             </div>
         </div>
 
-        <!-- SLIDE 5 : CAF & BÉNÉVOLAT -->
-        <div class="slide" id="charges">
+        <!-- SLIDE 5 : CAF & FLUX & BÉNÉVOLAT -->
+        <div class="slide" id="caf">
             <h2 data-i18n="t-s5-h2">🔷 SECTIONS 7 & 8 — Flux de Trésorerie & Bénévolat</h2>
-<p><strong data-i18n="t-s5-p">Flux de trésorerie — estimations arrondies (2028 → 2032) :</strong></p>
+            <p><strong data-i18n="t-s5-p">Flux de trésorerie — estimations arrondies (2028 → 2032) :</strong></p>
 
-<div class="slide" id="flux">
-    <table>
-        <thead>
-            <tr><th data-i18n="t-s5-th1">Année</th><th data-i18n="t-s5-th2">Entrées (€)</th><th data-i18n="t-s5-th3">Sorties (€)</th><th data-i18n="t-s5-th4">Flux Net (€)</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>2028</td><td data-i18n="t-s5-r1a">12 900 000</td><td data-i18n="t-s5-r1b">10 400 000</td><td class="c-g" data-i18n="t-s5-r1c">+2 500 000</td></tr>
-            <tr><td>2029</td><td data-i18n="t-s5-r2a">15 200 000</td><td data-i18n="t-s5-r2b">11 900 000</td><td class="c-g" data-i18n="t-s5-r2c">+3 300 000</td></tr>
-            <tr><td>2030</td><td data-i18n="t-s5-r3a">17 800 000</td><td data-i18n="t-s5-r3b">13 400 000</td><td class="c-g" data-i18n="t-s5-r3c">+4 400 000</td></tr>
-            <tr><td>2031</td><td data-i18n="t-s5-r4a">20 300 000</td><td data-i18n="t-s5-r4b">14 900 000</td><td class="c-g" data-i18n="t-s5-r4c">+5 400 000</td></tr>
-            <tr><td>2032</td><td data-i18n="t-s5-r5a">22 700 000</td><td data-i18n="t-s5-r5b">16 300 000</td><td class="c-g" data-i18n="t-s5-r5c">+6 400 000</td></tr>
-        </tbody>
-    </table>
-</div>
+            <div id="flux" style="scroll-margin-top: 140px;">
+                <div class="tc">
+                    <table>
+                        <thead>
+                            <tr><th data-i18n="t-s5-th1">Année</th><th data-i18n="t-s5-th2">Entrées (€)</th><th data-i18n="t-s5-th3">Sorties (€)</th><th data-i18n="t-s5-th4">Flux Net (€)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>2028</td><td data-i18n="t-s5-r1a">12 900 000</td><td data-i18n="t-s5-r1b">10 400 000</td><td class="tg" data-i18n="t-s5-r1c">+2 500 000</td></tr>
+                            <tr><td>2029</td><td data-i18n="t-s5-r2a">15 200 000</td><td data-i18n="t-s5-r2b">11 900 000</td><td class="tg" data-i18n="t-s5-r2c">+3 300 000</td></tr>
+                            <tr><td>2030</td><td data-i18n="t-s5-r3a">17 800 000</td><td data-i18n="t-s5-r3b">13 400 000</td><td class="tg" data-i18n="t-s5-r3c">+4 400 000</td></tr>
+                            <tr><td>2031</td><td data-i18n="t-s5-r4a">20 300 000</td><td data-i18n="t-s5-r4b">14 900 000</td><td class="tg" data-i18n="t-s5-r4c">+5 400 000</td></tr>
+                            <tr><td>2032</td><td data-i18n="t-s5-r5a">22 700 000</td><td data-i18n="t-s5-r5b">16 300 000</td><td class="tg" data-i18n="t-s5-r5c">+6 400 000</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-<div class="box-h" style="margin-top:20px;" data-i18n="t-s5-box1">
-    CAF Cumulée (2028–2032) : <strong>22 379 674 €</strong>
-</div>
-<div class="note-w" data-i18n="t-s5-note">Flux de trésorerie présentés en valeurs arrondies ; ils constituent un indicateur distinct de la CAF.</div>
-<h3 style="margin-top:30px;" data-i18n="t-s5-h3">Bénévolat &amp; Impact Social</h3>
-<p data-i18n="t-s5-p2">Le projet ComPacte Occitanie intègre une forte dimension sociale et territoriale.</p>
+            <div class="box-h" style="margin-top:20px;" data-i18n="t-s5-box1">
+                CAF Cumulée (2028–2032) : <strong>22 379 674 €</strong>
+            </div>
+            <div class="note-w" data-i18n="t-s5-note">Flux de trésorerie présentés en valeurs arrondies ; ils constituent un indicateur distinct de la CAF.</div>
+            
+            <div id="benevolat" style="scroll-margin-top: 140px; margin-top:30px;">
+                <h3 data-i18n="t-s5-h3">Bénévolat &amp; Impact Social</h3>
+                <p data-i18n="t-s5-p2">Le projet ComPacte Occitanie intègre une forte dimension sociale et territoriale.</p>
 
-<div class="slide" id="benevolat">
-    <table>
-        <thead>
-            <tr><th data-i18n="t-s5b-th1">Indicateur</th><th data-i18n="t-s5b-th2">Valeur annuelle</th></tr>
-        </thead>
-        <tbody>
-            <tr><td data-i18n="t-s5b-r0">Bénévoles mobilisés</td><td class="tb" data-i18n="t-s5b-r0v">200 à 250 personnes</td></tr>
-            <tr><td data-i18n="t-s5b-r1">Heures de bénévolat estimées</td><td class="tb" data-i18n="t-s5b-r1v">83 200 à 156 000 h/an</td></tr>
-            <tr><td data-i18n="t-s5b-r2">Valorisation économique estimative</td><td class="tb" data-i18n="t-s5b-r2v">998 400 € – 1 872 000 €</td></tr>
-            <tr><td data-i18n="t-s5b-r3">Partenaires associatifs impliqués</td><td class="tb" data-i18n="t-s5b-r3v">8 structures locales</td></tr>
-            <tr><td data-i18n="t-s5b-r4">Bénéficiaires directs</td><td class="tb" data-i18n="t-s5b-r4v">300 – 500 personnes / an</td></tr>
-        </tbody>
-    </table>
-    <div class="note-w" data-i18n="t-s5b-note">Indicateur d'impact social et économique, non inclus dans le chiffre d'affaires. Estimation fondée sur le nombre de bénévoles et le volume annuel de mobilisation prévu.</div>
-</div>
+                <div class="tc">
+                    <table>
+                        <thead>
+                            <tr><th data-i18n="t-s5b-th1">Indicateur</th><th data-i18n="t-s5b-th2">Valeur annuelle</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td data-i18n="t-s5b-r0">Bénévoles mobilisés</td><td class="tb" data-i18n="t-s5b-r0v">200 à 250 personnes</td></tr>
+                            <tr><td data-i18n="t-s5b-r1">Heures de bénévolat estimées</td><td class="tb" data-i18n="t-s5b-r1v">83 200 à 156 000 h/an</td></tr>
+                            <tr><td data-i18n="t-s5b-r2">Valorisation économique estimative</td><td class="tb" data-i18n="t-s5b-r2v">998 400 € – 1 872 000 €</td></tr>
+                            <tr><td data-i18n="t-s5b-r3">Partenaires associatifs impliqués</td><td class="tb" data-i18n="t-s5b-r3v">8 structures locales</td></tr>
+                            <tr><td data-i18n="t-s5b-r4">Bénéficiaires directs</td><td class="tb" data-i18n="t-s5b-r4v">300 – 500 personnes / an</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="note-w" data-i18n="t-s5b-note">Indicateur d'impact social et économique, non inclus dans le chiffre d'affaires. Estimation fondée sur le nombre de bénévoles et le volume annuel de mobilisation prévu.</div>
+            </div>
 
-<div class="box-h" style="margin-top:20px;" data-i18n="t-s5b-box">
-    Impact RSE : Inclusion, sport pour tous, renforcement territorial.
-</div>
-<div class="slide" id="benevolat2">
-    <h2 data-i18n="t-s9-h2">◆ SECTION 9 — Impact Économique Régional</h2>
-    <p data-i18n="t-s9-p">ComPacte Occitanie pourrait contribuer à l'activité économique et à l'attractivité de la Métropole de Toulouse,
-    combinant création d'emplois, retombées fiscales et attractivité territoriale.</p>
+            <div class="box-h" style="margin-top:20px;" data-i18n="t-s5b-box">
+                Impact RSE : Inclusion, sport pour tous, renforcement territorial.
+            </div>
+        </div>
 
-    <h3 data-i18n="t-s9-h3a">Emplois créés</h3>
-    <div class="tc">
-        <table>
-            <thead>
-                <tr><th data-i18n="t-s9-th1">Catégorie</th><th data-i18n="t-s9-th2">Volume annuel</th></tr>
-            </thead>
-            <tbody>
-                <tr><td data-i18n="t-s9-r1">Emplois directs</td><td class="tb" data-i18n="t-s9-r1v">Jusqu'à 250 emplois directs à terme</td></tr>
-                <tr><td data-i18n="t-s9-r2">Bénévoles mobilisés</td><td class="tb" data-i18n="t-s9-r2v">200 à 250 personnes</td></tr>
-                <tr><td data-i18n="t-s9-r3">Emplois indirects (prestataires, services)</td><td class="tb" data-i18n="t-s9-r3v">120 à 180 postes</td></tr>
-                <tr><td data-i18n="t-s9-r4">Emplois induits (hébergement, restauration, tourisme)</td><td class="tb" data-i18n="t-s9-r4v">80 à 120 postes</td></tr>
-            </tbody>
-        </table>
+        <!-- SLIDE 6 : IMPACT ÉCONOMIQUE -->
+        <div class="slide" id="impact">
+            <h2 data-i18n="t-s9-h2">◆ SECTION 9 — Impact Économique Régional</h2>
+            <p data-i18n="t-s9-p">ComPacte Occitanie pourrait contribuer à l'activité économique et à l'attractivité de la Métropole de Toulouse, combinant création d'emplois, retombées fiscales et attractivité territoriale.</p>
+
+            <h3 data-i18n="t-s9-h3a">Emplois créés</h3>
+            <div class="tc">
+                <table>
+                    <thead>
+                        <tr><th data-i18n="t-s9-th1">Catégorie</th><th data-i18n="t-s9-th2">Volume annuel</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td data-i18n="t-s9-r1">Emplois directs</td><td class="tb" data-i18n="t-s9-r1v">Jusqu'à 250 emplois directs à terme</td></tr>
+                        <tr><td data-i18n="t-s9-r2">Bénévoles mobilisés</td><td class="tb" data-i18n="t-s9-r2v">200 à 250 personnes</td></tr>
+                        <tr><td data-i18n="t-s9-r3">Emplois indirects (prestataires, services)</td><td class="tb" data-i18n="t-s9-r3v">120 à 180 postes</td></tr>
+                        <tr><td data-i18n="t-s9-r4">Emplois induits (hébergement, restauration, tourisme)</td><td class="tb" data-i18n="t-s9-r4v">80 à 120 postes</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box-h" style="margin-top:20px;" data-i18n="t-s9-box1">
+                Impact humain total à maturité : <strong>650 à 800 personnes</strong> mobilisées chaque année, dont jusqu'à 250 emplois directs.
+            </div>
+
+            <h3 data-i18n="t-s9-h3b">Retombées fiscales &amp; économiques</h3>
+            <p data-i18n="t-s9-pb">Le complexe pourrait générer des retombées fiscales et économiques significatives pour le territoire :</p>
+
+            <div class="tc">
+                <table>
+                    <thead>
+                        <tr><th data-i18n="t-s9-th3">Flux économique</th><th data-i18n="t-s9-th4">Estimation annuelle</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td data-i18n="t-s9-r5">Taxes locales &amp; contributions</td><td class="tb" data-i18n="t-s9-r5v">1,8 M€ – 2,4 M€</td></tr>
+                        <tr><td data-i18n="t-s9-r6">Dépenses des visiteurs</td><td class="tb" data-i18n="t-s9-r6v">12 M€ – 18 M€</td></tr>
+                        <tr><td data-i18n="t-s9-r7">Effet sur l'hôtellerie &amp; restauration</td><td class="tb" data-i18n="t-s9-r7v">4,5 M€ – 6,2 M€</td></tr>
+                        <tr><td data-i18n="t-s9-r8">Effet sur les transports &amp; mobilité</td><td class="tb" data-i18n="t-s9-r8v">1,1 M€ – 1,6 M€</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box-h" style="margin-top:20px;" data-i18n="t-s9-box2">
+                Estimation des retombées économiques globales : <strong>19 M€ – 28 M€ / an</strong> pour le territoire.
+            </div>
+
+            <h3 data-i18n="t-s9-h3c">Attractivité territoriale</h3>
+            <p data-i18n="t-s9-pc">ComPacte Occitanie pourrait contribuer à renforcer l'attractivité sportive, touristique et événementielle de la Métropole. Le projet est conçu pour pouvoir accueillir notamment :</p>
+
+            <ul style="margin-left:20px; color:#475569; line-height:1.6;">
+                <li data-i18n="t-s9-li1">Les compétitions nationales et internationales</li>
+                <li data-i18n="t-s9-li2">Le tourisme sportif et familial</li>
+                <li data-i18n="t-s9-li3">Les stages, séminaires et événements d'entreprise</li>
+                <li data-i18n="t-s9-li4">Les politiques publiques sport / jeunesse / inclusion</li>
+                <li data-i18n="t-s9-li5">Les partenariats associatifs et éducatifs</li>
+            </ul>
+
+            <div class="box-h" style="margin-top:20px;" data-i18n="t-s9-box3">
+                ComPacte Occitanie : un projet contribuant à l'attractivité sportive, touristique et économique du territoire.
+            </div>
+        </div>
+
+        <!-- SLIDE 7 : SYNTHÈSE INVESTISSEUR -->
+        <div class="slide" id="synthese">
+            <h2 data-i18n="t-s11-h2">◆ SECTION 11 — Synthèse Investisseur</h2>
+            <p data-i18n="t-s11-p">ComPacte Occitanie se positionne comme un investissement structurant, durable et territorialement stratégique. Le projet combine performance économique, impact social et attractivité métropolitaine.</p>
+
+            <h3 data-i18n="t-s11-h3a">Résumé stratégique</h3>
+            <div class="tc">
+                <table>
+                    <thead>
+                        <tr><th data-i18n="t-s11-th1">Dimension</th><th data-i18n="t-s11-th2">Éléments clés</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td data-i18n="t-s11-r1">Modèle économique</td><td class="tb" data-i18n="t-s11-r1v">Croissance continue du CA (12,96 M€ → 22,75 M€)</td></tr>
+                        <tr><td data-i18n="t-s11-r2">Rentabilité</td><td class="tb" data-i18n="t-s11-r2v">Seuil de rentabilité franchi dès l'année 1 (2028)</td></tr>
+                        <tr><td data-i18n="t-s11-r3">CAF cumulée</td><td class="tb" data-i18n="t-s11-r3v">22,38 M€ sur 5 ans</td></tr>
+                        <tr><td data-i18n="t-s11-r4">Impact humain territorial</td><td class="tb" data-i18n="t-s11-r4v">650–800 personnes mobilisées/an à maturité, dont jusqu'à 250 emplois directs</td></tr>
+                        <tr><td data-i18n="t-s11-r5">RSE &amp; bénévolat</td><td class="tb" data-i18n="t-s11-r5v">200 à 250 bénévoles — valorisation 1,0 à 1,87 M€/an</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 data-i18n="t-s11-h3b">Horizon de retour sur investissement</h3>
+            <p data-i18n="t-s11-pb">Le projet présente un horizon de retour estimatif pour un actif métropolitain multiservices :</p>
+
+            <div class="tc">
+                <table>
+                    <thead>
+                        <tr><th data-i18n="t-s11-th3">Indicateur</th><th data-i18n="t-s11-th4">Valeur</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td data-i18n="t-s11-r6">Investissement initial</td><td class="tb" data-i18n="t-s11-r6v">75,13 M€</td></tr>
+                        <tr><td data-i18n="t-s11-r7">Horizon de retour estimé</td><td class="tb" data-i18n="t-s11-r7v">12 à 14 ans</td></tr>
+                        <tr><td data-i18n="t-s11-r7c">Indicateur central (CAF 2032)</td><td class="tg" data-i18n="t-s11-r7cv">≈ 13,1 ans</td></tr>
+                        <tr><td data-i18n="t-s11-r8">EBE (2032)</td><td class="tb" data-i18n="t-s11-r8v">6,96 M€</td></tr>
+                        <tr><td data-i18n="t-s11-r8b">Résultat d'exploitation (2032)</td><td class="tb" data-i18n="t-s11-r8bv">4,62 M€</td></tr>
+                        <tr><td data-i18n="t-s11-r9">Résultat net (2032)</td><td class="tb" data-i18n="t-s11-r9v">3,41 M€</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="note-w" data-i18n="t-s11-roinote">Méthode indicative de calcul : investissement initial de 75,13 M€ rapporté à la CAF de l'année de maturité 2032 (5,75 M€), soit environ 13,1 ans. Cet indicateur constitue un horizon de retour estimatif fondé sur les hypothèses du prévisionnel, et non un ROI au sens financier complet.</div>
+
+            <div class="box-h" style="margin-top:20px;" data-i18n="t-s11-box1">
+                Cet horizon de retour est notamment soutenu par la diversification des revenus, la croissance du marché sportif et l'attractivité de la Métropole de Toulouse.
+            </div>
+
+            <h3 data-i18n="t-s11-h3c">Risk Management Framework</h3>
+            <div class="tc">
+                <table>
+                    <thead>
+                        <tr><th data-i18n="t-s11-rth1">Risque</th><th data-i18n="t-s11-rth2">Mitigation</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td data-i18n="t-s11-rr1">Construction / CAPEX</td><td class="tb" data-i18n="t-s11-rr1v">Contrat constructeur + contrôle des coûts</td></tr>
+                        <tr><td data-i18n="t-s11-rr2">Montée en charge de l'activité</td><td class="tb" data-i18n="t-s11-rr2v">Scénarios prudent / base / optimiste</td></tr>
+                        <tr><td data-i18n="t-s11-rr3">Hôtel</td><td class="tb" data-i18n="t-s11-rr3v">Étude RevPAR / taux d'occupation</td></tr>
+                        <tr><td data-i18n="t-s11-rr4">Financement</td><td class="tb" data-i18n="t-s11-rr4v">Dette bancaire limitée + suivi DSCR</td></tr>
+                        <tr><td data-i18n="t-s11-rr5">Liquidité (comptes courants)</td><td class="tb" data-i18n="t-s11-rr5v">Réserve de trésorerie + waterfall</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="margin-top:15px; font-weight:500; color:#1e293b;" data-i18n="t-s11-territ">Positionnement territorial fort (Toulouse, 4ᵉ commune de France par sa population).</p>
+
+            <div class="box-h" style="margin-top:20px;" data-i18n="t-s11-box2">
+                Synthèse : un projet structurant, fondé sur un modèle économique prévisionnel positif dès la première année, et aligné avec les politiques publiques sport, jeunesse, inclusion et attractivité territoriale.
+            </div>
+        </div>
+
     </div>
-
-    <div class="box-h" style="margin-top:20px;" data-i18n="t-s9-box1">
-        Impact humain total à maturité : <strong>650 à 800 personnes</strong> mobilisées chaque année, dont jusqu'à 250 emplois directs.
-    </div>
-
-    <h3 data-i18n="t-s9-h3b">Retombées fiscales &amp; économiques</h3>
-    <p data-i18n="t-s9-pb">Le complexe pourrait générer des retombées fiscales et économiques significatives pour le territoire :</p>
-
-    <div class="tc">
-        <table>
-            <thead>
-                <tr><th data-i18n="t-s9-th3">Flux économique</th><th data-i18n="t-s9-th4">Estimation annuelle</th></tr>
-            </thead>
-            <tbody>
-                <tr><td data-i18n="t-s9-r5">Taxes locales &amp; contributions</td><td class="tb" data-i18n="t-s9-r5v">1,8 M€ – 2,4 M€</td></tr>
-                <tr><td data-i18n="t-s9-r6">Dépenses des visiteurs</td><td class="tb" data-i18n="t-s9-r6v">12 M€ – 18 M€</td></tr>
-                <tr><td data-i18n="t-s9-r7">Effet sur l'hôtellerie &amp; restauration</td><td class="tb" data-i18n="t-s9-r7v">4,5 M€ – 6,2 M€</td></tr>
-                <tr><td data-i18n="t-s9-r8">Effet sur les transports &amp; mobilité</td><td class="tb" data-i18n="t-s9-r8v">1,1 M€ – 1,6 M€</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="box-h" style="margin-top:20px;" data-i18n="t-s9-box2">
-        Estimation des retombées économiques globales : <strong>19 M€ – 28 M€ / an</strong> pour le territoire.
-    </div>
-
-    <h3 data-i18n="t-s9-h3c">Attractivité territoriale</h3>
-    <p data-i18n="t-s9-pc">
-        ComPacte Occitanie pourrait contribuer à renforcer l'attractivité sportive, touristique et événementielle
-        de la Métropole. Le projet est conçu pour pouvoir accueillir notamment :
-    </p>
-
-    <ul style="margin-left:20px; color:#475569; line-height:1.6;">
-        <li data-i18n="t-s9-li1">Les compétitions nationales et internationales</li>
-        <li data-i18n="t-s9-li2">Le tourisme sportif et familial</li>
-        <li data-i18n="t-s9-li3">Les stages, séminaires et événements d'entreprise</li>
-        <li data-i18n="t-s9-li4">Les politiques publiques sport / jeunesse / inclusion</li>
-        <li data-i18n="t-s9-li5">Les partenariats associatifs et éducatifs</li>
-    </ul>
-
-    <div class="box-h" style="margin-top:20px;" data-i18n="t-s9-box3">
-        ComPacte Occitanie : un projet contribuant à l'attractivité sportive, touristique et économique du territoire.
-    </div>
-</div>
-<div class="slide" id="impact">
-    <h2 data-i18n="t-s11-h2">◆ SECTION 11 — Synthèse Investisseur</h2>
-    <p data-i18n="t-s11-p">ComPacte Occitanie se positionne comme un investissement structurant, durable et
-    territorialement stratégique. Le projet combine performance économique, impact social
-    et attractivité métropolitaine.</p>
-
-    <h3 data-i18n="t-s11-h3a">Résumé stratégique</h3>
-    <div class="slide" id="synthese">
-        <table>
-            <thead>
-                <tr><th data-i18n="t-s11-th1">Dimension</th><th data-i18n="t-s11-th2">Éléments clés</th></tr>
-            </thead>
-            <tbody>
-                <tr><td data-i18n="t-s11-r1">Modèle économique</td><td class="tb" data-i18n="t-s11-r1v">Croissance continue du CA (12,96 M€ → 22,75 M€)</td></tr>
-                <tr><td data-i18n="t-s11-r2">Rentabilité</td><td class="tb" data-i18n="t-s11-r2v">Seuil de rentabilité franchi dès l'année 1 (2028)</td></tr>
-                <tr><td data-i18n="t-s11-r3">CAF cumulée</td><td class="tb" data-i18n="t-s11-r3v">22,38 M€ sur 5 ans</td></tr>
-                <tr><td data-i18n="t-s11-r4">Impact humain territorial</td><td class="tb" data-i18n="t-s11-r4v">650–800 personnes mobilisées/an à maturité, dont jusqu'à 250 emplois directs</td></tr>
-                <tr><td data-i18n="t-s11-r5">RSE &amp; bénévolat</td><td class="tb" data-i18n="t-s11-r5v">200 à 250 bénévoles — valorisation 1,0 à 1,87 M€/an</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <h3 data-i18n="t-s11-h3b">Horizon de retour sur investissement</h3>
-    <p data-i18n="t-s11-pb">Le projet présente un horizon de retour estimatif pour un actif métropolitain multiservices :</p>
-
-    <div class="tc">
-        <table>
-            <thead>
-                <tr><th data-i18n="t-s11-th3">Indicateur</th><th data-i18n="t-s11-th4">Valeur</th></tr>
-            </thead>
-            <tbody>
-                <tr><td data-i18n="t-s11-r6">Investissement initial</td><td class="tb" data-i18n="t-s11-r6v">75,13 M€</td></tr>
-                <tr><td data-i18n="t-s11-r7">Horizon de retour estimé</td><td class="tb" data-i18n="t-s11-r7v">12 à 14 ans</td></tr>
-                <tr><td data-i18n="t-s11-r7c">Indicateur central (CAF 2032)</td><td class="tg" data-i18n="t-s11-r7cv">≈ 13,1 ans</td></tr>
-                <tr><td data-i18n="t-s11-r8">EBE (2032)</td><td class="tb" data-i18n="t-s11-r8v">6,96 M€</td></tr>
-                <tr><td data-i18n="t-s11-r8b">Résultat d'exploitation (2032)</td><td class="tb" data-i18n="t-s11-r8bv">4,62 M€</td></tr>
-                <tr><td data-i18n="t-s11-r9">Résultat net (2032)</td><td class="tb" data-i18n="t-s11-r9v">3,41 M€</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="note-w" data-i18n="t-s11-roinote">Méthode indicative de calcul : investissement initial de 75,13 M€ rapporté à la CAF de l'année de maturité 2032 (5,75 M€), soit environ 13,1 ans. Cet indicateur constitue un horizon de retour estimatif fondé sur les hypothèses du prévisionnel, et non un ROI au sens financier complet.</div>
-
-    <div class="box-h" style="margin-top:20px;" data-i18n="t-s11-box1">
-        Cet horizon de retour est notamment soutenu par la diversification des revenus, la croissance du marché
-        sportif et l'attractivité de la Métropole de Toulouse.
-    </div>
-
-    <h3 data-i18n="t-s11-h3c">Risk Management Framework</h3>
-    <div class="tc">
-        <table>
-            <thead>
-                <tr><th data-i18n="t-s11-rth1">Risque</th><th data-i18n="t-s11-rth2">Mitigation</th></tr>
-            </thead>
-            <tbody>
-                <tr><td data-i18n="t-s11-rr1">Construction / CAPEX</td><td class="tb" data-i18n="t-s11-rr1v">Contrat constructeur + contrôle des coûts</td></tr>
-                <tr><td data-i18n="t-s11-rr2">Montée en charge de l'activité</td><td class="tb" data-i18n="t-s11-rr2v">Scénarios prudent / base / optimiste</td></tr>
-                <tr><td data-i18n="t-s11-rr3">Hôtel</td><td class="tb" data-i18n="t-s11-rr3v">Étude RevPAR / taux d'occupation</td></tr>
-                <tr><td data-i18n="t-s11-rr4">Financement</td><td class="tb" data-i18n="t-s11-rr4v">Dette bancaire limitée + suivi DSCR</td></tr>
-                <tr><td data-i18n="t-s11-rr5">Liquidité (comptes courants)</td><td class="tb" data-i18n="t-s11-rr5v">Réserve de trésorerie + waterfall</td></tr>
-            </tbody>
-        </table>
-    </div>
-    <p style="margin-top:15px; font-weight:500; color:#1e293b;" data-i18n="t-s11-territ">Positionnement territorial fort (Toulouse, 4ᵉ commune de France par sa population).</p>
-
-    <div class="box-h" style="margin-top:20px;" data-i18n="t-s11-box2">
-        Synthèse : un projet structurant, fondé sur un modèle économique prévisionnel positif dès la première année,
-        et aligné avec les politiques publiques sport, jeunesse, inclusion et attractivité territoriale.
-    </div>
-</div>
-    </div>
-</div>
 </div>
 
 <div class="panel-view" id="view-monde">
@@ -589,131 +567,131 @@ html {
             <div class="box-h">Devenir propriétaire d'un projet Compacte (comme Toulouse) ne signifie pas devenir propriétaire du concept global — les deux périmètres sont distincts et clairement définis.</div>
         </div>
 
-<div class="slide" id="opportunite" style="border-top: 4px solid var(--s);">
-    <div class="badge" style="margin-bottom:15px;">ComPacte Toulouse — L'opportunité d'acquisition</div>
-    <h2 style="border:none; padding-left:0;">Le projet de référence ComPacte</h2>
-    <p>Un actif multisports, loisirs, hôtellerie, restauration, événementiel et impact territorial conçu pour fonctionner 7 jours sur 7.</p>
-    <p style="font-weight:600; color:var(--p);">14 hectares · 25 disciplines · 7 pôles d'activité et de revenus · 120 chambres · 3 restaurants</p>
-</div>
+        <div class="slide" id="opportunite" style="border-top: 4px solid var(--s);">
+            <div class="badge" style="margin-bottom:15px;">ComPacte Toulouse — L'opportunité d'acquisition</div>
+            <h2 style="border:none; padding-left:0;">Le projet de référence ComPacte</h2>
+            <p>Un actif multisports, loisirs, hôtellerie, restauration, événementiel et impact territorial conçu pour fonctionner 7 jours sur 7.</p>
+            <p style="font-weight:600; color:var(--p);">14 hectares · 25 disciplines · 7 pôles d'activité et de revenus · 120 chambres · 3 restaurants</p>
+        </div>
 
-<div class="slide">
-    <h2>1. Ce que vous acquérez / financez</h2>
-    <div class="tc">
-        <table>
-            <tr><th>Poste</th><th>Montant</th></tr>
-            <tr><td>🏞️ Le foncier</td><td class="tg">5,85 M€</td></tr>
-            <tr><td>🏗️ Le complexe</td><td class="tg">64,15 M€</td></tr>
-            <tr><td>🏨 L'hôtel</td><td class="tg">3,60 M€</td></tr>
-            <tr><td>🏋️ Les salles de sport</td><td class="tg">1,53 M€</td></tr>
-            <tr class="hr"><td>Total investissement initial</td><td class="tg">75,1287 M€</td></tr>
-        </table>
-    </div>
-    <p style="font-size:.85rem; color:#64748b; font-style:italic;">Montants actuellement affichés sur le site et dans la présentation investisseurs.</p>
-</div>
+        <div class="slide">
+            <h2>1. Ce que vous acquérez / financez</h2>
+            <div class="tc">
+                <table>
+                    <tr><th>Poste</th><th>Montant</th></tr>
+                    <tr><td>🏞️ Le foncier</td><td class="tg">5,85 M€</td></tr>
+                    <tr><td>🏗️ Le complexe</td><td class="tg">64,15 M€</td></tr>
+                    <tr><td>🏨 L'hôtel</td><td class="tg">3,60 M€</td></tr>
+                    <tr><td>🏋️ Les salles de sport</td><td class="tg">1,53 M€</td></tr>
+                    <tr class="hr"><td>Total investissement initial</td><td class="tg">75,1287 M€</td></tr>
+                </table>
+            </div>
+            <p style="font-size:.85rem; color:#64748b; font-style:italic;">Montants actuellement affichés sur le site et dans la présentation investisseurs.</p>
+        </div>
 
-<div class="slide">
-    <h2>2. Ce que vous exploitez</h2>
-    <p>Une fois réalisé, ComPacte Toulouse regroupe :</p>
-    <ul class="bl">
-        <li>Sport — 25 disciplines</li>
-        <li>Hôtellerie — 120 chambres</li>
-        <li>Restauration — 3 restaurants</li>
-        <li>Événements — esplanade, concerts, festivals</li>
-        <li>Loisirs — bowling, cinéma, médiathèque</li>
-        <li>Entreprises — séminaires, réunions, coworking</li>
-        <li>Ferme — 2 hectares, circuits courts</li>
-        <li>Santé — Maison Sport Santé</li>
-    </ul>
-</div>
+        <div class="slide">
+            <h2>2. Ce que vous exploitez</h2>
+            <p>Une fois réalisé, ComPacte Toulouse regroupe :</p>
+            <ul class="bl">
+                <li>Sport — 25 disciplines</li>
+                <li>Hôtellerie — 120 chambres</li>
+                <li>Restauration — 3 restaurants</li>
+                <li>Événements — esplanade, concerts, festivals</li>
+                <li>Loisirs — bowling, cinéma, médiathèque</li>
+                <li>Entreprises — séminaires, réunions, coworking</li>
+                <li>Ferme — 2 hectares, circuits courts</li>
+                <li>Santé — Maison Sport Santé</li>
+            </ul>
+        </div>
 
-<div class="slide">
-    <h2>3. Le modèle économique — ≈ 20 M€ de CA annuel cible</h2>
-    <div class="tc">
-        <table>
-            <tr><th>Activité</th><th>CA cible</th></tr>
-            <tr><td>Sports & abonnements</td><td class="tb">8,0 M€</td></tr>
-            <tr><td>Hôtel</td><td class="tb">4,5 M€</td></tr>
-            <tr><td>Restauration</td><td class="tb">3,0 M€</td></tr>
-            <tr><td>Événements & concerts</td><td class="tb">2,0 M€</td></tr>
-            <tr><td>Bowling / cinéma / médiathèque</td><td class="tb">1,2 M€</td></tr>
-            <tr><td>Partenariats & entreprises</td><td class="tb">1,0 M€</td></tr>
-            <tr><td>Ferme / boutique / drive</td><td class="tb">0,3 M€</td></tr>
-            <tr class="hr"><td>Total</td><td class="tg">≈ 20 M€</td></tr>
-        </table>
-    </div>
-    <div class="note-w">Aucune source ne représente plus de 40% du CA — un argument de diversification du modèle.</div>
-</div>
+        <div class="slide">
+            <h2>3. Le modèle économique — ≈ 20 M€ de CA annuel cible</h2>
+            <div class="tc">
+                <table>
+                    <tr><th>Activité</th><th>CA cible</th></tr>
+                    <tr><td>Sports &amp; abonnements</td><td class="tb">8,0 M€</td></tr>
+                    <tr><td>Hôtel</td><td class="tb">4,5 M€</td></tr>
+                    <tr><td>Restauration</td><td class="tb">3,0 M€</td></tr>
+                    <tr><td>Événements &amp; concerts</td><td class="tb">2,0 M€</td></tr>
+                    <tr><td>Bowling / cinéma / médiathèque</td><td class="tb">1,2 M€</td></tr>
+                    <tr><td>Partenariats &amp; entreprises</td><td class="tb">1,0 M€</td></tr>
+                    <tr><td>Ferme / boutique / drive</td><td class="tb">0,3 M€</td></tr>
+                    <tr class="hr"><td>Total</td><td class="tg">≈ 20 M€</td></tr>
+                </table>
+            </div>
+            <div class="note-w">Aucune source ne représente plus de 40% du CA — un argument de diversification du modèle.</div>
+        </div>
 
-<div class="slide">
-    <h2>4. La performance prévisionnelle</h2>
-    <div class="tc">
-        <table>
-            <tr><th>Indicateur</th><th>2028</th><th>2032</th></tr>
-            <tr><td>CA</td><td>12,96 M€</td><td class="tg">22,75 M€</td></tr>
-            <tr><td>EBE</td><td>3,85 M€</td><td class="tg">6,96 M€</td></tr>
-            <tr><td>Résultat d'exploitation</td><td>1,51 M€</td><td class="tg">4,62 M€</td></tr>
-            <tr><td>Résultat net</td><td>1,05 M€</td><td class="tg">3,41 M€</td></tr>
-        </table>
-    </div>
-    <div class="box-h">CAF cumulée : 22,38 M€ sur 5 ans.</div>
-</div>
+        <div class="slide">
+            <h2>4. La performance prévisionnelle</h2>
+            <div class="tc">
+                <table>
+                    <tr><th>Indicateur</th><th>2028</th><th>2032</th></tr>
+                    <tr><td>CA</td><td>12,96 M€</td><td class="tg">22,75 M€</td></tr>
+                    <tr><td>EBE</td><td>3,85 M€</td><td class="tg">6,96 M€</td></tr>
+                    <tr><td>Résultat d'exploitation</td><td>1,51 M€</td><td class="tg">4,62 M€</td></tr>
+                    <tr><td>Résultat net</td><td>1,05 M€</td><td class="tg">3,41 M€</td></tr>
+                </table>
+            </div>
+            <div class="box-h">CAF cumulée : 22,38 M€ sur 5 ans.</div>
+        </div>
 
-<div class="slide">
-    <h2>5. Point d'attention — deux chiffres, deux périmètres</h2>
-    <div class="tc">
-        <table>
-            <tr><th>Montant</th><th>Signification</th></tr>
-            <tr><td class="tg">75,1287 M€</td><td>Investissement initial du projet Toulouse</td></tr>
-            <tr><td class="tg">≈ 80 M€</td><td>Enveloppe globale de l'opération envisagée, incluant les éléments complémentaires prévus dans la négociation et la documentation contractuelle</td></tr>
-        </table>
-    </div>
-    <div class="note-w">Le montant de l'investissement Toulouse ne constitue pas, à lui seul, un prix d'acquisition du concept ComPacte.</div>
-</div>
+        <div class="slide">
+            <h2>5. Point d'attention — deux chiffres, deux périmètres</h2>
+            <div class="tc">
+                <table>
+                    <tr><th>Montant</th><th>Signification</th></tr>
+                    <tr><td class="tg">75,1287 M€</td><td>Investissement initial du projet Toulouse</td></tr>
+                    <tr><td class="tg">≈ 80 M€</td><td>Enveloppe globale de l'opération envisagée, incluant les éléments complémentaires prévus dans la négociation et la documentation contractuelle</td></tr>
+                </table>
+            </div>
+            <div class="note-w">Le montant de l'investissement Toulouse ne constitue pas, à lui seul, un prix d'acquisition du concept ComPacte.</div>
+        </div>
 
-<div class="slide">
-    <h2>6. Votre rôle dans l'opération — Philippe Bru, porteur du projet</h2>
-    <ul class="bl">
-        <li>A — Philippe reste PDG : mandat et rémunération à définir séparément</li>
-        <li>B — Philippe accompagne la transition : mission et durée à définir</li>
-        <li>C — Philippe quitte la direction : les conditions de sortie sont définies séparément</li>
-    </ul>
-    <div class="box-h">Le choix du rôle futur de Philippe Bru est distinct de l'investissement et de l'acquisition du projet Toulouse.</div>
-</div>
+        <div class="slide">
+            <h2>6. Votre rôle dans l'opération — Philippe Bru, porteur du projet</h2>
+            <ul class="bl">
+                <li>A — Philippe reste PDG : mandat et rémunération à définir séparément</li>
+                <li>B — Philippe accompagne la transition : mission et durée à définir</li>
+                <li>C — Philippe quitte la direction : les conditions de sortie sont définies séparément</li>
+            </ul>
+            <div class="box-h">Le choix du rôle futur de Philippe Bru est distinct de l'investissement et de l'acquisition du projet Toulouse.</div>
+        </div>
 
-<div class="slide">
-    <h2>7. La question de la propriété</h2>
-    <div class="tc">
-        <table>
-            <tr><th>Périmètre</th><th>Contenu</th><th>Statut</th></tr>
-            <tr><td>Ce qui concerne Toulouse</td><td>Projet / actifs / exploitation / structure juridique</td><td class="tb">À négocier avec les investisseurs</td></tr>
-            <tr><td>Ce qui est distinct</td><td>Concept ComPacte / propriété intellectuelle / développement futur</td><td class="tb">Droits à définir séparément</td></tr>
-        </table>
-    </div>
-    <div class="box-h">Disque dur = concept ComPacte. Logiciels = projets ComPacte.</div>
-</div>
+        <div class="slide">
+            <h2>7. La question de la propriété</h2>
+            <div class="tc">
+                <table>
+                    <tr><th>Périmètre</th><th>Contenu</th><th>Statut</th></tr>
+                    <tr><td>Ce qui concerne Toulouse</td><td>Projet / actifs / exploitation / structure juridique</td><td class="tb">À négocier avec les investisseurs</td></tr>
+                    <tr><td>Ce qui est distinct</td><td>Concept ComPacte / propriété intellectuelle / développement futur</td><td class="tb">Droits à définir séparément</td></tr>
+                </table>
+            </div>
+            <div class="box-h">Disque dur = concept ComPacte. Logiciels = projets ComPacte.</div>
+        </div>
 
-<div class="slide">
-    <h2>8. Vous choisissez le périmètre — quelle est votre ambition ?</h2>
-    <ul class="bl">
-        <li>① Toulouse — je souhaite investir / acquérir / développer ComPacte Toulouse</li>
-        <li>② Plusieurs projets — je souhaite développer plusieurs implantations ComPacte</li>
-        <li>③ Droits plus larges — je souhaite discuter de droits élargis sur le concept ComPacte</li>
-    </ul>
-    <div class="box-h">Chaque niveau fait l'objet d'une négociation spécifique.</div>
-</div>
+        <div class="slide">
+            <h2>8. Vous choisissez le périmètre — quelle est votre ambition ?</h2>
+            <ul class="bl">
+                <li>① Toulouse — je souhaite investir / acquérir / développer ComPacte Toulouse</li>
+                <li>② Plusieurs projets — je souhaite développer plusieurs implantations ComPacte</li>
+                <li>③ Droits plus larges — je souhaite discuter de droits élargis sur le concept ComPacte</li>
+            </ul>
+            <div class="box-h">Chaque niveau fait l'objet d'une négociation spécifique.</div>
+        </div>
 
-<div class="slide" style="text-align:center; border-top: 4px solid var(--s);">
-    <h2 style="border:none; padding-left:0; justify-content:center;">À vous de définir votre projet</h2>
-    <p>ComPacte Toulouse est prêt à entrer dans une phase de structuration avec un investisseur stratégique.</p>
-    <p style="font-weight:600; color:var(--p);">
-        Le foncier est identifié.<br>
-        Le modèle économique est documenté.<br>
-        Le programme est défini.<br>
-        Les prévisions financières sont établies.
-    </p>
-    <p>La prochaine étape consiste à définir ensemble le périmètre de l'opération, la structure de propriété, la gouvernance et les conditions d'investissement.</p>
-    <p style="font-size:1.15rem; font-weight:700; color:var(--s); margin-top:20px;">Le projet est structuré. Il reste à définir avec vous la forme de l'opération.</p>
-</div>
+        <div class="slide" style="text-align:center; border-top: 4px solid var(--s);">
+            <h2 style="border:none; padding-left:0; justify-content:center;">À vous de définir votre projet</h2>
+            <p>ComPacte Toulouse est prêt à entrer dans une phase de structuration avec un investisseur stratégique.</p>
+            <p style="font-weight:600; color:var(--p);">
+                Le foncier est identifié.<br>
+                Le modèle économique est documenté.<br>
+                Le programme est défini.<br>
+                Les prévisions financières sont établies.
+            </p>
+            <p>La prochaine étape consiste à définir ensemble le périmètre de l'opération, la structure de propriété, la gouvernance et les conditions d'investissement.</p>
+            <p style="font-size:1.15rem; font-weight:700; color:var(--s); margin-top:20px;">Le projet est structuré. Il reste à définir avec vous la forme de l'opération.</p>
+        </div>
 
     </div>
 </div>
@@ -726,8 +704,7 @@ function showTab(tab) {
   document.getElementById('btn-monde').classList.toggle('active', tab === 'monde');
   window.scrollTo(0, 0);
 }
-</script>
-<script>
+
 const EN = {
   "mo-ip-h2": "The ComPacte concept and its intellectual property",
   "mo-ip-p1": "<strong>Philippe Bru — Founder and Lead</strong> of the ComPacte concept: know-how, model architecture, customer experience, 7-revenue-stream business model, technologies, brand identity and standards.",
@@ -901,7 +878,7 @@ function toggleLang(){
     const key = el.getAttribute('data-i18n');
     if(currentLang === 'en' && EN[key] !== undefined){
       el.innerHTML = EN[key];
-    } else {
+    } else if (ORIG[key] !== undefined) {
       el.innerHTML = ORIG[key];
     }
   });
