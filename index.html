@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="t-title">ComPacte Occitanie — Book Investisseur</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --p: #0f172a; --s: #10b981; --a: #ef4444; --bg: #f8fafc; --c: #ffffff; --t: #334155; --b: #e2e8f0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg); color: var(--t); padding-bottom: 50px; }
+        header { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #fff; padding: 50px 20px; text-align: center; border-bottom: 4px solid var(--s); }
+        .badge { background: var(--a); padding: 6px 16px; font-size: .8rem; font-weight: 700; border-radius: 20px; display: inline-block; margin-bottom: 15px; text-transform: uppercase; }
+        h1 { font-size: 2.2rem; margin-bottom: 5px; font-weight: 700; }
+        .container { max-width: 950px; margin: 0 auto; padding: 0 20px; }
+        .grid-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; margin-top: -30px; margin-bottom: 20px; }
+        .card-kpi { background: var(--c); padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--p); }
+        .card-kpi.h { border-top-color: var(--s); }
+        .card-kpi .v { font-size: 1.5rem; font-weight: 700; color: var(--p); }
+        .card-kpi.h .v { color: var(--s); }
+        .card-kpi .l { font-size: .8rem; color: #64748b; font-weight: 500; margin-top: 5px; }
+        .slide { background: var(--c); padding: 40px; margin-top: 40px; border-radius: 16px; border: 1px solid var(--b); box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        h2 { color: var(--p); margin-bottom: 20px; font-size: 1.4rem; border-left: 5px solid var(--s); padding-left: 12px; letter-spacing: -0.02em; }
+        h3 { color: var(--p); margin: 25px 0 10px 0; font-size: 1.15rem; font-weight: 600; }
+        p { margin-bottom: 15px; color: #475569; }
+        .tc { overflow-x: auto; margin: 15px 0; border: 1px solid var(--b); border-radius: 8px; }
+        table { width: 100%; border-collapse: collapse; font-size: .95rem; text-align: left; }
+        th { background: #1e293b; color: #fff; padding: 12px 14px; font-weight: 600; }
+        td { padding: 12px 14px; border-bottom: 1px solid var(--b); }
+        tr:last-child td { border-bottom: none; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+        .tg { color: var(--s); font-weight: 700; }
+        .tb { font-weight: 600; color: var(--p); }
+        .hr { background-color: #f0fdf4 !important; font-weight: 700; }
+        .bl { list-style: none; margin: 15px 0; }
+        .bl li { background: #f8fafc; padding: 12px; border-left: 4px solid #475569; margin-bottom: 8px; border-radius: 0 6px 6px 0; font-weight: 600; }
+        .bl.gl li { border-left-color: var(--s); }
+        footer { text-align: center; padding: 40px; color: #64748b; font-size: .9rem; border-top: 1px solid var(--b); margin-top: 50px; }
+        footer a { color: var(--s); text-decoration: none; font-weight: 600; }
+        .box-h { background-color: #eff6ff; border-left: 4px solid #3b82f6; padding: 15px; border-radius: 4px; font-weight: 600; color: #1e40af; }
+        .note-w { background-color: #fffbeb; border-left: 4px solid #f59e0b; padding: 12px 15px; border-radius: 4px; font-size: .85rem; color: #92400e; margin-top: 10px; }
+
+.nav-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: #0f172a;
+    padding: 12px 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-bottom: 3px solid #10b981;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.slide {
+  scroll-margin-top: 120px;
+}
+
+.nav-sticky a {
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.nav-sticky a:hover {
+    color: #10b981;
+}
+
+#lang-toggle {
+    background: transparent;
+    border: 1.5px solid #10b981;
+    color: #10b981;
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    letter-spacing: .03em;
+    margin-left: 6px;
+}
+#lang-toggle:hover {
+    background: #10b981;
+    color: #0f172a;
+}
+.panel-view { display: none; }
+.panel-view.active { display: block; }
+.nav-sticky a.active { color: #10b981; }
+
+</style>
+
+</head>
+<body>
+<nav class="nav-sticky">
+    <a href="presentation.html" target="_blank">ComPacte</a>
+    <a href="#" id="btn-france" onclick="showTab('france'); return false;" class="active">France</a>
+    <a href="#" id="btn-monde" onclick="showTab('monde'); return false;">Monde</a>
+    <a href="#financement" onclick="goToSection('financement'); return false;" data-i18n="t-nav-financement">Financement</a>
+    <a href="#charges" onclick="goToSection('charges'); return false;" data-i18n="t-nav-charges">Charges</a>
+    <a href="#caf" onclick="goToSection('caf'); return false;" data-i18n="t-nav-caf">CAF</a>
+    <a href="#flux" onclick="goToSection('flux'); return false;" data-i18n="t-nav-flux">Flux Trésorerie</a>
+    <a href="#benevolat" onclick="goToSection('benevolat'); return false;" data-i18n="t-nav-benevolat">Bénévolat</a>
+    <a href="#impact" onclick="goToSection('impact'); return false;" data-i18n="t-nav-impact">Impact Économique</a>
+    <a href="#synthese" onclick="goToSection('synthese'); return false;" data-i18n="t-nav-synthese">Synthèse</a>
+    <button id="lang-toggle" onclick="toggleLang()">EN</button>
+</nav>
+
+<div class="panel-view active" id="view-france">
+    <header>
+        <div class="badge" data-i18n="t-badge">Document Confidentiel — Investisseurs Qualifiés</div>
+        <h1>ComPacte Occitanie</h1>
+        <p data-i18n="t-header-p">Un concept inédit de complexe multisports de destination — Métropole de Toulouse</p>
+    </header>
+
+    <div class="container">
+
+        <!-- MODULE BANNIÈRE & KPIS -->
+        <div class="grid-kpis">
+            <div class="card-kpi"><div class="v" data-i18n="t-kpi1-v">75 128 700 €</div><div class="l" data-i18n="t-kpi1-l">Investissement initial</div></div>
+            <div class="card-kpi h"><div class="v" data-i18n="t-kpi2-v">22 379 674 €</div><div class="l" data-i18n="t-kpi2-l">CAF Cumulée (5 ans)</div></div>
+            <div class="card-kpi"><div class="v" data-i18n="t-kpi3-v">12 à 14 ans</div><div class="l" data-i18n="t-kpi3-l">Horizon de retour estimatif</div></div>
+            <div class="card-kpi h"><div class="v" data-i18n="t-kpi4-v">Dès l'Année 1 (2028)</div><div class="l" data-i18n="t-kpi4-l">Seuil de Rentabilité</div></div>
+        </div>
+
+        <!-- SLIDE 1 : VENTILATION -->
+        <div class="slide" id="ventilation">
+            <h2 data-i18n="t-s1-h2">🔷 SECTION 1 — Ventilation de l'Investissement</h2>
+            <p data-i18n="t-s1-p">Ventilation de l'investissement initial (75 128 700 €) :</p>
+            <div class="tc">
+                <table>
+                    <thead><tr><th data-i18n="t-s1-th1">Pôle Opérationnel</th><th data-i18n="t-s1-th2">Montant (€)</th></tr></thead>
+                    <tbody>
+                        <tr><td data-i18n="t-s1-r1">Complexe sportif</td><td class="tb" data-i18n="t-s1-r1v">64 150 000 €</td></tr>
+                        <tr><td data-i18n="t-s1-r2">Terrain</td><td class="tb" data-i18n="t-s1-r2v">5 850 000 €</td></tr>
+                        <tr><td data-i18n="t-s1-r3">Hôtel</td><td class="tb" data-i18n="t-s1-r3v">3 600 000 €</td></tr>
+                        <tr><td data-i18n="t-s1-r4">Salles de sport</td><td class="tb" data-i18n="t-s1-r4v">1 528 700 €</td></tr>
+                        <tr class="hr"><td data-i18n="t-s1-r5">Total Général Allocations</td><td class="tg" data-i18n="t-s1-r5v">75 128 700 €</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-style: italic; font-size: 0.9rem; color: #64748b;" data-i18n="t-s1-foot">Cette répartition permet de visualiser la structure réelle du projet et la concentration des investissements sur le cœur sportif.</p>
+        </div>
+
+        <!-- SLIDE 2 : FINANCEMENT -->
+        <div class="slide" id="financement">
+            <h2 data-i18n="t-s2-h2">🔷 SECTION 2 — Structure du Financement</h2>
+            <p data-i18n="t-s2-p">Sources de financement du projet :</p>
+            <div class="tc">
+                <table>
+                    <thead><tr><th data-i18n="t-s2-th1">Origine des Fonds</th><th data-i18n="t-s2-th2">Montant (€)</th></tr></thead>
+                    <tbody>
+                        <tr><td data-i18n="t-s2-r1">Financement construction</td><td class="tb" data-i18n="t-s2-r1v">64 150 000 €</td></tr>
+                        <tr><td data-i18n="t-s2-r2">Foncier</td><td class="tb" data-i18n="t-s2-r2v">5 850 000 €</td></tr>
+                        <tr class="hr"><td data-i18n="t-s2-r3">Total financement construction &amp; foncier</td><td class="tg" data-i18n="t-s2-r3v">70 000 000 €</td></tr>
+                        <tr><td data-i18n="t-s2-r4">Financement bancaire envisagé</td><td class="tb" data-i18n="t-s2-r4v">5 600 000 €</td></tr>
+                        <tr><td data-i18n="t-s2-r5">Capital initial indicatif de la future structure</td><td class="tb" data-i18n="t-s2-r5v">200 000 €</td></tr>
+                        <tr class="hr"><td data-i18n="t-s2-r6">Total des ressources de financement</td><td class="tg" data-i18n="t-s2-r6v">75 800 000 €</td></tr>
+                        <tr><td data-i18n="t-s2-r7">Besoin d'investissement initial</td><td class="tb" data-i18n="t-s2-r7v">75 128 700 €</td></tr>
+                        <tr><td data-i18n="t-s2-r8">Marge de financement disponible</td><td class="tb" data-i18n="t-s2-r8v">671 300 €</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size:.8rem; color:#64748b; font-style:italic; margin-top:8px;" data-i18n="t-s2-note1">Cette structure constitue une hypothèse de financement du projet et ne correspond pas à une société actuellement constituée ni à des comptes courants d'associés existants.</p>
+            <p style="font-weight: 500; color: #1e293b;" data-i18n="t-s2-foot">Montage reposant principalement sur le financement de la construction et du foncier, et un endettement bancaire limité (5,6 M€).</p>
+        </div>
+
+        <!-- SLIDE 3 : PERFORMANCES COMPLÈTES (RN / EBE / EBITDA / CA / CAF) -->
+        <div class="slide">
+            <h2 data-i18n="t-s3-h2">🔷 SECTIONS 3 & 4 — Performance et Exploitation</h2>
+            <p data-i18n="t-s3-p">Trajectoire financière prévisionnelle validée sur 5 exercices :</p>
+            <div class="tc">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-i18n="t-s3-th1">Indicateur (€)</th>
+                            <th>2028</th>
+                            <th>2029</th>
+                            <th>2030</th>
+                            <th>2031</th>
+                            <th>2032</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong data-i18n="t-s3-r1">Chiffre d'Affaires (CA)</strong></td><td data-i18n="t-s3-r1c1">12 958 250 €</td><td data-i18n="t-s3-r1c2">14 691 206 €</td><td data-i18n="t-s3-r1c3">16 915 363 €</td><td data-i18n="t-s3-r1c4">19 647 347 €</td><td data-i18n="t-s3-r1c5">22 746 649 €</td></tr>
+                        <tr><td><strong data-i18n="t-s3-r2">EBE — Excédent Brut d'Exploitation</strong></td><td data-i18n="t-s3-r2c1">3 849 662 €</td><td data-i18n="t-s3-r2c2">4 457 364 €</td><td data-i18n="t-s3-r2c3">5 115 607 €</td><td data-i18n="t-s3-r2c4">6 011 730 €</td><td data-i18n="t-s3-r2c5">6 960 754 €</td></tr>
+                        <tr class="hr"><td><strong data-i18n="t-s3-r2b">Résultat d'Exploitation</strong></td><td class="tg" data-i18n="t-s3-r2bc1">1 506 181 €</td><td data-i18n="t-s3-r2bc2">2 113 883 €</td><td data-i18n="t-s3-r2bc3">2 772 126 €</td><td data-i18n="t-s3-r2bc4">3 668 249 €</td><td class="tg" data-i18n="t-s3-r2bc5">4 617 273 €</td></tr>
+                        <tr style="background: #f8fafc;"><td><strong data-i18n="t-s3-r3">Résultat Net Prévisionnel</strong></td><td data-i18n="t-s3-r3c1">1 049 451 €</td><td data-i18n="t-s3-r3c2">1 508 374 €</td><td data-i18n="t-s3-r3c3">2 009 017 €</td><td data-i18n="t-s3-r3c4">2 688 208 €</td><td data-i18n="t-s3-r3c5">3 407 219 €</td></tr>
+                        <tr><td><strong data-i18n="t-s3-r4">Capacité d'Autofinancement (CAF)</strong></td><td data-i18n="t-s3-r4c1">3 392 932 €</td><td data-i18n="t-s3-r4c2">3 851 855 €</td><td data-i18n="t-s3-r4c3">4 352 498 €</td><td data-i18n="t-s3-r4c4">5 031 689 €</td><td data-i18n="t-s3-r4c5">5 750 700 €</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3 data-i18n="t-s3-h3a">Résultat net prévisionnel :</h3>
+            <p data-i18n="t-s3-pa">Une progression continue du résultat net, portée par la montée en puissance des activités.</p>
+            <h3 data-i18n="t-s3-h3b">EBE et Résultat d'exploitation :</h3>
+            <p data-i18n="t-s3-pb">L'EBE (indicateur opérationnel comparable à l'EBITDA) confirme la solidité opérationnelle du modèle ComPacte. Le résultat d'exploitation, après amortissements, reste positif dès la première année et progresse continûment sur les 5 exercices.</p>
+        </div>
+
+        <!-- SLIDE 4 : CHARGES & RENTABILITÉ -->
+        <div class="slide" id="caf">
+            <h2 data-i18n="t-s4-h2">🔷 SECTIONS 5 & 6 — Charges et Seuil de Rentabilité</h2>
+            <p><strong data-i18n="t-s4-p">Charges principales (2028 → 2032) :</strong></p>
+            <div class="tc">
+                <table>
+                    <thead><tr><th data-i18n="t-s4-th1">Nature des Flux</th><th data-i18n="t-s4-th2">Trajectoire Commerciale</th></tr></thead>
+                    <tbody>
+                        <tr><td data-i18n="t-s4-r1">Charges externes</td><td class="tb" data-i18n="t-s4-r1v">5 864 388 € → 10 474 530 €</td></tr>
+                        <tr><td data-i18n="t-s4-r2">Charges de personnel</td><td class="tb" data-i18n="t-s4-r2v">3 152 885 € → 5 170 414 €</td></tr>
+                        <tr><td data-i18n="t-s4-r3">Amortissements</td><td class="tb" data-i18n="t-s4-r3v">2 343 481 € (constants chaque année)</td></tr>
+                        <tr><td data-i18n="t-s4-r4">Impôts & taxes</td><td class="tb" data-i18n="t-s4-r4v">91 315 € → 140 951 €</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p data-i18n="t-s4-foot">Une structure de charges stable et proportionnelle à la croissance du chiffre d'affaires.</p>
+
+            <div class="box-h" style="margin-top: 20px;" data-i18n="t-s4-box">
+                Seuil de rentabilité : seuil de rentabilité opérationnel franchi dès la première année (2028), avec une marge de sécurité croissante sur toute la période.
+            </div>
+        </div>
+
+        <!-- SLIDE 5 : CAF & BÉNÉVOLAT -->
+        <div class="slide" id="charges">
+            <h2 data-i18n="t-s5-h2">🔷 SECTIONS 7 & 8 — Flux de Trésorerie & Bénévolat</h2>
+<p><strong data-i18n="t-s5-p">Flux de trésorerie — estimations arrondies (2028 → 2032) :</strong></p>
+
+<div class="slide" id="flux">
+    <table>
+        <thead>
+            <tr><th data-i18n="t-s5-th1">Année</th><th data-i18n="t-s5-th2">Entrées (€)</th><th data-i18n="t-s5-th3">Sorties (€)</th><th data-i18n="t-s5-th4">Flux Net (€)</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>2028</td><td data-i18n="t-s5-r1a">12 900 000</td><td data-i18n="t-s5-r1b">10 400 000</td><td class="c-g" data-i18n="t-s5-r1c">+2 500 000</td></tr>
+            <tr><td>2029</td><td data-i18n="t-s5-r2a">15 200 000</td><td data-i18n="t-s5-r2b">11 900 000</td><td class="c-g" data-i18n="t-s5-r2c">+3 300 000</td></tr>
+            <tr><td>2030</td><td data-i18n="t-s5-r3a">17 800 000</td><td data-i18n="t-s5-r3b">13 400 000</td><td class="c-g" data-i18n="t-s5-r3c">+4 400 000</td></tr>
+            <tr><td>2031</td><td data-i18n="t-s5-r4a">20 300 000</td><td data-i18n="t-s5-r4b">14 900 000</td><td class="c-g" data-i18n="t-s5-r4c">+5 400 000</td></tr>
+            <tr><td>2032</td><td data-i18n="t-s5-r5a">22 700 000</td><td data-i18n="t-s5-r5b">16 300 000</td><td class="c-g" data-i18n="t-s5-r5c">+6 400 000</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="box-h" style="margin-top:20px;" data-i18n="t-s5-box1">
+    CAF Cumulée (2028–2032) : <strong>22 379 674 €</strong>
+</div>
+<div class="note-w" data-i18n="t-s5-note">Flux de trésorerie présentés en valeurs arrondies ; ils constituent un indicateur distinct de la CAF.</div>
+<h3 style="margin-top:30px;" data-i18n="t-s5-h3">Bénévolat &amp; Impact Social</h3>
+<p data-i18n="t-s5-p2">Le projet ComPacte Occitanie intègre une forte dimension sociale et territoriale.</p>
+
+<div class="slide" id="benevolat">
+    <table>
+        <thead>
+            <tr><th data-i18n="t-s5b-th1">Indicateur</th><th data-i18n="t-s5b-th2">Valeur annuelle</th></tr>
+        </thead>
+        <tbody>
+            <tr><td data-i18n="t-s5b-r0">Bénévoles mobilisés</td><td class="tb" data-i18n="t-s5b-r0v">200 à 250 personnes</td></tr>
+            <tr><td data-i18n="t-s5b-r1">Heures de bénévolat estimées</td><td class="tb" data-i18n="t-s5b-r1v">83 200 à 156 000 h/an</td></tr>
+            <tr><td data-i18n="t-s5b-r2">Valorisation économique estimative</td><td class="tb" data-i18n="t-s5b-r2v">998 400 € – 1 872 000 €</td></tr>
+            <tr><td data-i18n="t-s5b-r3">Partenaires associatifs impliqués</td><td class="tb" data-i18n="t-s5b-r3v">8 structures locales</td></tr>
+            <tr><td data-i18n="t-s5b-r4">Bénéficiaires directs</td><td class="tb" data-i18n="t-s5b-r4v">300 – 500 personnes / an</td></tr>
+        </tbody>
+    </table>
+    <div class="note-w" data-i18n="t-s5b-note">Hypothèse indicative de mobilisation bénévole, non incluse dans les produits d'exploitation et à confirmer par un plan opérationnel. Estimation fondée sur le nombre de bénévoles et le volume annuel de mobilisation prévu.</div>
+</div>
+
+<div class="box-h" style="margin-top:20px;" data-i18n="t-s5b-box">
+    Impact RSE : Inclusion, sport pour tous, renforcement territorial.
+</div>
+<div class="slide" id="benevolat2">
+    <h2 data-i18n="t-s9-h2">◆ SECTION 9 — Impact Économique Régional</h2>
+    <p data-i18n="t-s9-p">ComPacte Occitanie pourrait contribuer à l'activité économique et à l'attractivité de la Métropole de Toulouse,
+    combinant création d'emplois, retombées fiscales et attractivité territoriale.</p>
+
+    <h3 data-i18n="t-s9-h3a">Emplois créés</h3>
+    <div class="tc">
+        <table>
+            <thead>
+                <tr><th data-i18n="t-s9-th1">Catégorie</th><th data-i18n="t-s9-th2">Volume annuel</th></tr>
+            </thead>
+            <tbody>
+                <tr><td data-i18n="t-s9-r1">Emplois directs</td><td class="tb" data-i18n="t-s9-r1v">Jusqu'à 250 emplois directs à terme</td></tr>
+                <tr><td data-i18n="t-s9-r2">Bénévoles mobilisés</td><td class="tb" data-i18n="t-s9-r2v">200 à 250 personnes</td></tr>
+                <tr><td data-i18n="t-s9-r3">Emplois indirects (prestataires, services)</td><td class="tb" data-i18n="t-s9-r3v">120 à 180 postes</td></tr>
+                <tr><td data-i18n="t-s9-r4">Emplois induits (hébergement, restauration, tourisme)</td><td class="tb" data-i18n="t-s9-r4v">80 à 120 postes</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="box-h" style="margin-top:20px;" data-i18n="t-s9-box1">
+        Impact humain total à maturité : <strong>650 à 800 personnes</strong> mobilisées chaque année, dont jusqu'à 250 emplois directs.
+    </div>
+
+    <h3 data-i18n="t-s9-h3b">Retombées fiscales &amp; économiques</h3>
+    <p data-i18n="t-s9-pb">Le complexe pourrait générer des retombées fiscales et économiques significatives pour le territoire :</p>
+
+    <div class="tc">
+        <table>
+            <thead>
+                <tr><th data-i18n="t-s9-th3">Flux économique</th><th data-i18n="t-s9-th4">Estimation annuelle</th></tr>
+            </thead>
+            <tbody>
+                <tr><td data-i18n="t-s9-r5">Taxes locales &amp; contributions</td><td class="tb" data-i18n="t-s9-r5v">1,8 M€ – 2,4 M€</td></tr>
+                <tr><td data-i18n="t-s9-r6">Dépenses des visiteurs</td><td class="tb" data-i18n="t-s9-r6v">12 M€ – 18 M€</td></tr>
+                <tr><td data-i18n="t-s9-r7">Effet sur l'hôtellerie &amp; restauration</td><td class="tb" data-i18n="t-s9-r7v">4,5 M€ – 6,2 M€</td></tr>
+                <tr><td data-i18n="t-s9-r8">Effet sur les transports &amp; mobilité</td><td class="tb" data-i18n="t-s9-r8v">1,1 M€ – 1,6 M€</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="box-h" style="margin-top:20px;" data-i18n="t-s9-box2">
+        Estimation des retombées économiques globales : <strong>19 M€ – 28 M€ / an</strong> pour le territoire.
+    </div>
+
+    <h3 data-i18n="t-s9-h3c">Attractivité territoriale</h3>
+    <p data-i18n="t-s9-pc">
+        ComPacte Occitanie pourrait contribuer à renforcer l'attractivité sportive, touristique et événementielle
+        de la Métropole. Le projet est conçu pour pouvoir accueillir notamment :
+    </p>
+
+    <ul style="margin-left:20px; color:#475569; line-height:1.6;">
+        <li data-i18n="t-s9-li1">Les compétitions nationales et internationales</li>
+        <li data-i18n="t-s9-li2">Le tourisme sportif et familial</li>
+        <li data-i18n="t-s9-li3">Les stages, séminaires et événements d'entreprise</li>
+        <li data-i18n="t-s9-li4">Les politiques publiques sport / jeunesse / inclusion</li>
+        <li data-i18n="t-s9-li5">Les partenariats associatifs et éducatifs</li>
+    </ul>
+
+    <div class="box-h" style="margin-top:20px;" data-i18n="t-s9-box3">
+        ComPacte Occitanie : un projet contribuant à l'attractivité sportive, touristique et économique du territoire.
+    </div>
+</div>
+<div class="slide" id="impact">
+    <h2 data-i18n="t-s11-h2">◆ SECTION 11 — Synthèse Investisseur</h2>
+    <p data-i18n="t-s11-p">ComPacte Occitanie se positionne comme un investissement structurant, durable et
+    territorialement stratégique. Le projet combine performance économique, impact social
+    et attractivité métropolitaine.</p>
+
+    <h3 data-i18n="t-s11-h3a">Résumé stratégique</h3>
+    <div class="slide" id="synthese">
+        <table>
+            <thead>
+                <tr><th data-i18n="t-s11-th1">Dimension</th><th data-i18n="t-s11-th2">Éléments clés</th></tr>
+            </thead>
+            <tbody>
+                <tr><td data-i18n="t-s11-r1">Modèle économique</td><td class="tb" data-i18n="t-s11-r1v">Croissance continue du CA (12,96 M€ → 22,75 M€)</td></tr>
+                <tr><td data-i18n="t-s11-r2">Rentabilité</td><td class="tb" data-i18n="t-s11-r2v">Seuil de rentabilité franchi dès l'année 1 (2028)</td></tr>
+                <tr><td data-i18n="t-s11-r3">CAF cumulée</td><td class="tb" data-i18n="t-s11-r3v">22,38 M€ sur 5 ans</td></tr>
+                <tr><td data-i18n="t-s11-r4">Impact humain territorial</td><td class="tb" data-i18n="t-s11-r4v">650–800 personnes mobilisées/an à maturité, dont jusqu'à 250 emplois directs</td></tr>
+                <tr><td data-i18n="t-s11-r5">RSE &amp; bénévolat</td><td class="tb" data-i18n="t-s11-r5v">200 à 250 bénévoles — valorisation 1,0 à 1,87 M€/an</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3 data-i18n="t-s11-h3b">Horizon indicatif de récupération de l'investissement</h3>
+    <p data-i18n="t-s11-pb">Le projet présente un horizon de retour estimatif pour un actif métropolitain multiservices :</p>
+
+    <div class="tc">
+        <table>
+            <thead>
+                <tr><th data-i18n="t-s11-th3">Indicateur</th><th data-i18n="t-s11-th4">Valeur</th></tr>
+            </thead>
+            <tbody>
+                <tr><td data-i18n="t-s11-r6">Investissement initial</td><td class="tb" data-i18n="t-s11-r6v">75,13 M€</td></tr>
+                <tr><td data-i18n="t-s11-r7">Horizon de retour estimé</td><td class="tb" data-i18n="t-s11-r7v">12 à 14 ans</td></tr>
+                <tr><td data-i18n="t-s11-r7c">Indicateur central (CAF 2032)</td><td class="tg" data-i18n="t-s11-r7cv">≈ 13,1 ans</td></tr>
+                <tr><td data-i18n="t-s11-r8">EBE (2032)</td><td class="tb" data-i18n="t-s11-r8v">6,96 M€</td></tr>
+                <tr><td data-i18n="t-s11-r8b">Résultat d'exploitation (2032)</td><td class="tb" data-i18n="t-s11-r8bv">4,62 M€</td></tr>
+                <tr><td data-i18n="t-s11-r9">Résultat net (2032)</td><td class="tb" data-i18n="t-s11-r9v">3,41 M€</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="note-w" data-i18n="t-s11-roinote">Méthode indicative de calcul : investissement initial de 75,13 M€ rapporté à la CAF de l'année de maturité 2032 (5,75 M€), soit environ 13,1 ans. Cet indicateur constitue un horizon de retour estimatif fondé sur les hypothèses du prévisionnel, et non un ROI au sens financier complet.</div>
+
+    <div class="box-h" style="margin-top:20px;" data-i18n="t-s11-box1">
+        Cet horizon de retour est notamment soutenu par la diversification des revenus, la croissance du marché
+        sportif et l'attractivité de la Métropole de Toulouse.
+    </div>
+
+    <h3 data-i18n="t-s11-h3c">Risk Management Framework</h3>
+    <div class="tc">
+        <table>
+            <thead>
+                <tr><th data-i18n="t-s11-rth1">Risque</th><th data-i18n="t-s11-rth2">Mitigation</th></tr>
+            </thead>
+            <tbody>
+                <tr><td data-i18n="t-s11-rr1">Construction / CAPEX</td><td class="tb" data-i18n="t-s11-rr1v">Contrat constructeur + contrôle des coûts</td></tr>
+                <tr><td data-i18n="t-s11-rr2">Montée en charge de l'activité</td><td class="tb" data-i18n="t-s11-rr2v">Scénarios prudent / base / optimiste</td></tr>
+                <tr><td data-i18n="t-s11-rr3">Hôtel</td><td class="tb" data-i18n="t-s11-rr3v">Étude RevPAR / taux d'occupation</td></tr>
+                <tr><td data-i18n="t-s11-rr4">Financement</td><td class="tb" data-i18n="t-s11-rr4v">Dette bancaire limitée + suivi DSCR</td></tr>
+                <tr><td data-i18n="t-s11-rr5">Liquidité / trésorerie</td><td class="tb" data-i18n="t-s11-rr5v">Réserve de trésorerie + waterfall</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <p style="margin-top:15px; font-weight:500; color:#1e293b;" data-i18n="t-s11-territ">Positionnement territorial fort (Toulouse, l'une des principales métropoles françaises).</p>
+
+    <div class="box-h" style="margin-top:20px;" data-i18n="t-s11-box2">
+        Synthèse : un projet structurant, fondé sur un modèle économique prévisionnel positif dès la première année,
+        et aligné avec les politiques publiques sport, jeunesse, inclusion et attractivité territoriale.
+    </div>
+</div>
+    </div>
+</div>
+</div>
+
+<div class="panel-view" id="view-monde">
+    <header>
+        <div class="badge" data-i18n="mw-badge">Compacte Monde</div>
+        <h1 data-i18n="mw-h1">Le concept global — un modèle conçu pour être adapté et développé dans différents territoires</h1>
+        <p data-i18n="mw-tagline">Notre vision : créer dans le monde un réseau de destinations sport &amp; loisirs à fort impact</p>
+    </header>
+
+    <div class="container">
+        <div class="note-w" style="margin-top:20px;" data-i18n="mw-note1">Cette ambition mondiale ne fait pas partie automatiquement du périmètre d'une acquisition du projet Toulouse.</div>
+
+
+        <div class="slide">
+            <h2 data-i18n="mw-s1-h2">Le concept Compacte — un écosystème, pas un simple complexe sportif</h2>
+            <p data-i18n="mw-s1-p">Compacte est un écosystème complet au service du bien-être, du sport et du territoire, structuré autour de 10 dimensions :</p>
+            <ul class="bl">
+                <li data-i18n="mw-s1-li1">Sport — 25 disciplines indoor et outdoor</li>
+                <li data-i18n="mw-s1-li2">Hôtellerie — 120 chambres 4 étoiles</li>
+                <li data-i18n="mw-s1-li3">Restauration — 3 restaurants</li>
+                <li data-i18n="mw-s1-li4">Événements &amp; esplanade</li>
+                <li data-i18n="mw-s1-li5">Entreprises &amp; séminaires</li>
+                <li data-i18n="mw-s1-li6">Loisirs &amp; divertissement</li>
+                <li data-i18n="mw-s1-li7">Santé — maison sport santé</li>
+                <li data-i18n="mw-s1-li8">Éducation &amp; jeunesse</li>
+                <li data-i18n="mw-s1-li9">Inclusion &amp; accessibilité</li>
+                <li data-i18n="mw-s1-li10">Agriculture — ferme pédagogique &amp; circuits courts</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h2 data-i18n="mo-ip-h2">Le concept ComPacte et sa propriété intellectuelle</h2>
+            <p data-i18n="mo-ip-p1"><strong>Philippe Bru — Fondateur et propriétaire actuel du concept ComPacte</strong> : savoir-faire, architecture du modèle, expérience client, modèle économique à 7 revenus, technologies, identité de marque et normes.</p>
+            <div class="box-h" data-i18n="mo-ip-box">Disque dur = le concept Compacte. Logiciels = chaque projet Compacte. Le concept global ComPacte, son architecture, son savoir-faire, sa marque et ses droits de développement restent actuellement la propriété de Philippe Bru ; chaque implantation territoriale pourrait faire l'objet d'une déclinaison locale et d'un accord de licence distinct.</div>
+            <p style="margin-top:15px; font-size:.9rem; color:#475569;" data-i18n="mo-ip-p2">À ce jour, ComPacte (le concept, la propriété intellectuelle, la marque, le savoir-faire et le cadre de développement) est la propriété exclusive de Philippe Bru. Aucune société ni aucun tiers n'en est actuellement propriétaire. Toute structure juridique future — société, licence, véhicule d'investissement ou société d'exploitation — sera créée pour porter, développer ou commercialiser les actifs de ComPacte, sans modifier la propriété actuelle de Philippe Bru sauf accord exprès contraire.</p>
+        </div>
+
+        <div class="slide">
+            <h2 data-i18n="mw-s3-h2">Architecture du réseau</h2>
+            <div class="tc">
+                <table>
+                    <tr><th data-i18n="mw-s3-th1">Niveau</th><th data-i18n="mw-s3-th2">Statut</th></tr>
+                    <tr class="hr"><td data-i18n="mw-s3-r1">Compacte — concept global</td><td class="tg" data-i18n="mw-s3-r1v">Propriété actuelle : Philippe Bru</td></tr>
+                    <tr><td data-i18n="mw-s3-r2">Toulouse / Occitanie</td><td class="tg" data-i18n="mw-s3-r2v">Projet de référence — premier maillon documenté du réseau</td></tr>
+                    <tr><td data-i18n="mw-s3-r3">Paris</td><td data-i18n="mw-s3-r3v">Territoire potentiel — non engagé</td></tr>
+                    <tr><td data-i18n="mw-s3-r4">Maroc</td><td data-i18n="mw-s3-r4v">Territoire potentiel — non engagé</td></tr>
+                    <tr><td data-i18n="mw-s3-r5">Arabie Saoudite</td><td data-i18n="mw-s3-r5v">Territoire potentiel — non engagé</td></tr>
+                    <tr><td data-i18n="mw-s3-r6">Nigeria</td><td data-i18n="mw-s3-r6v">Territoire potentiel — non engagé</td></tr>
+                    <tr><td data-i18n="mw-s3-r7">Autres territoires</td><td data-i18n="mw-s3-r7v">Selon opportunités et partenaires</td></tr>
+                </table>
+            </div>
+            <div class="note-w" data-i18n="mw-s3-note">Seul le projet Occitanie / Toulouse est aujourd'hui documenté et chiffré. Les autres territoires représentent des déclinaisons futures possibles du modèle, pas des projets existants.</div>
+        </div>
+
+        <div class="slide">
+            <h2 data-i18n="mw-s4-h2">Ce que peut acquérir un investisseur</h2>
+            <div class="tc">
+                <table>
+                    <tr><th data-i18n="mw-s4-th1">Élément</th><th data-i18n="mw-s4-th2">Toulouse</th><th data-i18n="mw-s4-th3">Concept ComPacte</th></tr>
+                    <tr><td data-i18n="mw-s4-r1">Terrain</td><td class="tg" data-i18n="mw-s4-r1a">Acquisition possible</td><td>❌</td></tr>
+                    <tr><td data-i18n="mw-s4-r2">Bâtiments / infrastructures</td><td class="tg" data-i18n="mw-s4-r2a">Acquisition possible</td><td>❌</td></tr>
+                    <tr><td data-i18n="mw-s4-r3">Future société portant le projet (à constituer)</td><td data-i18n="mw-s4-r3a">À négocier</td><td>❌</td></tr>
+                    <tr><td data-i18n="mw-s4-r4">Exploitation future de Toulouse</td><td data-i18n="mw-s4-r4a">À définir</td><td>❌</td></tr>
+                    <tr><td data-i18n="mw-s4-r5">Marque ComPacte</td><td data-i18n="mw-s4-r5a">Propriété actuelle de Philippe Bru ; licence ou transfert éventuel à négocier</td><td class="tb">Philippe Bru</td></tr>
+                    <tr><td data-i18n="mw-s4-r6">Concept</td><td>❌</td><td class="tb">Philippe Bru</td></tr>
+                    <tr><td data-i18n="mw-s4-r7">Savoir-faire</td><td>❌</td><td class="tb">Philippe Bru</td></tr>
+                    <tr><td data-i18n="mw-s4-r8">Modèle ComPacte</td><td>❌</td><td class="tb">Philippe Bru</td></tr>
+                    <tr><td data-i18n="mw-s4-r9">Paris / Maroc / Nigeria / Arabie Saoudite</td><td data-i18n="mw-s4-r9a">❌ automatiquement</td><td class="tb" data-i18n="mw-s4-r9b">Droits séparés</td></tr>
+                </table>
+            </div>
+            <div class="box-h" style="margin-top:15px;" data-i18n="mw-s4-box">L'acquisition du projet Toulouse ne confère aucun droit de propriété sur le concept global ComPacte, sauf accord écrit spécifique.</div>
+        </div>
+
+        <div class="slide">
+            <h2 data-i18n="mw-s5-h2">Trois niveaux d'investissement possibles</h2>
+            <ul class="bl">
+                <li data-i18n="mw-s5-li1">① Projet Toulouse — « Je veux devenir propriétaire / investisseur du projet Toulouse. » Le terrain, les bâtiments, les activités et la structure économique du projet sont définis dans l'opération Toulouse.</li>
+                <li data-i18n="mw-s5-li2">② Développement de plusieurs projets — « Je veux développer plusieurs ComPacte. » Les droits territoriaux sont alors négociés séparément.</li>
+                <li data-i18n="mw-s5-li3">③ Acquisition du concept global — « Je souhaite acquérir le concept ComPacte lui-même. » C'est une opération distincte, qui nécessite une négociation et une valorisation spécifiques.</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h2 data-i18n="mw-s6-h2">Projet de référence — Toulouse</h2>
+            <div class="tc">
+                <table>
+                    <tr><th data-i18n="mw-s6-th1">Poste</th><th data-i18n="mw-s6-th2">Montant</th></tr>
+                    <tr><td data-i18n="mw-s6-r1">Complexe sportif</td><td class="tb">64,15 M€</td></tr>
+                    <tr><td data-i18n="mw-s6-r2">Terrain</td><td class="tb">5,85 M€</td></tr>
+                    <tr><td data-i18n="mw-s6-r3">Hôtel (120 chambres)</td><td class="tb">3,60 M€</td></tr>
+                    <tr><td data-i18n="mw-s6-r4">Salles de sport</td><td class="tb">1,53 M€</td></tr>
+                    <tr class="hr"><td data-i18n="mw-s6-r5">Investissement initial — projet Toulouse</td><td class="tg">75,1287 M€</td></tr>
+                </table>
+            </div>
+            <div class="note-w" data-i18n="mw-s6-note">Ce montant correspond à l'investissement du projet de référence Toulouse, pas à un prix du concept Compacte lui-même.</div>
+        </div>
+
+        <div class="slide">
+            <h2 data-i18n="mw-s7-h2">Modèle économique — 7 sources de revenus (référence Toulouse)</h2>
+            <div class="tc">
+                <table>
+                    <tr><th data-i18n="mw-s7-th1">Source</th><th data-i18n="mw-s7-th2">CA cible</th></tr>
+                    <tr><td data-i18n="mw-s7-r1">Sports &amp; abonnements</td><td class="tb">8,0 M€</td></tr>
+                    <tr><td data-i18n="mw-s7-r2">Hôtel (120 chambres)</td><td class="tb">4,5 M€</td></tr>
+                    <tr><td data-i18n="mw-s7-r3">Restauration (3 restaurants)</td><td class="tb">3,0 M€</td></tr>
+                    <tr><td data-i18n="mw-s7-r4">Événements &amp; esplanade</td><td class="tb">2,0 M€</td></tr>
+                    <tr><td data-i18n="mw-s7-r5">Loisirs (bowling, cinéma, médiathèque)</td><td class="tb">1,2 M€</td></tr>
+                    <tr><td data-i18n="mw-s7-r6">Partenariats &amp; entreprises</td><td class="tb">1,0 M€</td></tr>
+                    <tr><td data-i18n="mw-s7-r7">Ferme, boutique &amp; drive</td><td class="tb">0,3 M€</td></tr>
+                    <tr class="hr"><td data-i18n="mw-s7-r8">CA cible à régime stabilisé — projet Toulouse</td><td class="tg">≈ 20 M€</td></tr>
+                </table>
+            </div>
+            <div class="note-w" data-i18n="mw-s7-note">Ce chiffre cible est propre au projet Toulouse. Le prévisionnel financier détaillé, quant à lui, progresse de 12,96 M€ en 2028 à 22,75 M€ en 2032 (voir section 4). Le modèle Compacte est duplicable et adaptable, mais aucun montant de CA n'est garanti pour un futur territoire — chaque implantation aura sa propre étude de marché.</div>
+        </div>
+
+        <div class="slide">
+            <h2 data-i18n="mw-s8-h2">Un modèle duplicable &amp; adaptable</h2>
+            <p data-i18n="mw-s8-p1"><strong>Un cadre commun :</strong></p>
+            <ul class="bl">
+                <li data-i18n="mw-s8-li1">Concept et identité forte</li>
+                <li data-i18n="mw-s8-li2">Standards de qualité élevés</li>
+                <li data-i18n="mw-s8-li3">Architecture modulaire</li>
+                <li data-i18n="mw-s8-li4">Process et outils éprouvés</li>
+                <li data-i18n="mw-s8-li5">Accompagnement 360°</li>
+            </ul>
+            <p style="margin-top:15px;" data-i18n="mw-s8-p2"><strong>Adaptation locale :</strong></p>
+            <ul class="bl">
+                <li data-i18n="mw-s8-li6">Culture &amp; habitudes locales</li>
+                <li data-i18n="mw-s8-li7">Sports et activités phares</li>
+                <li data-i18n="mw-s8-li8">Partenaires locaux</li>
+                <li data-i18n="mw-s8-li9">Normes et réglementations</li>
+                <li data-i18n="mw-s8-li10">Besoins et potentiel économique du territoire</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h2 data-i18n="mw-s9-h2">Un impact positif &amp; durable</h2>
+            <div class="tc">
+                <table>
+                    <tr><th data-i18n="mw-s9-th1">Dimension</th><th data-i18n="mw-s9-th2">Description</th></tr>
+                    <tr><td data-i18n="mw-s9-r1">Santé &amp; bien-être</td><td data-i18n="mw-s9-r1v">Promotion de l'activité physique et de la santé pour tous</td></tr>
+                    <tr><td data-i18n="mw-s9-r2">Emploi &amp; insertion</td><td data-i18n="mw-s9-r2v">Emplois directs et indirects — intégration des jeunes</td></tr>
+                    <tr><td data-i18n="mw-s9-r3">Éducation &amp; jeunesse</td><td data-i18n="mw-s9-r3v">Écoles du sport, formations, éducation &amp; inclusion</td></tr>
+                    <tr><td data-i18n="mw-s9-r4">Inclusion &amp; accessibilité</td><td data-i18n="mw-s9-r4v">Pour tous, sans discrimination — accessibilité universelle</td></tr>
+                    <tr><td data-i18n="mw-s9-r5">Environnement</td><td data-i18n="mw-s9-r5v">Construction responsable — circuits courts — gestion durable</td></tr>
+                    <tr><td data-i18n="mw-s9-r6">Cohésion territoriale</td><td data-i18n="mw-s9-r6v">Rayonnement social, culturel et sportif du territoire</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2 data-i18n="mw-s10-h2">Projet Toulouse en chiffres</h2>
+            <ul class="bl">
+                <li data-i18n="mw-s10-li1">14 hectares au total (dont 9 ha dédiés au complexe Compacte + parking et espaces annexes)</li>
+                <li data-i18n="mw-s10-li2">25 disciplines sportives</li>
+                <li data-i18n="mw-s10-li3">7 pôles d'activité et de revenus — Sport, Hôtel &amp; bien-être, Restauration, Événements &amp; culture, Loisirs, Pôle entreprises, Ferme pédagogique</li>
+                <li data-i18n="mw-s10-li4">≈ 20 M€ CA annuel cible</li>
+                <li data-i18n="mw-s10-li5">Jusqu'à 250 emplois directs à terme</li>
+                <li data-i18n="mw-s10-li6">200 à 250 bénévoles mobilisés</li>
+                <li data-i18n="mw-s10-li7">12 à 14 ans d'horizon de retour estimatif</li>
+                <li data-i18n="mw-s10-li8">100% financement privé envisagé — hors subventions publiques</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h2 data-i18n="mw-s11-h2">Le créateur &amp; la propriété intellectuelle</h2>
+            <p data-i18n="mw-s11-p"><strong>Philippe Bru</strong> — Fondateur et propriétaire actuel du concept Compacte, 41 ans d'expérience professionnelle, dont 32 ans à l'international, en entrepreneuriat, gestion et développement de projets.</p>
+            <ul class="bl">
+                <li data-i18n="mw-s11-li1">Concept &amp; savoir-faire</li>
+                <li data-i18n="mw-s11-li2">Marque &amp; identité visuelle</li>
+                <li data-i18n="mw-s11-li3">Méthodes, design &amp; standards</li>
+                <li data-i18n="mw-s11-li4">Modèle économique</li>
+                <li data-i18n="mw-s11-li5">Droits d'exploitation du concept et capacité à concéder des licences</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h2 data-i18n="mw-s12-h2">Pourquoi rejoindre Compacte ?</h2>
+            <ul class="bl">
+                <li data-i18n="mw-s12-li1">Un actif différenciant, combinant sport, loisirs, hôtellerie, restauration et événementiel</li>
+                <li data-i18n="mw-s12-li2">Un marché en forte croissance — sport, bien-être &amp; loisirs</li>
+                <li data-i18n="mw-s12-li3">Un impact positif — social, économique et environnemental</li>
+                <li data-i18n="mw-s12-li4">Un concept clé en main — avec accompagnement complet</li>
+                <li data-i18n="mw-s12-li5">Une possibilité de développement dans d'autres territoires, selon les opportunités et les études locales</li>
+            </ul>
+            <div class="box-h" data-i18n="mw-s12-box">Devenir propriétaire d'un projet Compacte (comme Toulouse) ne signifie pas devenir propriétaire du concept global — les deux périmètres sont distincts et clairement définis.</div>
+        </div>
+
+<div class="slide" id="opportunite" style="border-top: 4px solid var(--s);">
+    <div class="badge" style="margin-bottom:15px;" data-i18n="mw-opp-badge">ComPacte Toulouse — Opportunité d'investissement / acquisition</div>
+    <h2 style="border:none; padding-left:0;" data-i18n="mw-opp-h2">Le projet de référence ComPacte</h2>
+    <p data-i18n="mw-opp-p">Un actif multisports, loisirs, hôtellerie, restauration, événementiel et impact territorial conçu pour fonctionner 7 jours sur 7.</p>
+    <p style="font-weight:600; color:var(--p);" data-i18n="mw-opp-stats">14 hectares · 25 disciplines · 7 pôles d'activité et de revenus · 120 chambres · 3 restaurants</p>
+    <p style="font-size:.85rem; color:#64748b; font-style:italic;" data-i18n="mw-opp-statsnote">Dont 9 ha dédiés au complexe Compacte, le solde correspondant au parking et aux espaces annexes.</p>
+</div>
+
+<div class="slide">
+    <h2 data-i18n="mw-opp1-h2">1. Ce que l'opération finance</h2>
+    <div class="tc">
+        <table>
+            <tr><th data-i18n="mw-opp1-th1">Poste</th><th data-i18n="mw-opp1-th2">Montant</th></tr>
+            <tr><td data-i18n="mw-opp1-r1">🏞️ Le foncier</td><td class="tg">5,85 M€</td></tr>
+            <tr><td data-i18n="mw-opp1-r2">🏗️ Le complexe</td><td class="tg">64,15 M€</td></tr>
+            <tr><td data-i18n="mw-opp1-r3">🏨 L'hôtel</td><td class="tg">3,60 M€</td></tr>
+            <tr><td data-i18n="mw-opp1-r4">🏋️ Les salles de sport</td><td class="tg">1,53 M€</td></tr>
+            <tr class="hr"><td data-i18n="mw-opp1-r5">Total investissement initial</td><td class="tg">75,1287 M€</td></tr>
+        </table>
+    </div>
+    <p style="font-size:.85rem; color:#64748b; font-style:italic;" data-i18n="mw-opp1-note">Montants actuellement affichés sur le site et dans la présentation investisseurs.</p>
+</div>
+
+<div class="slide">
+    <h2 data-i18n="mw-opp2-h2">2. Ce que vous exploitez</h2>
+    <p data-i18n="mw-opp2-p">Une fois réalisé, ComPacte Toulouse regroupe :</p>
+    <ul class="bl">
+        <li data-i18n="mw-opp2-li1">Sport — 25 disciplines</li>
+        <li data-i18n="mw-opp2-li2">Hôtellerie — 120 chambres</li>
+        <li data-i18n="mw-opp2-li3">Restauration — 3 restaurants</li>
+        <li data-i18n="mw-opp2-li4">Événements — esplanade, concerts, festivals</li>
+        <li data-i18n="mw-opp2-li5">Loisirs — bowling, cinéma, médiathèque</li>
+        <li data-i18n="mw-opp2-li6">Entreprises — séminaires, réunions, coworking</li>
+        <li data-i18n="mw-opp2-li7">Ferme — 2 hectares, circuits courts</li>
+        <li data-i18n="mw-opp2-li8">Santé — Maison Sport Santé</li>
+    </ul>
+</div>
+
+<div class="slide">
+    <h2 data-i18n="mw-opp3-h2">3. Le modèle économique — ≈ 20 M€ de CA annuel cible</h2>
+    <div class="tc">
+        <table>
+            <tr><th data-i18n="mw-opp3-th1">Activité</th><th data-i18n="mw-opp3-th2">CA cible</th></tr>
+            <tr><td data-i18n="mw-opp3-r1">Sports & abonnements</td><td class="tb">8,0 M€</td></tr>
+            <tr><td data-i18n="mw-opp3-r2">Hôtel</td><td class="tb">4,5 M€</td></tr>
+            <tr><td data-i18n="mw-opp3-r3">Restauration</td><td class="tb">3,0 M€</td></tr>
+            <tr><td data-i18n="mw-opp3-r4">Événements & concerts</td><td class="tb">2,0 M€</td></tr>
+            <tr><td data-i18n="mw-opp3-r5">Bowling / cinéma / médiathèque</td><td class="tb">1,2 M€</td></tr>
+            <tr><td data-i18n="mw-opp3-r6">Partenariats & entreprises</td><td class="tb">1,0 M€</td></tr>
+            <tr><td data-i18n="mw-opp3-r7">Ferme / boutique / drive</td><td class="tb">0,3 M€</td></tr>
+            <tr class="hr"><td data-i18n="mw-opp3-r8">Total</td><td class="tg">≈ 20 M€</td></tr>
+        </table>
+    </div>
+    <div class="note-w" data-i18n="mw-opp3-note">La première source de revenus (sports & abonnements) représente environ 40% du CA cible, tandis que les six autres activités assurent une diversification significative des revenus.</div>
+</div>
+
+<div class="slide">
+    <h2 data-i18n="mw-opp4-h2">4. La performance prévisionnelle</h2>
+    <div class="tc">
+        <table>
+            <tr><th data-i18n="mw-opp4-th1">Indicateur</th><th>2028</th><th>2032</th></tr>
+            <tr><td data-i18n="mw-opp4-r1">CA</td><td>12,96 M€</td><td class="tg">22,75 M€</td></tr>
+            <tr><td data-i18n="mw-opp4-r2">EBE</td><td>3,85 M€</td><td class="tg">6,96 M€</td></tr>
+            <tr><td data-i18n="mw-opp4-r3">Résultat d'exploitation</td><td>1,51 M€</td><td class="tg">4,62 M€</td></tr>
+            <tr><td data-i18n="mw-opp4-r4">Résultat net</td><td>1,05 M€</td><td class="tg">3,41 M€</td></tr>
+        </table>
+    </div>
+    <div class="box-h" data-i18n="mw-opp4-box">CAF cumulée : 22,38 M€ sur 5 ans.</div>
+</div>
+
+<div class="slide">
+    <h2 data-i18n="mw-opp5-h2">5. Point d'attention — deux chiffres, deux périmètres</h2>
+    <div class="tc">
+        <table>
+            <tr><th data-i18n="mw-opp5-th1">Montant</th><th data-i18n="mw-opp5-th2">Signification</th></tr>
+            <tr><td class="tg">75,13 M€</td><td data-i18n="mw-opp5-r1">Investissement de référence du projet Toulouse</td></tr>
+            <tr><td class="tg">≈ 80 M€</td><td data-i18n="mw-opp5-r2">Enveloppe globale envisagée par l'acquéreur pour l'opération, selon le périmètre finalement contractualisé</td></tr>
+        </table>
+    </div>
+    <div class="note-w" data-i18n="mw-opp5-note">Cette enveloppe ne constitue pas la valorisation du concept ComPacte et n'inclut pas automatiquement les droits mondiaux sur le concept. Le montant de l'investissement Toulouse ne constitue pas, à lui seul, un prix d'acquisition du concept ComPacte.</div>
+</div>
+
+<div class="slide">
+    <h2 data-i18n="mw-opp6-h2">6. Votre rôle dans l'opération — Philippe Bru, porteur du projet</h2>
+    <ul class="bl">
+        <li data-i18n="mw-opp6-li1">A — Philippe reste PDG : mandat et rémunération à définir séparément</li>
+        <li data-i18n="mw-opp6-li2">B — Philippe accompagne la transition : mission et durée à définir</li>
+        <li data-i18n="mw-opp6-li3">C — Philippe quitte la direction : les conditions de sortie sont définies séparément</li>
+    </ul>
+    <div class="box-h" data-i18n="mw-opp6-box">Le choix du rôle futur de Philippe Bru est distinct de l'investissement et de l'acquisition du projet Toulouse.</div>
+</div>
+
+<div class="slide">
+    <h2 data-i18n="mw-opp7-h2">7. La question de la propriété</h2>
+    <div class="tc">
+        <table>
+            <tr><th data-i18n="mw-opp7-th1">Périmètre</th><th data-i18n="mw-opp7-th2">Contenu</th><th data-i18n="mw-opp7-th3">Statut</th></tr>
+            <tr><td data-i18n="mw-opp7-r1">Ce qui concerne Toulouse</td><td data-i18n="mw-opp7-r1b">Projet / actifs / exploitation / structure juridique</td><td class="tb" data-i18n="mw-opp7-r1c">À négocier avec les investisseurs</td></tr>
+            <tr><td data-i18n="mw-opp7-r2">Ce qui est distinct</td><td data-i18n="mw-opp7-r2b">Concept ComPacte / propriété intellectuelle / développement futur</td><td class="tb" data-i18n="mw-opp7-r2c">Propriété actuelle de Philippe Bru ; tout transfert ou licence de droits fera l'objet d'un accord distinct</td></tr>
+        </table>
+    </div>
+    <div class="box-h" data-i18n="mw-opp7-box">Disque dur = concept ComPacte. Logiciels = projets ComPacte.</div>
+</div>
+
+<div class="slide">
+    <h2 data-i18n="mw-opp8-h2">8. Vous choisissez le périmètre — quelle est votre ambition ?</h2>
+    <ul class="bl">
+        <li data-i18n="mw-opp8-li1">① Toulouse — je souhaite investir / acquérir / développer ComPacte Toulouse</li>
+        <li data-i18n="mw-opp8-li2">② Plusieurs projets — je souhaite développer plusieurs implantations ComPacte</li>
+        <li data-i18n="mw-opp8-li3">③ Droits plus larges — je souhaite discuter de droits élargis sur le concept ComPacte</li>
+    </ul>
+    <div class="box-h" data-i18n="mw-opp8-box">Chaque niveau fait l'objet d'une négociation spécifique.</div>
+</div>
+
+<div class="slide" style="text-align:center; border-top: 4px solid var(--s);">
+    <h2 style="border:none; padding-left:0; justify-content:center;" data-i18n="mw-opp9-h2">À vous de définir votre projet</h2>
+    <p data-i18n="mw-opp9-p1">ComPacte Toulouse est prêt à entrer dans une phase de structuration avec un investisseur stratégique.</p>
+    <p style="font-weight:600; color:var(--p);" data-i18n="mw-opp9-p2">
+        Le foncier est identifié.<br>
+        Le modèle économique est documenté.<br>
+        Le programme est défini.<br>
+        Les prévisions financières sont établies.
+    </p>
+    <p data-i18n="mw-opp9-p3">La prochaine étape consiste à définir ensemble le périmètre de l'opération, la structure de propriété, la gouvernance et les conditions d'investissement.</p>
+    <p style="font-size:1.15rem; font-weight:700; color:var(--s); margin-top:20px;" data-i18n="mw-opp9-p4">Le projet est structuré. Il reste à définir avec vous la forme de l'opération.</p>
+</div>
+
+    </div>
+</div>
+
+<script>
+function showTab(tab) {
+  document.getElementById('view-france').classList.toggle('active', tab === 'france');
+  document.getElementById('view-monde').classList.toggle('active', tab === 'monde');
+  document.getElementById('btn-france').classList.toggle('active', tab === 'france');
+  document.getElementById('btn-monde').classList.toggle('active', tab === 'monde');
+  window.scrollTo(0, 0);
+}
+
+function goToSection(id) {
+  showTab('france');
+  requestAnimationFrame(function() {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
+</script>
+<script>
+const EN = {
+  "mw-badge": "Compacte World",
+  "mw-h1": "The global concept — a model designed to be adapted and developed in different territories",
+  "mw-tagline": "Our vision: create a network of high-impact sport & leisure destinations around the world",
+  "mw-note1": "This global ambition is not automatically part of the scope of a Toulouse project acquisition.",
+  "mw-s1-h2": "The Compacte concept — an ecosystem, not just a sports complex",
+  "mw-s1-p": "Compacte is a complete ecosystem serving wellbeing, sport and the region, structured around 10 dimensions:",
+  "mw-s1-li1": "Sport — 25 indoor and outdoor disciplines",
+  "mw-s1-li2": "Hospitality — 120 4-star rooms",
+  "mw-s1-li3": "Dining — 3 restaurants",
+  "mw-s1-li4": "Events & esplanade",
+  "mw-s1-li5": "Business & seminars",
+  "mw-s1-li6": "Leisure & entertainment",
+  "mw-s1-li7": "Health — sport-health center",
+  "mw-s1-li8": "Education & youth",
+  "mw-s1-li9": "Inclusion & accessibility",
+  "mw-s1-li10": "Agriculture — educational farm & short supply chains",
+
+  "mw-s3-h2": "Network architecture",
+  "mw-s3-th1": "Level", "mw-s3-th2": "Status",
+  "mw-s3-r1": "Compacte — global concept", "mw-s3-r1v": "Current ownership: Philippe Bru",
+  "mw-s3-r2": "Toulouse / Occitanie", "mw-s3-r2v": "Reference project — first documented link in the network",
+  "mw-s3-r3": "Paris", "mw-s3-r3v": "Potential territory — not committed",
+  "mw-s3-r4": "Morocco", "mw-s3-r4v": "Potential territory — not committed",
+  "mw-s3-r5": "Saudi Arabia", "mw-s3-r5v": "Potential territory — not committed",
+  "mw-s3-r6": "Nigeria", "mw-s3-r6v": "Potential territory — not committed",
+  "mw-s3-r7": "Other territories", "mw-s3-r7v": "Depending on opportunities and partners",
+  "mw-s3-note": "Only the Occitanie / Toulouse project is currently documented and costed. Other territories represent possible future adaptations of the model, not existing projects.",
+
+  "mw-s4-h2": "What an investor can acquire",
+  "mw-s4-th1": "Item", "mw-s4-th2": "Toulouse", "mw-s4-th3": "ComPacte Concept",
+  "mw-s4-r1": "Land", "mw-s4-r1a": "Acquisition possible",
+  "mw-s4-r2": "Buildings / infrastructure", "mw-s4-r2a": "Acquisition possible",
+  "mw-s4-r3": "Future project-holding company (to be incorporated)", "mw-s4-r3a": "To be negotiated",
+  "mw-s4-r4": "Future operation of Toulouse", "mw-s4-r4a": "To be defined",
+  "mw-s4-r5": "ComPacte brand", "mw-s4-r5a": "Current property of Philippe Bru; possible license or transfer to be negotiated",
+  "mw-s4-r6": "Concept",
+  "mw-s4-r7": "Know-how",
+  "mw-s4-r8": "ComPacte model",
+  "mw-s4-r9": "Paris / Morocco / Nigeria / Saudi Arabia", "mw-s4-r9a": "❌ automatically", "mw-s4-r9b": "Separate rights",
+  "mw-s4-box": "Acquiring the Toulouse project confers no ownership rights over the global ComPacte concept, except by specific written agreement.",
+
+  "mw-s5-h2": "Three possible levels of investment",
+  "mw-s5-li1": "① Toulouse Project — \"I want to become an owner/investor in the Toulouse project.\" The land, buildings, activities and economic structure of the project are defined within the Toulouse operation.",
+  "mw-s5-li2": "② Development of several projects — \"I want to develop several ComPacte sites.\" Territorial rights are then negotiated separately.",
+  "mw-s5-li3": "③ Acquisition of the global concept — \"I wish to acquire the ComPacte concept itself.\" This is a separate operation, requiring specific negotiation and valuation.",
+
+  "mw-s6-h2": "Reference project — Toulouse",
+  "mw-s6-th1": "Item", "mw-s6-th2": "Amount",
+  "mw-s6-r1": "Sports complex",
+  "mw-s6-r2": "Land",
+  "mw-s6-r3": "Hotel (120 rooms)",
+  "mw-s6-r4": "Sports halls",
+  "mw-s6-r5": "Initial investment — Toulouse project",
+  "mw-s6-note": "This amount corresponds to the investment in the Toulouse reference project, not to a price for the ComPacte concept itself.",
+
+  "mw-s7-h2": "Business model — 7 revenue sources (Toulouse reference)",
+  "mw-s7-th1": "Source", "mw-s7-th2": "Target revenue",
+  "mw-s7-r1": "Sports & memberships",
+  "mw-s7-r2": "Hotel (120 rooms)",
+  "mw-s7-r3": "Dining (3 restaurants)",
+  "mw-s7-r4": "Events & esplanade",
+  "mw-s7-r5": "Leisure (bowling, cinema, media library)",
+  "mw-s7-r6": "Partnerships & business",
+  "mw-s7-r7": "Farm, shop & drive-through",
+  "mw-s7-r8": "Target revenue at steady state — Toulouse project",
+  "mw-s7-note": "This target figure is specific to the Toulouse project. The detailed financial forecast, meanwhile, grows from €12.96M in 2028 to €22.75M in 2032 (see section 4). The Compacte model is duplicable and adaptable, but no revenue amount is guaranteed for a future territory — each site will have its own market study.",
+
+  "mw-s8-h2": "A duplicable & adaptable model",
+  "mw-s8-p1": "<strong>A common framework:</strong>",
+  "mw-s8-li1": "Strong concept and identity",
+  "mw-s8-li2": "High quality standards",
+  "mw-s8-li3": "Modular architecture",
+  "mw-s8-li4": "Proven processes and tools",
+  "mw-s8-li5": "360° support",
+  "mw-s8-p2": "<strong>Local adaptation:</strong>",
+  "mw-s8-li6": "Local culture & habits",
+  "mw-s8-li7": "Leading sports and activities",
+  "mw-s8-li8": "Local partners",
+  "mw-s8-li9": "Standards and regulations",
+  "mw-s8-li10": "Local needs and economic potential",
+
+  "mw-s9-h2": "A positive & sustainable impact",
+  "mw-s9-th1": "Dimension", "mw-s9-th2": "Description",
+  "mw-s9-r1": "Health & wellbeing", "mw-s9-r1v": "Promoting physical activity and health for all",
+  "mw-s9-r2": "Employment & inclusion", "mw-s9-r2v": "Direct and indirect jobs — youth integration",
+  "mw-s9-r3": "Education & youth", "mw-s9-r3v": "Sports schools, training, education & inclusion",
+  "mw-s9-r4": "Inclusion & accessibility", "mw-s9-r4v": "For everyone, without discrimination — universal accessibility",
+  "mw-s9-r5": "Environment", "mw-s9-r5v": "Responsible construction — short supply chains — sustainable management",
+  "mw-s9-r6": "Territorial cohesion", "mw-s9-r6v": "Social, cultural and sporting outreach for the region",
+
+  "mw-s10-h2": "Toulouse project by the numbers",
+  "mw-s10-li1": "14 hectares in total (including 9 ha dedicated to the Compacte complex + parking and ancillary areas)",
+  "mw-s10-li2": "25 sporting disciplines",
+  "mw-s10-li3": "7 business & revenue streams — Sport, Hotel & Wellness, Dining, Events & Culture, Leisure, Business Hub, Educational Farm",
+  "mw-s10-li4": "≈ €20M target annual revenue",
+  "mw-s10-li5": "Up to 250 direct jobs at maturity",
+  "mw-s10-li6": "200 to 250 volunteers mobilized",
+  "mw-s10-li7": "12 to 14 years estimated payback horizon",
+  "mw-s10-li8": "100% private financing envisaged — excluding public subsidies",
+
+  "mw-s11-h2": "The creator & intellectual property",
+  "mw-s11-p": "<strong>Philippe Bru</strong> — Founder and current owner of the ComPacte concept, 41 years of professional experience, including 32 years international, in entrepreneurship, management and project development.",
+  "mw-s11-li1": "Concept & know-how",
+  "mw-s11-li2": "Brand & visual identity",
+  "mw-s11-li3": "Methods, design & standards",
+  "mw-s11-li4": "Business model",
+  "mw-s11-li5": "Rights to operate the concept and to grant licenses",
+
+  "mw-s12-h2": "Why join Compacte?",
+  "mw-s12-li1": "A differentiating asset, combining sport, leisure, hospitality, dining and events",
+  "mw-s12-li2": "A fast-growing market — sport, wellbeing & leisure",
+  "mw-s12-li3": "A positive impact — social, economic and environmental",
+  "mw-s12-li4": "A turnkey concept — with full support",
+  "mw-s12-li5": "A possibility of development in other territories, depending on opportunities and local studies",
+  "mw-s12-box": "Becoming the owner of a Compacte project (such as Toulouse) does not mean becoming the owner of the global concept — the two scopes are distinct and clearly defined.",
+
+  "mw-opp-badge": "ComPacte Toulouse — Investment / Acquisition Opportunity",
+  "mw-opp-h2": "The ComPacte reference project",
+  "mw-opp-p": "A multi-sport, leisure, hospitality, dining and events asset with territorial impact, designed to operate 7 days a week.",
+  "mw-opp-stats": "14 hectares · 25 disciplines · 7 business & revenue streams · 120 rooms · 3 restaurants",
+  "mw-opp-statsnote": "Including 9 ha dedicated to the Compacte complex, the remainder being parking and ancillary areas.",
+
+  "mw-opp1-h2": "1. What the operation finances",
+  "mw-opp1-th1": "Item", "mw-opp1-th2": "Amount",
+  "mw-opp1-r1": "🏞️ The land",
+  "mw-opp1-r2": "🏗️ The complex",
+  "mw-opp1-r3": "🏨 The hotel",
+  "mw-opp1-r4": "🏋️ The sports halls",
+  "mw-opp1-r5": "Total initial investment",
+  "mw-opp1-note": "Amounts currently shown on the site and in the investor presentation.",
+
+  "mw-opp2-h2": "2. What you operate",
+  "mw-opp2-p": "Once completed, ComPacte Toulouse brings together:",
+  "mw-opp2-li1": "Sport — 25 disciplines",
+  "mw-opp2-li2": "Hospitality — 120 rooms",
+  "mw-opp2-li3": "Dining — 3 restaurants",
+  "mw-opp2-li4": "Events — esplanade, concerts, festivals",
+  "mw-opp2-li5": "Leisure — bowling, cinema, media library",
+  "mw-opp2-li6": "Business — seminars, meetings, coworking",
+  "mw-opp2-li7": "Farm — 2 hectares, short supply chains",
+  "mw-opp2-li8": "Health — Sport-Health Center",
+
+  "mw-opp3-h2": "3. The business model — ≈ €20M target annual revenue",
+  "mw-opp3-th1": "Activity", "mw-opp3-th2": "Target revenue",
+  "mw-opp3-r1": "Sports & memberships",
+  "mw-opp3-r2": "Hotel",
+  "mw-opp3-r3": "Dining",
+  "mw-opp3-r4": "Events & concerts",
+  "mw-opp3-r5": "Bowling / cinema / media library",
+  "mw-opp3-r6": "Partnerships & business",
+  "mw-opp3-r7": "Farm / shop / drive-through",
+  "mw-opp3-r8": "Total",
+  "mw-opp3-note": "The leading revenue source (sports & memberships) represents around 40% of target revenue, while the six other activities ensure significant revenue diversification.",
+
+  "mw-opp4-h2": "4. The financial forecast",
+  "mw-opp4-th1": "Indicator",
+  "mw-opp4-r1": "Revenue",
+  "mw-opp4-r2": "EBE",
+  "mw-opp4-r3": "Operating profit",
+  "mw-opp4-r4": "Net income",
+  "mw-opp4-box": "Cumulative Self-Financing Capacity (CAF): €22.38M over 5 years.",
+
+  "mw-opp5-h2": "5. Point of attention — two figures, two scopes",
+  "mw-opp5-th1": "Amount", "mw-opp5-th2": "Meaning",
+  "mw-opp5-r1": "Reference investment for the Toulouse project",
+  "mw-opp5-r2": "Overall envelope envisaged by the acquirer for the operation, depending on the finally contracted scope",
+  "mw-opp5-note": "This envelope does not constitute a valuation of the ComPacte concept and does not automatically include worldwide rights to the concept. The Toulouse investment amount alone does not constitute an acquisition price for the ComPacte concept.",
+
+  "mw-opp6-h2": "6. Your role in the operation — Philippe Bru, project lead",
+  "mw-opp6-li1": "A — Philippe remains CEO: mandate and compensation to be defined separately",
+  "mw-opp6-li2": "B — Philippe supports the transition: mission and duration to be defined",
+  "mw-opp6-li3": "C — Philippe leaves the leadership: exit terms are defined separately",
+  "mw-opp6-box": "The choice of Philippe Bru's future role is distinct from the investment and acquisition of the Toulouse project.",
+
+  "mw-opp7-h2": "7. The question of ownership",
+  "mw-opp7-th1": "Scope", "mw-opp7-th2": "Content", "mw-opp7-th3": "Status",
+  "mw-opp7-r1": "What concerns Toulouse", "mw-opp7-r1b": "Project / assets / operations / legal structure", "mw-opp7-r1c": "To be negotiated with investors",
+  "mw-opp7-r2": "What is distinct", "mw-opp7-r2b": "ComPacte concept / intellectual property / future development", "mw-opp7-r2c": "Current property of Philippe Bru; any transfer or licensing of rights will be the subject of a separate agreement",
+  "mw-opp7-box": "Hard drive = ComPacte concept. Software = ComPacte projects.",
+
+  "mw-opp8-h2": "8. You choose the scope — what is your ambition?",
+  "mw-opp8-li1": "① Toulouse — I wish to invest in / acquire / develop ComPacte Toulouse",
+  "mw-opp8-li2": "② Several projects — I wish to develop several ComPacte sites",
+  "mw-opp8-li3": "③ Broader rights — I wish to discuss expanded rights over the ComPacte concept",
+  "mw-opp8-box": "Each level is subject to a specific negotiation.",
+
+  "mw-opp9-h2": "Define your project with us",
+  "mw-opp9-p1": "ComPacte Toulouse is ready to enter a structuring phase with a strategic investor.",
+  "mw-opp9-p2": "The land is identified.<br>The business model is documented.<br>The program is defined.<br>The financial projections are established.",
+  "mw-opp9-p3": "The next step is to define together the scope of the operation, the ownership structure, governance and investment terms.",
+  "mw-opp9-p4": "The project is structured. What remains is to define with you the form of the operation.",
+
+
+  "mo-ip-h2": "The ComPacte concept and its intellectual property",
+  "mo-ip-p1": "<strong>Philippe Bru — Founder and current owner of the ComPacte concept</strong>: know-how, model architecture, customer experience, 7-revenue-stream business model, technologies, brand identity and standards.",
+  "mo-ip-box": "Hard drive = the ComPacte concept. Software = each ComPacte project. The overall ComPacte concept, its architecture, know-how, brand and development rights currently remain the property of Philippe Bru; each territorial implementation could be the subject of a local adaptation and a separate licensing agreement.",
+  "mo-ip-p2": "ComPacte is currently the sole property of Philippe Bru, including the concept, intellectual property, brand, know-how and development framework. No company or third party currently owns ComPacte. Any future corporate structure, licensing arrangement, investment vehicle or operating company will be created to hold, develop or commercialize the assets of ComPacte, without altering Philippe Bru's current ownership unless expressly agreed otherwise.",
+  "t-title": "ComPacte Occitanie — Investor Book",
+  "t-nav-financement": "Funding",
+  "t-nav-charges": "Costs",
+  "t-nav-caf": "Cash Flow",
+  "t-nav-flux": "Cash Flow Statement",
+  "t-nav-benevolat": "Volunteering",
+  "t-nav-impact": "Economic Impact",
+  "t-nav-synthese": "Summary",
+  "t-badge": "Confidential Document — Qualified Investors",
+  "t-header-p": "An unprecedented destination multi-sport complex concept — Toulouse Metropolitan Area",
+  "t-kpi1-v": "€75,128,700",
+  "t-kpi1-l": "Initial Investment",
+  "t-kpi2-v": "€22,379,674",
+  "t-kpi2-l": "Self-Financing Capacity, cumulative (5 yrs)",
+  "t-kpi3-v": "12 to 14 years",
+  "t-kpi3-l": "Estimated Payback Horizon",
+  "t-kpi4-v": "From Year 1 (2028)",
+  "t-kpi4-l": "Break-even Point",
+
+  "t-s1-h2": "🔷 SECTION 1 — Investment Breakdown",
+  "t-s1-p": "Breakdown of the initial investment (€75,128,700):",
+  "t-s1-th1": "Operating Segment",
+  "t-s1-th2": "Amount (€)",
+  "t-s1-r1": "Sports Complex", "t-s1-r1v": "€64,150,000",
+  "t-s1-r2": "Land", "t-s1-r2v": "€5,850,000",
+  "t-s1-r3": "Hotel", "t-s1-r3v": "€3,600,000",
+  "t-s1-r4": "Sports Halls", "t-s1-r4v": "€1,528,700",
+  "t-s1-r5": "Total Allocations", "t-s1-r5v": "€75,128,700",
+  "t-s1-foot": "This breakdown shows the real structure of the project and the concentration of investment on the sports core.",
+
+  "t-s2-h2": "🔷 SECTION 2 — Financing Structure",
+  "t-s2-p": "Project sources of funds:",
+  "t-s2-th1": "Source of Funds",
+  "t-s2-th2": "Amount (€)",
+  "t-s2-r1": "Construction financing", "t-s2-r1v": "€64,150,000",
+  "t-s2-r2": "Land", "t-s2-r2v": "€5,850,000",
+  "t-s2-r3": "Total construction & land financing", "t-s2-r3v": "€70,000,000",
+  "t-s2-r4": "Bank financing", "t-s2-r4v": "€5,600,000",
+  "t-s2-r5": "Indicative initial capital of the future structure", "t-s2-r5v": "€200,000",
+  "t-s2-r6": "Total financing resources", "t-s2-r6v": "€75,800,000",
+  "t-s2-r7": "Initial investment requirement", "t-s2-r7v": "€75,128,700",
+  "t-s2-r8": "Available financing margin", "t-s2-r8v": "€671,300",
+  "t-s2-foot": "A structure relying mainly on construction and land financing, and limited bank debt (€5.6M).",
+  "t-s2-note1": "This structure constitutes a financing hypothesis for the project and does not correspond to a currently incorporated company or to existing shareholder current accounts.",
+
+  "t-s3-h2": "🔷 SECTIONS 3 & 4 — Performance & Operations",
+  "t-s3-p": "Projected financial trajectory validated over 5 fiscal years:",
+  "t-s3-th1": "Indicator (€)",
+  "t-s3-r1": "Revenue (Turnover)",
+  "t-s3-r1c1": "€12,958,250", "t-s3-r1c2": "€14,691,206", "t-s3-r1c3": "€16,915,363", "t-s3-r1c4": "€19,647,347", "t-s3-r1c5": "€22,746,649",
+  "t-s3-r2": "EBE — Gross Operating Surplus",
+  "t-s3-r2c1": "€3,849,662", "t-s3-r2c2": "€4,457,364", "t-s3-r2c3": "€5,115,607", "t-s3-r2c4": "€6,011,730", "t-s3-r2c5": "€6,960,754",
+  "t-s3-r2b": "Operating Profit",
+  "t-s3-r2bc1": "€1,506,181", "t-s3-r2bc2": "€2,113,883", "t-s3-r2bc3": "€2,772,126", "t-s3-r2bc4": "€3,668,249", "t-s3-r2bc5": "€4,617,273",
+  "t-s3-r3": "Projected Net Income",
+  "t-s3-r3c1": "€1,049,451", "t-s3-r3c2": "€1,508,374", "t-s3-r3c3": "€2,009,017", "t-s3-r3c4": "€2,688,208", "t-s3-r3c5": "€3,407,219",
+  "t-s3-r4": "Self-Financing Capacity (CAF)",
+  "t-s3-r4c1": "€3,392,932", "t-s3-r4c2": "€3,851,855", "t-s3-r4c3": "€4,352,498", "t-s3-r4c4": "€5,031,689", "t-s3-r4c5": "€5,750,700",
+  "t-s3-h3a": "Projected net income:",
+  "t-s3-pa": "Continuous growth in net income, driven by the ramp-up of activities.",
+  "t-s3-h3b": "EBE and Operating Profit:",
+  "t-s3-pb": "EBE (an operational indicator comparable to EBITDA) confirms the operational strength of the ComPacte model. Operating profit, after depreciation, remains positive from Year 1 and grows continuously over the 5 fiscal years.",
+
+  "t-s4-h2": "🔷 SECTIONS 5 & 6 — Costs & Break-even Point",
+  "t-s4-p": "Main costs (2028 → 2032):",
+  "t-s4-th1": "Cost Type",
+  "t-s4-th2": "Business Trajectory",
+  "t-s4-r1": "External expenses", "t-s4-r1v": "€5,864,388 → €10,474,530",
+  "t-s4-r2": "Payroll costs", "t-s4-r2v": "€3,152,885 → €5,170,414",
+  "t-s4-r3": "Depreciation", "t-s4-r3v": "€2,343,481 (constant each year)",
+  "t-s4-r4": "Taxes & duties", "t-s4-r4v": "€91,315 → €140,951",
+  "t-s4-foot": "A cost structure that is stable and proportional to revenue growth.",
+  "t-s4-box": "Break-even point: operating break-even achieved from Year 1 (2028), with increasing operating headroom thereafter.",
+
+  "t-s5-h2": "🔷 SECTIONS 7 & 8 — Cash Flow Statement & Volunteering",
+  "t-s5-p": "Cash flow — rounded estimates (2028 → 2032):",
+  "t-s5-th1": "Year", "t-s5-th2": "Inflows (€)", "t-s5-th3": "Outflows (€)", "t-s5-th4": "Net Flow (€)",
+  "t-s5-r1a": "12,900,000", "t-s5-r1b": "10,400,000", "t-s5-r1c": "+2,500,000",
+  "t-s5-r2a": "15,200,000", "t-s5-r2b": "11,900,000", "t-s5-r2c": "+3,300,000",
+  "t-s5-r3a": "17,800,000", "t-s5-r3b": "13,400,000", "t-s5-r3c": "+4,400,000",
+  "t-s5-r4a": "20,300,000", "t-s5-r4b": "14,900,000", "t-s5-r4c": "+5,400,000",
+  "t-s5-r5a": "22,700,000", "t-s5-r5b": "16,300,000", "t-s5-r5c": "+6,400,000",
+  "t-s5-box1": "Cumulative Self-Financing Capacity (CAF) (2028–2032): <strong>€22,379,674</strong>",
+  "t-s5-note": "Cash flows are presented as rounded figures; they are a distinct indicator from the Self-Financing Capacity (CAF).",
+  "t-s5-h3": "Volunteering & Social Impact",
+  "t-s5-p2": "The ComPacte Occitanie project incorporates a strong social and territorial dimension.",
+  "t-s5b-th1": "Indicator", "t-s5b-th2": "Annual Value",
+  "t-s5b-r0": "Volunteers mobilized", "t-s5b-r0v": "200 to 250 people",
+  "t-s5b-r1": "Estimated volunteer hours", "t-s5b-r1v": "83,200 to 156,000 hrs/yr",
+  "t-s5b-r2": "Estimated economic value", "t-s5b-r2v": "€998,400 – €1,872,000",
+  "t-s5b-r3": "Partner associations involved", "t-s5b-r3v": "8 local organizations",
+  "t-s5b-r4": "Direct beneficiaries", "t-s5b-r4v": "300 – 500 people / year",
+  "t-s5b-note": "Indicative assumption of volunteer mobilization, not included in operating revenue and to be confirmed by an operational plan. Estimate based on the number of volunteers and the projected annual mobilization volume.",
+  "t-s5b-box": "CSR Impact: Inclusion, sport for all, stronger community ties.",
+
+  "t-s9-h2": "◆ SECTION 9 — Regional Economic Impact",
+  "t-s9-p": "ComPacte Occitanie could contribute to the economic activity and appeal of the Toulouse Metropolitan area, combining job creation, tax revenue and territorial appeal.",
+  "t-s9-h3a": "Jobs Created",
+  "t-s9-th1": "Category", "t-s9-th2": "Annual Volume",
+  "t-s9-r1": "Direct jobs", "t-s9-r1v": "Up to 250 direct jobs at maturity",
+  "t-s9-r2": "Volunteers mobilized", "t-s9-r2v": "200 to 250 people",
+  "t-s9-r3": "Indirect jobs (contractors, services)", "t-s9-r3v": "120 to 180 positions",
+  "t-s9-r4": "Induced jobs (accommodation, catering, tourism)", "t-s9-r4v": "80 to 120 positions",
+  "t-s9-box1": "Total human impact at maturity: <strong>650 to 800 people</strong> mobilized each year, including up to 250 direct jobs.",
+  "t-s9-h3b": "Tax & Economic Benefits",
+  "t-s9-pb": "The complex could generate significant tax and economic benefits for the region:",
+  "t-s9-th3": "Economic Flow", "t-s9-th4": "Annual Estimate",
+  "t-s9-r5": "Local taxes & contributions", "t-s9-r5v": "€1.8M – €2.4M",
+  "t-s9-r6": "Visitor spending", "t-s9-r6v": "€12M – €18M",
+  "t-s9-r7": "Impact on hotels & restaurants", "t-s9-r7v": "€4.5M – €6.2M",
+  "t-s9-r8": "Impact on transport & mobility", "t-s9-r8v": "€1.1M – €1.6M",
+  "t-s9-box2": "Estimated total economic impact: <strong>€19M – €28M / year</strong> for the region.",
+  "t-s9-h3c": "Territorial Appeal",
+  "t-s9-pc": "ComPacte Occitanie could help strengthen the Metropolitan area's appeal as a sports, tourism and events destination. The project is designed to be able to host, among others:",
+  "t-s9-li1": "National and international competitions",
+  "t-s9-li2": "Sports and family tourism",
+  "t-s9-li3": "Training camps, corporate seminars and events",
+  "t-s9-li4": "Public sport / youth / inclusion policies",
+  "t-s9-li5": "Community and educational partnerships",
+  "t-s9-box3": "ComPacte Occitanie: a project contributing to the sporting, tourism and economic appeal of the region.",
+
+  "t-s11-h2": "◆ SECTION 11 — Investor Summary",
+  "t-s11-p": "ComPacte Occitanie stands as a structuring, sustainable and territorially strategic investment. The project combines economic performance, social impact and metropolitan appeal.",
+  "t-s11-h3a": "Strategic Summary",
+  "t-s11-th1": "Dimension", "t-s11-th2": "Key Elements",
+  "t-s11-r1": "Business model", "t-s11-r1v": "Continuous revenue growth (€12.96M → €22.75M)",
+  "t-s11-r2": "Profitability", "t-s11-r2v": "Break-even achieved from Year 1 (2028)",
+  "t-s11-r3": "Cumulative Self-Financing Capacity (CAF)", "t-s11-r3v": "€22.38M over 5 years",
+  "t-s11-r4": "Territorial human impact", "t-s11-r4v": "650–800 people mobilized/year at maturity, including up to 250 direct jobs",
+  "t-s11-r5": "CSR & volunteering", "t-s11-r5v": "200 to 250 volunteers — €1.0–1.87M/year in value",
+  "t-s11-h3b": "Indicative investment payback horizon",
+  "t-s11-pb": "The project presents an estimated payback horizon for a multi-service metropolitan asset:",
+  "t-s11-th3": "Indicator", "t-s11-th4": "Value",
+  "t-s11-r6": "Initial investment", "t-s11-r6v": "€75.13M",
+  "t-s11-r7": "Estimated payback horizon", "t-s11-r7v": "12 to 14 years",
+  "t-s11-r7c": "Central indicator (2032 Self-Financing Capacity)", "t-s11-r7cv": "≈ 13.1 years",
+  "t-s11-roinote": "Indicative calculation method: initial investment of €75.13M divided by the maturity-year (2032) Self-Financing Capacity (€5.75M), i.e. approximately 13.1 years. This indicator is an estimated payback horizon based on the projections' assumptions, not a full financial ROI.",
+  "t-s11-r8": "EBE (2032)", "t-s11-r8v": "€6.96M",
+  "t-s11-r8b": "Operating Profit (2032)", "t-s11-r8bv": "€4.62M",
+  "t-s11-r9": "Net income (2032)", "t-s11-r9v": "€3.41M",
+  "t-s11-box1": "This payback horizon is notably supported by revenue diversification, growth in the sports market and the appeal of the Toulouse Metropolitan area.",
+  "t-s11-h3c": "Risk Management Framework",
+  "t-s11-rth1": "Risk", "t-s11-rth2": "Mitigation",
+  "t-s11-rr1": "Construction / CAPEX", "t-s11-rr1v": "Fixed-price construction contract + cost control",
+  "t-s11-rr2": "Activity ramp-up", "t-s11-rr2v": "Prudent / base / upside scenarios",
+  "t-s11-rr3": "Hotel", "t-s11-rr3v": "RevPAR / occupancy rate study",
+  "t-s11-rr4": "Financing", "t-s11-rr4v": "Limited bank debt + DSCR monitoring",
+  "t-s11-rr5": "Liquidity / cash", "t-s11-rr5v": "Cash reserve + waterfall structure",
+  "t-s11-territ": "Strong territorial positioning (Toulouse, one of France's leading metropolitan areas).",
+  "t-s11-box2": "Summary: a structuring project, built on a projected economic model that is positive from Year 1, and aligned with public policies on sport, youth, inclusion and territorial appeal."
+};
+
+let currentLang = 'fr';
+let ORIG = null;
+
+function captureOriginal(){
+  ORIG = {};
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    ORIG[el.getAttribute('data-i18n')] = el.innerHTML;
+  });
+}
+
+function toggleLang(){
+  if(!ORIG) captureOriginal();
+  currentLang = currentLang === 'fr' ? 'en' : 'fr';
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if(currentLang === 'en' && EN[key] !== undefined){
+      el.innerHTML = EN[key];
+    } else {
+      el.innerHTML = ORIG[key];
+    }
+  });
+  document.documentElement.lang = currentLang;
+  document.getElementById('lang-toggle').textContent = currentLang === 'fr' ? 'EN' : 'FR';
+}
+
+captureOriginal();
+</script>
+
+</body>
+</html>
